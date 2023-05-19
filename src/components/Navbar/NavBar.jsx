@@ -10,11 +10,11 @@ const NavBar = () => {
 
     return (
 
-        <header>
+        <header className=''>
             <Navbar variant="dark" bg="dark" expand="lg" className='nav'  >
-                <Container fluid className='justify-content-around'>
+                <Container fluid className='navbarContent d-flex flex-column justify-content-around '>
                     <Navbar.Brand href="#home" >
-                        <img alt="logo" src={logo} width="120" height="120" className="d-inline-block align-top ms-5" />{' '}
+                        <img alt="logo" src={logo} width="100" height="100" className="d-inline-block align-top ms-5" />{' '}
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className='justify-content-center' >
@@ -25,16 +25,13 @@ const NavBar = () => {
                                 <NavDropdown.Item href="#">Bandas Nacionales</NavDropdown.Item>
                                 <NavDropdown.Item href="#">Peliculas y Series</NavDropdown.Item>
                                 <NavDropdown.Item href="#">Totes</NavDropdown.Item>
-                                <NavDropdown.Item href="#">Antistampa</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link href="#">Talles</Nav.Link>
-                            <Nav.Link href="#">Calidad</Nav.Link>
                             <Nav.Link href="#">Personalizados</Nav.Link>
-                            <Nav.Link href="#">Preguntas Frecuentes</Nav.Link>
-                            <Nav.Link href="#">Contacto</Nav.Link>
+                            <Nav.Link href="#">Dudas</Nav.Link>
+                            <Nav.Link href="#">Escribinos</Nav.Link>
+                            <CartWidget />
                         </Nav>
                     </Navbar.Collapse>
-                    <CartWidget />
                 </Container>
             </Navbar>
         </header>

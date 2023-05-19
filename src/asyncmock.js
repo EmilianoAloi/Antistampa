@@ -1,4 +1,30 @@
+
+
 const products = [
+    {
+        id: 1,
+        name: 'Jimi Hendrix',
+        price: 1000,
+        img: './img/jimihendrix.jpg'
+    },
+    {
+        id: 2,
+        name: 'Bad Religion',
+        price: 1000,
+        img: './img/badreligion.jpg'
+    },
+    {
+        id: 3,
+        name: 'Sex Pistols',
+        price: 1000,
+        img: './img/sexpistols.jpg'
+    },
+    {
+        id: 4,
+        name: 'The Smiths',
+        price: 1000,
+        img: './img/smiths.jpg'
+    },
     {
         id: 1,
         name: 'PearlJam',

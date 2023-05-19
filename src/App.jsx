@@ -10,8 +10,8 @@ function App() {
     <>
       <NavBar />
       <ItemListContainer greeting={'Aca no juzgamos a nadie !'} />
-      <Item />
       <Counter initial={1} stock={10} />
+      <img src="../assets/jimihendrix.jpg" alt="" />
     </>
   );
 }

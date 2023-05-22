@@ -5,50 +5,98 @@ const products = [
         id: 1,
         name: 'Jimi Hendrix',
         price: 1000,
-        img: './img/jimihendrix.jpg'
+        img: './img/jimihendrix.jpg',
+        product: 'Remera unisex',
+        cat: 'int',
     },
     {
         id: 2,
         name: 'Bad Religion',
         price: 1000,
-        img: './img/badreligion.jpg'
+        img: './img/badreligion.jpg',
+        product: 'Remera unisex',
+        cat: 'int',
     },
     {
         id: 3,
         name: 'Sex Pistols',
         price: 1000,
-        img: './img/sexpistols.jpg'
+        img: './img/sexpistols.jpg',
+        product: 'Remera unisex',
+        cat: 'int',
     },
     {
         id: 4,
         name: 'The Smiths',
         price: 1000,
-        img: './img/smiths.jpg'
+        img: './img/smiths.jpg',
+        product: 'Remera unisex',
+        cat: 'int',
     },
     {
-        id: 1,
-        name: 'PearlJam',
+        id: 5,
+        name: 'Almendra',
         price: 1000,
-        img: './img/pearljam.jpg'
+        img: './img/almendra.jpg',
+        product:'Remera unisex' ,
+        cat: 'nac',
     },
     {
-        id: 2,
-        name: 'AC/DC',
+        id: 6,
+        name: 'Cadena Perpetua',
         price: 1000,
-        img: './img/acdc.jpg'
+        img: './img/cadenaperpetua.jpg',
+        product:'Remera unisex' ,
+        cat: 'int',
     },
     {
-        id: 3,
-        name: 'Charly Garcia',
+        id: 7,
+        name: 'Diferentes Actitudes Juveniles',
         price: 1000,
-        img: './img/charlygarcia.jpg'
+        img: './img/actitudes.jpg',
+        product: 'Remera unisex',
+        cat: 'nac',
     },
     {
-        id: 4,
-        name: '2 Minutos',
+        id: 8,
+        name: 'El Mato a un Policia Motorizado',
         price: 1000,
-        img: './img/2minutos.jpg'
-    }
+        img: './img/elmato.jpg',
+        product: 'Remera unisex',
+        cat: 'nac',
+    },
+    {
+        id: 9,
+        name: 'Tote Antistampa',
+        price: 500,
+        img: './img/toteanti.jpg',
+        product: 'tote',
+        cat: 'tote',
+    },
+    {
+        id: 10,
+        name: 'Tote Psycho Killer',
+        price: 500,
+        img: './img/totepsychokiller.jpg',
+        product: 'tote',
+        cat: 'tote',
+    },
+    {
+        id: 11,
+        name: 'Tote Dope',
+        price: 500,
+        img: './img/totedope.jpg',
+        product: 'tote',
+        cat: 'tote',
+    },
+    {
+        id: 12,
+        name: 'Tote No Future',
+        price: 500,
+        img: './img/totenofuture.jpg',
+        product: 'tote',
+        cat: 'tote',
+    },
 ]
 
 export const getproducts = () => {

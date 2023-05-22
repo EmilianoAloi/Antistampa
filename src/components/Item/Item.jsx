@@ -2,7 +2,7 @@ import './Item.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const Item = ({ id, name, price, img }) => {
+const Item = ({name, price, img }) => {
     return (
 
         <Card className="cardBody text-center" style={{ width: '18rem' }}>

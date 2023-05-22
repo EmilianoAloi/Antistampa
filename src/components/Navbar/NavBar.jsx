@@ -23,7 +23,7 @@ const NavBar = () => {
                             <NavDropdown title="Productos" id="navbarScrollingDropdown" menuVariant="dark">
                                 <NavDropdown.Item href="#">Bandas Internacionales</NavDropdown.Item>
                                 <NavDropdown.Item href="#">Bandas Nacionales</NavDropdown.Item>
-                                <NavDropdown.Item href="#">Peliculas y Series</NavDropdown.Item>
+                                {/* <NavDropdown.Item href="#">Peliculas y Series</NavDropdown.Item> */}
                                 <NavDropdown.Item href="#">Totes</NavDropdown.Item>
                             </NavDropdown>
                             <Nav.Link href="#">Personalizados</Nav.Link>
@@ -40,3 +40,5 @@ const NavBar = () => {
 
 
 export default NavBar;
+
+

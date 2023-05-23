@@ -38,7 +38,7 @@ const products = [
         name: 'Almendra',
         price: 1000,
         img: './img/almendra.jpg',
-        product:'Remera unisex' ,
+        product: 'Remera unisex',
         cat: 'nac',
     },
     {
@@ -46,7 +46,7 @@ const products = [
         name: 'Cadena Perpetua',
         price: 1000,
         img: './img/cadenaperpetua.jpg',
-        product:'Remera unisex' ,
+        product: 'Remera unisex',
         cat: 'int',
     },
     {
@@ -103,6 +103,15 @@ export const getproducts = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(products)
+        }, 2000)
+    })
+}
+
+export const getProduct = (id) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const product = products.find(prod => prod.id === id)
+            resolve(product);
         }, 2000)
     })
 }

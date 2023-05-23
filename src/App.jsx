@@ -3,15 +3,27 @@ import './App.css';
 import NavBar from './components/Navbar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Counter from './components/Counter/Counter';
-import Item from './components/Item/Item';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
+
+
+
     <>
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path='/' element={<ItemListContainer />} /> */}
+
+        </Routes>
+      </BrowserRouter>
+
       <NavBar />
-      <ItemListContainer greeting={'Aca no juzgamos a nadie !'} />
+      <ItemListContainer />
       <Counter initial={1} stock={10} />
-      <img src="../assets/jimihendrix.jpg" alt="" />
+      <ItemDetailContainer />
+
     </>
   );
 }

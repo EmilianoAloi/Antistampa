@@ -5,6 +5,7 @@ const ItemList = ({ products }) => {
     return (
         <div className="container">
         <div className="gridProducts row d-flex justify-content-center gap-5">
+            <h2>NUESTROS PRODUCTOS</h2>
             {products.map(prod => <Item key={prod.id} {...prod} />)}
         </div>
         </div>
@@ -12,3 +13,4 @@ const ItemList = ({ products }) => {
 }
 
 export default ItemList
+

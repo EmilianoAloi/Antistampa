@@ -21,3 +21,8 @@
 
 }
 
+.btn-1:hover {
+    background-color: black;
+    border: 1px solid #F4BF00;
+}
+

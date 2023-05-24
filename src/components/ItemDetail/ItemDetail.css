@@ -1,7 +1,38 @@
-.detailProduct {
+.itemContainer {
     color: white;
 }
 
-.productTitle {
-    color: white;
+.detailTitle {
+    font-size: 30px;
+    letter-spacing: 0.13em;
+    font-weight: 500;
+}
+
+
+.line {
+    width: 20rem;
+    height: 4px;
+    background-color: #F4BF00;
+}
+
+.imgDetail {
+    width: 28rem;
+
+    border-radius: 15px;
+    margin-right: 5rem;
+}
+
+.infoDetail {
+    width: 30rem;
+    margin-left: 5rem;
+}
+
+.prodDetail {
+    margin: 0;
+}
+
+.titleDetail {
+    font-size: 50px;
+    font-weight: 700;
+
 }

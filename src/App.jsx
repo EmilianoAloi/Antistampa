@@ -17,16 +17,13 @@ function App() {
 
 
         <Routes>
-          <Route path='/' element={ <ItemListContainer /> } />
-          <Route path='/categoria/:idCat' element={<ItemListContainer />} />
-          <Route path='/item/' element={<ItemDetailContainer />} />
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
+          <Route path='/item/:idItem' element={<ItemDetailContainer />} />
         </Routes>
 
 
       </BrowserRouter>
-
-      <Counter initial={1} stock={10} />
-      {/* <Link to={`item/${id}`}>Ver detalles</Link> */}
 
 
     </>

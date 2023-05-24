@@ -1,30 +1,25 @@
 import './ItemDetail.css'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Counter from '../Counter/Counter';
 
-const ItemDetail = ({ id, name, price, img }) => {
+const ItemDetail = ({ name, price, img, product, description }) => {
     return (
-        <div className='itemContainer'>
-            <h2 className='detailTitle'>DETALLES DE PRODUCTO</h2>
-                 <h3 className='productTitle'>Remeras Ultrapremium de algodón 24.1 Peinado. </h3>
-            <p>
-                Costura Reforzada en hombro y sisa. <br/>  
-                Talles reales par adultos: Desde XS hasta XXXL.<br/>
-                Talles de Niños: Desde el 2 al 14.<br/>
-                Colores: 30 disponibles.<br/>
-                En Antistampa no vemos género, por ende todas nuestras prendas son unisex.
-            </p>
-            <Card className="cardBody text-center" style={{ width: '18rem' }}>
-                <Card.Img className='img' variant="top" src={img} alt={name} />
-                <Card.Body >
-                    <Card.Title >{name}</Card.Title>
-                    <Card.Text className='price'>Precio: ${price}</Card.Text>
-                    <Button className='btn-1' >Agregar a Carrito </Button>
-                </Card.Body>
-            </Card>
-       
+        <>
+            <div className='container mb-4'>
+                <h2 className='detailTitle  '>DETALLES DE PRODUCTO</h2>
+                <div class="line"></div>
+            </div>
 
-        </div>
+            <div className='itemContainer container d-flex justify-content-center  pe-5 mb-5'>
+                <img className='imgDetail' src={img} alt={name} />
+                <div className='infoDetail pt-5'>
+                    <p className='prodDetail'>Producto: {product}</p>
+                    <p className='titleDetail'>{name} <br /> ${price} </p>
+                    <p className='titleDetail'></p>
+                    <p>{description}</p>
+                    <Counter initial={1} stock={10} />
+                </div>
+            </div>
+        </>
     )
 }
 

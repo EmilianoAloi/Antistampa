@@ -1,4 +1,6 @@
 import './Counter.css'
+import Button from 'react-bootstrap/Button';
+
 import { useState } from 'react'
 
 const Counter = ({ stock, initial }) => {
@@ -22,11 +24,11 @@ const Counter = ({ stock, initial }) => {
     }
 
     return (
-        <div className='d-flex gap-3 justify-content-center'>
-            <button onClick={countDecrease}> - </button>
-            <p className='counter'>{counter}</p>
-            <button onClick={countIncrease}> + </button>
-        <button onClick={buyItem}>Agregar al carrito</button>
+        <div className='counter d-flex gap-3 r align-items-center'>
+            <Button className='btn-1' onClick={countDecrease}> - </Button>
+            <p className='pt-3'>{counter}</p>
+            <Button className='btn-1' onClick={countIncrease}> + </Button>
+            <Button className='btn-1' onClick={buyItem}>Agregar al carrito</Button>
         </div>
     )
 }

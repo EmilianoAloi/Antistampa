@@ -2,7 +2,7 @@
 
 const products = [
     {
-        id: 1,
+        id: '1',
         name: 'Jimi Hendrix',
         price: 1000,
         img: './img/jimihendrix.jpg',
@@ -10,7 +10,7 @@ const products = [
         cat: 'int',
     },
     {
-        id: 2,
+        id: '2',
         name: 'Bad Religion',
         price: 1000,
         img: './img/badreligion.jpg',
@@ -18,7 +18,7 @@ const products = [
         cat: 'int',
     },
     {
-        id: 3,
+        id: '3',
         name: 'Sex Pistols',
         price: 1000,
         img: './img/sexpistols.jpg',
@@ -26,7 +26,7 @@ const products = [
         cat: 'int',
     },
     {
-        id: 4,
+        id: '4',
         name: 'The Smiths',
         price: 1000,
         img: './img/smiths.jpg',
@@ -34,7 +34,7 @@ const products = [
         cat: 'int',
     },
     {
-        id: 5,
+        id: '5',
         name: 'Almendra',
         price: 1000,
         img: './img/almendra.jpg',
@@ -42,7 +42,7 @@ const products = [
         cat: 'nac',
     },
     {
-        id: 6,
+        id: '6',
         name: 'Cadena Perpetua',
         price: 1000,
         img: './img/cadenaperpetua.jpg',
@@ -50,7 +50,7 @@ const products = [
         cat: 'int',
     },
     {
-        id: 7,
+        id: '7',
         name: 'Diferentes Actitudes Juveniles',
         price: 1000,
         img: './img/actitudes.jpg',
@@ -58,7 +58,7 @@ const products = [
         cat: 'nac',
     },
     {
-        id: 8,
+        id: '8',
         name: 'El Mato a un Policia Motorizado',
         price: 1000,
         img: './img/elmato.jpg',
@@ -66,7 +66,7 @@ const products = [
         cat: 'nac',
     },
     {
-        id: 9,
+        id: '9',
         name: 'Tote Antistampa',
         price: 500,
         img: './img/toteanti.jpg',
@@ -74,7 +74,7 @@ const products = [
         cat: 'tote',
     },
     {
-        id: 10,
+        id: '10',
         name: 'Tote Psycho Killer',
         price: 500,
         img: './img/totepsychokiller.jpg',
@@ -82,7 +82,7 @@ const products = [
         cat: 'tote',
     },
     {
-        id: 11,
+        id: '11',
         name: 'Tote Dope',
         price: 500,
         img: './img/totedope.jpg',
@@ -90,7 +90,7 @@ const products = [
         cat: 'tote',
     },
     {
-        id: 12,
+        id: '12',
         name: 'Tote No Future',
         price: 500,
         img: './img/totenofuture.jpg',
@@ -112,6 +112,15 @@ export const getProduct = (id) => {
         setTimeout(() => {
             const product = products.find(prod => prod.id === id)
             resolve(product);
+        }, 2000)
+    })
+}
+
+export const getCatproducts = (idCat) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            const catProducts = products.filter(prod => prod.cat === idCat)
+            resolve(catProducts);
         }, 2000)
     })
 }

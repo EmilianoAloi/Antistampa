@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './components/Navbar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Counter from './components/Counter/Counter';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Counter from './components/Counter/Counter';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -13,16 +13,21 @@ function App() {
 
     <>
       <BrowserRouter>
-        <Routes>
-          {/* <Route path='/' element={<ItemListContainer />} /> */}
+        <NavBar />
 
+
+        <Routes>
+          <Route path='/' element={ <ItemListContainer /> } />
+          <Route path='/categoria/:idCat' element={<ItemListContainer />} />
+          <Route path='/item/' element={<ItemDetailContainer />} />
         </Routes>
+
+
       </BrowserRouter>
 
-      <NavBar />
-      <ItemListContainer />
       <Counter initial={1} stock={10} />
-      <ItemDetailContainer />
+      {/* <Link to={`item/${id}`}>Ver detalles</Link> */}
+
 
     </>
   );

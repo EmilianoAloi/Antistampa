@@ -1,10 +1,12 @@
+import './NavBar.css'
+import logo from '../../assets/logo.png'
+import CartWidget from '../CartWidget/CartWidget';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import './NavBar.css'
-import logo from '../../assets/logo.png'
-import CartWidget from '../CartWidget/CartWidget';
+import { Link, NavLink } from "react-router-dom"
+ 
 
 const NavBar = () => {
 
@@ -19,7 +21,7 @@ const NavBar = () => {
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className='justify-content-center' >
                         <Nav className="my-2 my-lg-0 gap-4" navbarScroll >
-                            <Nav.Link href="#">Inicio</Nav.Link>
+                            <Nav.Link as={NavLink} to='/'>Inicio</Nav.Link>
                             <NavDropdown title="Productos" id="navbarScrollingDropdown" menuVariant="dark">
                                 <NavDropdown.Item href="#">Bandas Internacionales</NavDropdown.Item>
                                 <NavDropdown.Item href="#">Bandas Nacionales</NavDropdown.Item>

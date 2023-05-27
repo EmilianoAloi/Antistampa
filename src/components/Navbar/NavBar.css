@@ -9,12 +9,24 @@ header {
     z-index: 100;
     position: fixed;
     width: 100%;
+    color: white;
 }
 
+/* .hiddenNavLink {
+    display: none;
+} */
+.navLinkContainer{
 
+    position: relative;
+    z-index: 999;
+}
 .nav-link {
     color: white;
     font-weight: 500;
     letter-spacing: 0.05em;
 
 }
+
+/* .navLink {
+    display: none;
+} */

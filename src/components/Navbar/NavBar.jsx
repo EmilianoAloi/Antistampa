@@ -5,10 +5,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useState } from 'react';
 import { Link, NavLink } from "react-router-dom"
- 
+import SearchButton from '../SearchButton/SearchButton';
+
+
 
 const NavBar = () => {
+
+
+
 
     return (
 
@@ -20,19 +26,24 @@ const NavBar = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className='justify-content-center' >
-                        <Nav className="my-2 my-lg-0 gap-4" navbarScroll >
-                            <Nav.Link as={NavLink} to='/'>INICIO</Nav.Link>
-                            <NavDropdown title="PRODUCTOS" id="navbarScrollingDropdown" menuVariant="dark">
-                                <NavDropdown.Item as={NavLink} to='./categoria/internacional'>Bandas Internacionales</NavDropdown.Item>
-                                <NavDropdown.Item as={NavLink} to='./categoria/nacional'>Bandas Nacionales</NavDropdown.Item>
+
+
+
+                        <Nav className="my-2 my-lg-0 gap-4 d-flex align-items-center" navbarScroll >
+                            <SearchButton />
+                            <Nav.Link as={NavLink}  to='/'>INICIO</Nav.Link>
+                            <NavDropdown className='navLink' title="PRODUCTOS" id="navbarScrollingDropdown" menuVariant="dark">
+                                <NavDropdown.Item as={NavLink} className='navLink' to='./categoria/internacional'>Bandas Internacionales</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} className='navLink' to='./categoria/nacional'>Bandas Nacionales</NavDropdown.Item>
                                 {/* <NavDropdown.Item href="#">Peliculas y Series</NavDropdown.Item> */}
-                                <NavDropdown.Item as={NavLink} to='./categoria/tote'>Totes</NavDropdown.Item>
+                                <NavDropdown.Item as={NavLink} className='navLink' to='./categoria/tote'>Totes</NavDropdown.Item>
                             </NavDropdown>
-                            <Nav.Link disabled>PERSONALIZADOS</Nav.Link>
-                            <Nav.Link disabled>DUDAS</Nav.Link>
-                            <Nav.Link disabled>ESCRIBINOS</Nav.Link>
-                            <CartWidget />
+                            <Nav.Link className='navLink' disabled>PERSONALIZADOS</Nav.Link>
+                            <Nav.Link className='navLink' disabled>DUDAS</Nav.Link>
+                            <Nav.Link className='navLink' disabled>ESCRIBINOS</Nav.Link>
+                            <CartWidget className='navLink' />
                         </Nav>
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

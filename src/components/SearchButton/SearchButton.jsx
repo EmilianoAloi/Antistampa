@@ -1,5 +1,5 @@
 import './SearchButton.css'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@mui/material';
 import { TextField } from '@mui/material';
 

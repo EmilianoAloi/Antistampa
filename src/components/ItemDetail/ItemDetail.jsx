@@ -1,12 +1,21 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const ItemDetail = ({ name, price, img, product, description }) => {
+const ItemDetail = ({ name, price, img, product, description, stock }) => {
+
+    const [addQty, setAddQty] = useState(0);
+
+    const handleQty = (qty) => {
+        setAddQty(qty);
+    }
+
     return (
         <>
             <div className='container mb-4'>
                 <h2 className='detailTitle  '>DETALLES DE PRODUCTO</h2>
-                <div class="line"></div>
+                <div className="line"></div>
             </div>
 
             <div className='itemContainer container d-flex justify-content-center  pe-5 mb-5'>
@@ -16,7 +25,14 @@ const ItemDetail = ({ name, price, img, product, description }) => {
                     <p className='titleDetail'>{name} <br /> ${price} </p>
                     <p className='titleDetail'></p>
                     <p>{description}</p>
-                    <Counter initial={1} stock={10} />
+
+                    {
+
+                        addQty > 0 ? (<Link to='/cart'>Terminar Compra</Link>) : <Counter initial={1} stock={stock} addFunction={handleQty} />
+
+                    }
+
+
                 </div>
             </div>
         </>

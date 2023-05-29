@@ -6,12 +6,11 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './components/Theme/Theme';
-
+import { CartProvider } from './components/Context/CartContext';
 
 
 
 function App() {
-
 
 
   return (
@@ -19,12 +18,15 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route path='/' element={<ItemListContainer />} />
-            <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
-            <Route path='/item/:idItem' element={<ItemDetailContainer />} />
-          </Routes>
+          <CartProvider>
+            <NavBar />
+            <Routes>
+              <Route path='/' element={<ItemListContainer />} />
+              <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
+              <Route path='/item/:idItem' element={<ItemDetailContainer />} />
+            <Route path= '*' element={<h2>Cart en construccion</h2>} />
+            </Routes>
+          </CartProvider>
         </BrowserRouter>
       </ThemeProvider>
 

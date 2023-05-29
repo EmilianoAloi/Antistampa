@@ -1,8 +1,5 @@
-import './SearchButton.css'
-import { useState } from 'react';
-import { Button } from '@mui/material';
-import { TextField } from '@mui/material';
-
+import { useState } from "react";
+import { Button, TextField } from "@mui/material";
 
 const SearchButton = () => {
 
@@ -11,26 +8,20 @@ const SearchButton = () => {
     const handleClick = () => {
         setShowTextField(!showTextField);
     };
-
     return (
         <>
             <Button onClick={handleClick} className='btn-search' >🔎</Button>
 
             {showTextField && <TextField
-                className='textField'
+                className='textField '
                 fullWidth
                 color="primary"
                 variant="filled"
-                label="Que estas buscando?"
+                label="Busca tu banda o pelicula favorita.."
                 size="small"
-                style={{ width: '700px' }}
             />}
-
-
         </>
     )
 }
-
-
 
 export default SearchButton

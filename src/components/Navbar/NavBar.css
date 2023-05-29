@@ -1,5 +1,6 @@
 header {
     margin-bottom: 200px;
+    z-index: 900;
 }
 
 .nav {
@@ -12,14 +13,13 @@ header {
     color: white;
 }
 
-/* .hiddenNavLink {
-    display: none;
-} */
-.navLinkContainer{
+.logo {
+    width: 7vw;
+    min-width: 100px;
+    margin: 0 ;
+    
+    }
 
-    position: relative;
-    z-index: 999;
-}
 .nav-link {
     color: white;
     font-weight: 500;
@@ -27,6 +27,6 @@ header {
 
 }
 
-/* .navLink {
-    display: none;
-} */
+.textField {
+    width: 70vw  !important;
+}

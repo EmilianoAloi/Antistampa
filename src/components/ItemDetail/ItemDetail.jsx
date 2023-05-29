@@ -1,14 +1,23 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../Context/CartContext';
 
-const ItemDetail = ({ name, price, img, product, description, stock }) => {
+const ItemDetail = ({ id, name, price, img, product, description, stock }) => {
 
     const [addQty, setAddQty] = useState(0);
 
+
+
+    const { addItem } = useContext(CartContext);
+
     const handleQty = (qty) => {
         setAddQty(qty);
+        console.log("Productos Agregados:" + qty);
+        const item = { id, name, price };
+        addItem(item, qty);
+
     }
 
     return (

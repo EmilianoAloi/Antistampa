@@ -14,15 +14,4 @@
 .price {
     font-weight: 700;
 }
-.btn-1 {
-    background-color: #F4BF00;
-    border: 1px solid #F4BF00;
-    color: black;
-
-}
-
-.btn-1:hover {
-    background-color: black;
-    border: 1px solid #F4BF00;
-}
 

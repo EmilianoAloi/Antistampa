@@ -1,5 +1,5 @@
 import './Counter.css'
-import Button from 'react-bootstrap/Button';
+import { Button } from '@mui/material';
 import { useState } from 'react'
 
 const Counter = ({ stock, initial, addFunction }) => {

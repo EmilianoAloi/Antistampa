@@ -22,7 +22,7 @@ const ItemDetail = ({ id, name, price, img, product, description, stock }) => {
 
     return (
         <>
-            <div className='container mb-4'>
+            <div className='container mb-4 mt-2'>
                 <h2 className='detailTitle  '>DETALLES DE PRODUCTO</h2>
                 <div className="line"></div>
             </div>

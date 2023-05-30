@@ -1,12 +1,22 @@
 import cartImg from '../../assets/cart.png'
 import './CartWidget.css'
+import { useContext } from 'react'
+import { CartContext } from '../Context/CartContext'
+import { Link } from 'react-router-dom'
 
 
 const CartWidget = () => {
+
+    const {qtyTotal} = useContext(CartContext)
+
     return (
         <div className='d-flex gap-2 pe-4 '>
+            <Link to='./cart'>
             <img className='cart' src={cartImg} alt="Carrito" />
-            <p>7</p>
+            {
+                qtyTotal > 0 && <span>{qtyTotal}</span>
+            }
+            </Link>
         </div>
 
     )

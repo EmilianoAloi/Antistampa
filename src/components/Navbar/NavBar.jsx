@@ -14,7 +14,6 @@ import SearchButton from '../SearchButton/SearchButton';
 
 const NavBar = () => {
 
-    const [showNav, setShowNav] = useState(false);
     
 
 

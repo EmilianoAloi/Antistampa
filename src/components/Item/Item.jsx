@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, name, product, price, img }) => {
+const Item = ({ id, name, price, img }) => {
     return (
 
         <Card className="cardBody text-center" style={{ width: '18rem' }}>

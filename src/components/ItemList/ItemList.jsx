@@ -1,16 +1,50 @@
+import { Container, Grid } from "@mui/material"
 import Item from "../Item/Item"
 import './ItemList.css'
 
 const ItemList = ({ products }) => {
     return (
-        <div className="container">
-        <div className="gridProducts row d-flex justify-content-center gap-5">
-            <h2>NUESTROS PRODUCTOS</h2>
-            {products.map(prod => <Item key={prod.id} {...prod} />)}
-        </div>
-        </div>
+
+
+        <Container>
+            <Grid
+                container
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                }}
+            >
+                
+                {products.map(prod =>
+                    <Grid
+                        item xs={12} sm={6} md={3}
+                    >
+                        <Item key={prod.id} {...prod} />
+                    </Grid>
+                )};
+
+
+
+            </Grid>
+        </Container>
+
+
+
     )
 }
 
 export default ItemList
 
+
+{/* <div className="container">
+<div className="gridProducts row d-flex justify-content-center gap-5">
+</div>
+</div> */}
+
+
+// sx={{
+//     display: 'flex',
+//     flexDirection: 'row'
+// }}
+
+// item xs={12} sm={6} md={3} 

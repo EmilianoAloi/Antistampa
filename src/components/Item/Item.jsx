@@ -1,4 +1,3 @@
-import './Item.css'
 import { Link } from 'react-router-dom';
 import { Button, Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
@@ -42,7 +41,7 @@ const Item = ({ id, name, price, img }) => {
                         textAlign='center'
                     > ${price}
                     </Typography>
-                    <Button className='btn-detail'
+                    <Button 
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
@@ -55,7 +54,7 @@ const Item = ({ id, name, price, img }) => {
                     >
                         <LocalMallOutlinedIcon
                             fontSize='medium'
-                        />
+                        />  
                     </Button>
                 </CardContent>
             </CardActionArea>

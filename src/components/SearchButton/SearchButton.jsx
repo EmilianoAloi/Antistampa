@@ -10,7 +10,7 @@ const SearchButton = () => {
     };
     return (
         <>
-            <Button onClick={handleClick} className='btn-search' >🔎</Button>
+            <Button onClick={handleClick} className='' >🔎</Button>
 
             {showTextField && <TextField
                 className='textField '

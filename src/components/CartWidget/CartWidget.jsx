@@ -10,7 +10,7 @@ const CartWidget = () => {
     const {qtyTotal} = useContext(CartContext)
 
     return (
-        <div className='d-flex gap-2 pe-4 '>
+        <div className=''>
             <Link to='./cart'>
             <img className='cart' src={cartImg} alt="Carrito" />
             {

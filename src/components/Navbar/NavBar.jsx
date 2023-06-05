@@ -1,4 +1,4 @@
-// import './NavBar.css'
+import './NavBar.css'
 // import Container from 'react-bootstrap/Container';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
@@ -11,7 +11,6 @@ import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import CartWidget from '../CartWidget/CartWidget';
-import SearchButton from "../SearchButton/SearchButton";
 
 
 // import SearchButton from '../SearchButton/SearchButton';
@@ -33,30 +32,41 @@ const NavBar = () => {
     return (
         <>
 
-            <AppBar position="fixed">
-                <Toolbar sx={{ gap: 5, justifyContent: 'space-between' }} >
+            <AppBar position="fixed" sx={{
+                flexDirection: { xs: 'row', sm: 'column' },
+            }} >
+                <img className="logo" src="../img/logo.png" alt="Logo" />
+
+                <IconButton sx={{ display: { xs: 'block', sm: 'none' } }}>
+                    <CartWidget />
+                </IconButton>
+
+
+                <Toolbar sx={{ gap: 5, justifyContent: 'space-around' }} >
 
                     <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', sm: 'none' } }}>
                         <MenuIcon />
                     </IconButton>
 
-                    <IconButton>
-                        <SearchIcon />
-                    </IconButton>
-                    <Stack sx={{ 
-                        display: { xs: 'none', sm: 'block' } }}
+
+                    <Stack sx={{
+                        display: { xs: 'none', sm: 'block' }
+                    }}
                         display='flex'
                         flexDirection='row'
-                        s
+
                     >
                         <Button component='a' >INICIO</Button>
                         <Button component='a'>PRODUCTOS</Button>
                         <Button component='a'>PERSONALIZADOS</Button>
                         <Button component='a'>DUDAS</Button>
                         <Button component='a'>CONTACTO</Button>
+                        <IconButton>
+                            <CartWidget />
+                        </IconButton>
+
                     </Stack>
 
-                    <CartWidget />
 
 
 

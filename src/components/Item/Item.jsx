@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Button, Card, CardActionArea, CardMedia, CardContent, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardMedia, CardContent, Typography, Grid } from '@mui/material';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 
 const Item = ({ id, name, price, img }) => {
     return (
+        <Grid item xs={12} sm={6} md={3}    >
+
 
         <Card
             sx={{ maxWidth: '18rem' }}>
@@ -59,6 +61,7 @@ const Item = ({ id, name, price, img }) => {
                 </CardContent>
             </CardActionArea>
         </Card>
+        </Grid>
     )
 }
 

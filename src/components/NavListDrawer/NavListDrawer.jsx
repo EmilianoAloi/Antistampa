@@ -9,7 +9,7 @@ const NavListDrawer = () => {
     <Box
 
       sx={{
-        width: 300,
+        width: 220,
         color: 'white',
       }}>
       <nav>
@@ -17,7 +17,7 @@ const NavListDrawer = () => {
           <ListItem >
 
             <Stack direction="column" spacing={3}>
-              <ListItemText >  <SearchButton />  </ListItemText>
+              {/* <ListItemText >  <SearchButton />  </ListItemText> */}
               <ListItemText primary='INICIO' />
               <ListItemText primary='REMERAS' />
               <ListItemText primary='BUZOS' />

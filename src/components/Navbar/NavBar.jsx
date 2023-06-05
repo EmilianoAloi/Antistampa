@@ -34,39 +34,40 @@ const NavBar = () => {
             <AppBar
                 position="sticky"
                 
+
                 sx={{
                     width: { xs: '100', lg: '60vw' },
-                    flexDirection: { xs: 'row', sm: 'column' },
-                    justifyContent: 'center'
+                    justifyContent:'center'
                 }}
             >
 
 
 
 
-                <Toolbar sx={{ gap: 9, justifyContent: 'space-between' }} >
+                <Toolbar component='nav' sx={{ gap: 9, justifyContent: 'space-around' }} >
 
-                    <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', sm: 'none' } }}>
+                    <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', md: 'none' } }}>
                         <MenuIcon color='primary' fontSize='large' />
                     </IconButton>
 
-                        <img className="logoMobile" src="../img/logo.png" alt="Logo" />
-                
-                    <IconButton sx={{ display: { xs: 'block', sm: 'none' } }}>
+                    <img className="logoMobile" src="../img/logo.png" alt="Logo" />
+
+                    <IconButton sx={{ display: { xs: 'block', sm: 'none' }, }}>
                         <CartWidget />
                     </IconButton>
 
-                    <Stack
-                        display='flex'
-                        flexDirection='row'
+                    <Stack className='navlinks'
+                        component='ul'
                         textAlign='center'
-                        sx={{ display: { xs: 'none', sm: 'block' } }}
+                        // paddingRight='5vw'
+                        flexDirection='row'
+                        sx={{ display: { xs: 'none', md: 'block' } }}
                     >
-                        <Button component='a' >INICIO</Button>
-                        <Button component='a'>PRODUCTOS</Button>
-                        <Button component='a'>PERSONALIZADOS</Button>
-                        <Button component='a'>DUDAS</Button>
-                        <Button component='a'>CONTACTO</Button>
+                        <Button component='li' >INICIO</Button>
+                        <Button component='li'>PRODUCTOS</Button>
+                        <Button component='li'>PERSONALIZADOS</Button>
+                        <Button component='li'>DUDAS</Button>
+                        <Button component='li'>CONTACTO</Button>
                     </Stack>
 
                     <IconButton sx={{ display: { xs: 'none', sm: 'block' } }}>

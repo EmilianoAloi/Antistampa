@@ -1,15 +1,14 @@
-import './NavBar.css'
+
 // import Container from 'react-bootstrap/Container';
 // import Nav from 'react-bootstrap/Nav';
 // import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 // import { Link, NavLink } from "react-router-dom"
-
-import { AppBar, Button, Container, Drawer, IconButton, Stack, Toolbar } from "@mui/material";
+import './NavBar.css'
+import { AppBar, Button, Drawer, IconButton, Stack, Toolbar } from "@mui/material";
 import NavListDrawer from "../NavListDrawer/NavListDrawer";
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import CartWidget from '../CartWidget/CartWidget';
 
 
@@ -32,65 +31,58 @@ const NavBar = () => {
     return (
         <>
 
-            <AppBar position="fixed" sx={{
-                flexDirection: { xs: 'row', sm: 'column' },
-            }} >
-                <img className="logo" src="../img/logo.png" alt="Logo" />
+            <AppBar
+                position="sticky"
+                
+                sx={{
+                    width: { xs: '100', lg: '60vw' },
+                    flexDirection: { xs: 'row', sm: 'column' },
+                    justifyContent: 'center'
+                }}
+            >
 
-                <IconButton sx={{ display: { xs: 'block', sm: 'none' } }}>
-                    <CartWidget />
-                </IconButton>
 
 
-                <Toolbar sx={{ gap: 5, justifyContent: 'space-around' }} >
+
+                <Toolbar sx={{ gap: 9, justifyContent: 'space-between' }} >
 
                     <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', sm: 'none' } }}>
-                        <MenuIcon />
+                        <MenuIcon color='primary' fontSize='large' />
                     </IconButton>
 
+                        <img className="logoMobile" src="../img/logo.png" alt="Logo" />
+                
+                    <IconButton sx={{ display: { xs: 'block', sm: 'none' } }}>
+                        <CartWidget />
+                    </IconButton>
 
-                    <Stack sx={{
-                        display: { xs: 'none', sm: 'block' }
-                    }}
+                    <Stack
                         display='flex'
                         flexDirection='row'
-
+                        textAlign='center'
+                        sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
                         <Button component='a' >INICIO</Button>
                         <Button component='a'>PRODUCTOS</Button>
                         <Button component='a'>PERSONALIZADOS</Button>
                         <Button component='a'>DUDAS</Button>
                         <Button component='a'>CONTACTO</Button>
-                        <IconButton>
-                            <CartWidget />
-                        </IconButton>
-
                     </Stack>
 
-
-
+                    <IconButton sx={{ display: { xs: 'none', sm: 'block' } }}>
+                        <CartWidget />
+                    </IconButton>
 
                 </Toolbar>
             </AppBar>
-
-            <Button
-                variant="contained"
-            >
-                ABRIR
-            </Button>
 
             <Drawer
                 open={open}
                 anchor='left'
                 onClose={() => setOpen(false)}
             >
-
-
-
                 <NavListDrawer />
-
             </Drawer>
-
 
         </>
     );

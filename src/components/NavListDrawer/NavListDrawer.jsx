@@ -1,5 +1,4 @@
 import { Box, List, ListItem, ListItemText, Stack } from "@mui/material"
-import SearchButton from "../SearchButton/SearchButton";
 
 
 const NavListDrawer = () => {
@@ -9,7 +8,7 @@ const NavListDrawer = () => {
     <Box
 
       sx={{
-        width: 220,
+        width: '70vw',
         color: 'white',
       }}>
       <nav>

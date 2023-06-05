@@ -3,6 +3,7 @@ import Item from "../Item/Item"
 
 
 const ItemList = ({ products }) => {
+    
     return (
 
 
@@ -32,10 +33,7 @@ const ItemList = ({ products }) => {
 export default ItemList
 
 
-{/* <div className="container">
-<div className="gridProducts row d-flex justify-content-center gap-5">
-</div>
-</div> */}
+
 
 
 // sx={{

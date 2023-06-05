@@ -37,14 +37,15 @@ const NavBar = () => {
 
                 sx={{
                     width: { xs: '100', lg: '60vw' },
-                    justifyContent:'center'
+                    justifyContent:'space-around',
+                    minWidth: '350px'
                 }}
             >
 
 
 
 
-                <Toolbar component='nav' sx={{ gap: 9, justifyContent: 'space-around' }} >
+                <Toolbar component='nav' sx={{ gap: 9, justifyContent: 'center' }} >
 
                     <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', md: 'none' } }}>
                         <MenuIcon color='primary' fontSize='large' />

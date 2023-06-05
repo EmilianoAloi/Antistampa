@@ -8,7 +8,7 @@ import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material';
+import { Container, ThemeProvider } from '@mui/material';
 import { theme } from './components/Theme/Theme';
 import { CartProvider } from './components/Context/CartContext';
 import Cart from './components/Cart/Cart';

@@ -3,7 +3,7 @@ import Item from "../Item/Item"
 
 
 const ItemList = ({ products }) => {
-    
+
     return (
 
 
@@ -15,12 +15,9 @@ const ItemList = ({ products }) => {
                     justifyContent: 'center',
                 }}
             >
-                
                 {products.map(prod =>
-                        <Item key={prod.id} {...prod} />
+                    <Item key={prod.id} {...prod} />
                 )};
-
-
 
             </Grid>
         </Container>

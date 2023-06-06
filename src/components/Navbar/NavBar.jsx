@@ -33,19 +33,14 @@ const NavBar = () => {
 
             <AppBar
                 position="sticky"
-                
+
 
                 sx={{
-                    width: { xs: '100', lg: '60vw' },
-                    justifyContent:'space-around',
-                    minWidth: '350px'
+                    width: { lg: '60vw' },
                 }}
             >
 
-
-
-
-                <Toolbar component='nav' sx={{ gap: 9, justifyContent: 'center' }} >
+                <Toolbar component='nav' sx={{ gap: 5, justifyContent: 'space-evenly' }} >
 
                     <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', md: 'none' } }}>
                         <MenuIcon color='primary' fontSize='large' />
@@ -57,10 +52,10 @@ const NavBar = () => {
                         <CartWidget />
                     </IconButton>
 
-                    <Stack className='navlinks'
+                    <Stack
+                        className='navlinks'
                         component='ul'
                         textAlign='center'
-                        // paddingRight='5vw'
                         flexDirection='row'
                         sx={{ display: { xs: 'none', md: 'block' } }}
                     >

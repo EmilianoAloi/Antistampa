@@ -17,9 +17,7 @@ const ItemListContainer = () => {
     }, [idCategory]);
 
     return (
-        <>
-            <ItemList products={products} />
-        </>
+            <ItemList  products={products} />
     )
 }
 

@@ -4,8 +4,8 @@ body {
 
 header {
   border-radius: 13px;
-  max-width: 60vw;
   margin: 0 auto;
+  
   z-index: 999;
   margin-bottom: 50px;
 }

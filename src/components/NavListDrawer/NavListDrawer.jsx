@@ -5,18 +5,15 @@ const NavListDrawer = () => {
 
   return (
 
-    <Box
+    <Box 
 
       sx={{
         width: '70vw',
-        color: 'white',
       }}>
-      <nav>
         <List >
           <ListItem >
 
-            <Stack direction="column" spacing={3}>
-              {/* <ListItemText >  <SearchButton />  </ListItemText> */}
+            <Stack direction="column"  spacing={3}>
               <ListItemText primary='INICIO' />
               <ListItemText primary='REMERAS' />
               <ListItemText primary='BUZOS' />
@@ -32,7 +29,6 @@ const NavListDrawer = () => {
           </ListItem>
         </List>
 
-      </nav>
 
 
 

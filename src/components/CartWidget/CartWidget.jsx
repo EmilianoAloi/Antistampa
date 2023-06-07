@@ -12,7 +12,7 @@ const CartWidget = () => {
 
     return (
             <Link to='./cart' style={{ textDecoration: 'none' }}>
-            <LocalMallOutlinedIcon fontSize='large'  color='primary' />
+            <LocalMallOutlinedIcon fontSize='medium'  color='primary' />
             { qtyTotal > 0 && <span className='numberCart'>{qtyTotal}</span> }
             </Link>
     )

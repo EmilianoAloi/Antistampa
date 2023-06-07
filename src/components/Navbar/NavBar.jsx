@@ -10,6 +10,7 @@ import NavListDrawer from "../NavListDrawer/NavListDrawer";
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import CartWidget from '../CartWidget/CartWidget';
+import { NavLink } from 'react-router-dom';
 
 
 // import SearchButton from '../SearchButton/SearchButton';
@@ -24,26 +25,14 @@ import CartWidget from '../CartWidget/CartWidget';
 
 
 const NavBar = () => {
-
     const [open, setOpen] = useState(false);
-
 
     return (
         <>
-
-            <AppBar
-                position="sticky"
-
-
-                sx={{
-                    width: { lg: '60vw' },
-                }}
-            >
-
-                <Toolbar component='nav' sx={{ gap: 5, justifyContent: 'space-evenly' }} >
-
+            <AppBar position="sticky" sx={{ width: { lg: '60vw' } }}>
+                <Toolbar component='nav' sx={{ gap: 5, justifyContent: 'space-evenly' }}>
                     <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', md: 'none' } }}>
-                        <MenuIcon color='primary' fontSize='large' />
+                        <MenuIcon color='primary' fontSize='medium' />
                     </IconButton>
 
                     <img className="logoMobile" src="../img/logo.png" alt="Logo" />
@@ -57,9 +46,13 @@ const NavBar = () => {
                         component='ul'
                         textAlign='center'
                         flexDirection='row'
-                        sx={{ display: { xs: 'none', md: 'block' } }}
+                        sx={{
+                            display: { xs: 'none', md: 'block' },
+                            color: 'primary',
+                            textDecoration: 'none'
+                        }}
                     >
-                        <Button component='li' >INICIO</Button>
+                        <Button component={NavLink} to='/' >INICIO</Button>
                         <Button component='li'>PRODUCTOS</Button>
                         <Button component='li'>PERSONALIZADOS</Button>
                         <Button component='li'>DUDAS</Button>
@@ -69,7 +62,6 @@ const NavBar = () => {
                     <IconButton sx={{ display: { xs: 'none', sm: 'block' } }}>
                         <CartWidget />
                     </IconButton>
-
                 </Toolbar>
             </AppBar>
 
@@ -78,13 +70,11 @@ const NavBar = () => {
                 anchor='left'
                 onClose={() => setOpen(false)}
             >
-                <NavListDrawer />
+                <NavListDrawer setOpen={setOpen} />
             </Drawer>
-
         </>
     );
 }
-
 
 export default NavBar;
 

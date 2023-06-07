@@ -1,3 +1,11 @@
+header {
+    border-radius: 13px;
+    margin: 0 auto;
+    z-index: 999;
+    margin-bottom: 50px;
+    opacity: 0.97;
+}
+
 .logo {
     width: 100px;
     margin: 0 auto;
@@ -10,41 +18,13 @@
 }
 
 .navlinks {
+    padding-right: 40px;
+}
 
-padding-right: 40px;
+.navLink {
+    text-decoration: none;
+  
 }
 
 
 
-/* header {
-    margin-bottom: 200px;
-    z-index: 900;
-}
-
-.nav {
-    font-family: 'Roboto';
-    font-size: 0.8rem;
-    top: 0;
-    z-index: 100;
-    position: fixed;
-    width: 100%;
-    color: white;
-}
-
-.logo {
-    width: 7vw;
-    min-width: 100px;
-    margin: 0 ;
-    
-    }
-
-.nav-link {
-    color: white;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-
-}
-
-.textField {
-    width: 70vw  !important;
-} */

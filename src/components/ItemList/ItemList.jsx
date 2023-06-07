@@ -8,12 +8,13 @@ const ItemList = ({ products }) => {
 
 
         <Container>
-            <Grid
+            <Grid 
                 container
                 sx={{
                     display: 'flex',
                     justifyContent: 'center',
                 }}
+                
             >
                 {products.map(prod =>
                     <Item key={prod.id} {...prod} />

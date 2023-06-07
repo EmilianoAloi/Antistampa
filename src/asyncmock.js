@@ -61,6 +61,7 @@ const products = [
         cat: 'nacional',
         description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, culpa cupiditate hic quod quo asperiores magnam ipsam nesciunt libero officiis quasi odio sit dignissimos itaque aliquam sapiente aut molestiae accusantium?`
     },
+    
     {
         id: '7',
         name: 'Diferentes Actitudes Juveniles',

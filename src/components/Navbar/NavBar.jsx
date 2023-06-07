@@ -29,8 +29,8 @@ const NavBar = () => {
 
     return (
         <>
-            <AppBar position="sticky" sx={{ width: { lg: '60vw' } }}>
-                <Toolbar component='nav' sx={{ gap: 5, justifyContent: 'space-evenly' }}>
+            <AppBar position="sticky" sx={{ width: { lg: '50vw' }, top: { lg:'1rem'} , borderRadius: '1rem'}}>
+                <Toolbar component='nav' sx={{ gap: 5, justifyContent: 'space-evenly', backgroundColor: 'black' ,borderRadius: '1rem'}}>
                     <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', md: 'none' } }}>
                         <MenuIcon color='primary' fontSize='medium' />
                     </IconButton>

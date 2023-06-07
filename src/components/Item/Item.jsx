@@ -5,18 +5,18 @@ import './Item.css';
 
 const Item = ({ id, name, price, img }) => {
     return (
-        <Grid item  md={3}  >
+        <Grid item md={3}   >
 
             <Link to={`/item/${id}`} style={{ textDecoration: 'none' }}>
                 <Card
-                    sx={{ maxWidth: '18rem' }}>
+                    sx={{ maxWidth: '18rem'}}>
                     <CardActionArea className="item-link"
 
                         sx={{
                             display: 'flex',
                             justifyContent: 'center',
                             flexDirection: 'column',
-                            backgroundColor: 'black'
+                            backgroundColor: 'black',
 
                         }}>
                         <CardMedia

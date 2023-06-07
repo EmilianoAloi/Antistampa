@@ -17,7 +17,7 @@ const ItemList = ({ products }) => {
                 
             >
                 {products.map(prod =>
-                    <Item key={prod.id} {...prod} />
+                    <Item  key={prod.id} {...prod} />
                 )};
 
             </Grid>

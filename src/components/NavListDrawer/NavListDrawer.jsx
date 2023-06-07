@@ -3,14 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-
 const NavListDrawer = ({ setOpen }) => {
 
   const handleCloseDrawer = (e) => {
     setOpen(false);
   }
-
-
 
   return (
 
@@ -23,22 +20,18 @@ const NavListDrawer = ({ setOpen }) => {
       <List disablePadding
         sx={{ minWidth: '0px' }}>
 
-
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
           <Link onClick={handleCloseDrawer}>
             <CloseIcon fontSize="large" color="primary" sx={{ marginTop: '1rem' }} />
           </Link>
         </ListItem>
 
-
         <ListItem sx={{ paddingLeft: '0rem' }}>
           <Button
             sx={{ padding: '0rem' }}
-
             component={NavLink}
             to='/'
             onClick={handleCloseDrawer}
-     
           >INICIO
           </Button>
         </ListItem>
@@ -47,10 +40,9 @@ const NavListDrawer = ({ setOpen }) => {
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
           <Button
             sx={{ padding: '0rem' }}
-
             component={NavLink}
             to='./categoria/nacional'
-                        onClick={handleCloseDrawer}
+            onClick={handleCloseDrawer}
           >BANDAS NACIONALES
           </Button>
         </ListItem>
@@ -58,10 +50,9 @@ const NavListDrawer = ({ setOpen }) => {
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
           <Button
             sx={{ padding: '0rem' }}
-
             component={NavLink}
             to='./categoria/internacional'
-                        onClick={handleCloseDrawer}
+            onClick={handleCloseDrawer}
           >BANDAS INTERNACIONALES
           </Button>
         </ListItem>
@@ -69,47 +60,39 @@ const NavListDrawer = ({ setOpen }) => {
         <ListItem sx={{ paddingLeft: '0rem' }}>
           <Button
             sx={{ padding: '0rem' }}
-
             component={NavLink}
             to='./categoria/tote'
-                        onClick={handleCloseDrawer}
+            onClick={handleCloseDrawer}
           >TOTES
           </Button>
-
         </ListItem>
 
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
-
-          <Button
+          <Button disabled
             sx={{ padding: '0rem' }}
-
             component={NavLink}
             to='/'
             onClick={handleCloseDrawer}
           >PRODUCTOS ANTISTAMPA
           </Button>
-
         </ListItem>
 
 
 
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
-
-
-
-          <Button
+          <Button disabled
             sx={{ padding: '0rem' }}
             component={NavLink}
             to='/'
             onClick={handleCloseDrawer}
           >PERSONALIZADOS
           </Button>
-
         </ListItem>
 
-<Divider />
+        <Divider />
+
         <ListItem sx={{ paddingLeft: '0rem' }}>
-          <Button
+          <Button disabled
             sx={{ padding: '0rem' }}
             component={NavLink}
             to='/'
@@ -119,49 +102,16 @@ const NavListDrawer = ({ setOpen }) => {
         </ListItem>
 
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
-          <Button
+          <Button disabled
             sx={{ padding: '0rem' }}
-
             component={NavLink}
             to='/'
             onClick={handleCloseDrawer}
           >CONTACTO
           </Button>
-
         </ListItem>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* 
-
-            <ListItemText primary='INICIO' />
-            <ListItemText primary='BANDAS NACIONALES' />
-            <ListItemText primary='BANDAS INTERNACIONALES' />
-            <ListItemText primary='TOTES' />
-            <ListItemText primary='PRODUCTOS ANTISTAMPA' />
-            <ListItemText primary='PERSONALIZADOS' />
-            <ListItemText primary='DUDAS' />
-            <ListItemText primary='CONTACTO' />
-
-            <ListItemText /> */}
-
-
       </List>
-
-
-
-
     </Box>
   )
 }

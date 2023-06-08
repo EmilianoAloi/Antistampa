@@ -1,6 +1,9 @@
 import './Counter.css'
-import { Button } from '@mui/material';
+import { Button, Stack, Typography} from '@mui/material';
 import { useState } from 'react'
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
+
 
 const Counter = ({ stock, initial, addFunction }) => {
 
@@ -8,7 +11,7 @@ const Counter = ({ stock, initial, addFunction }) => {
 
 
     const countIncrease = () => {
-        if (counter < stock) {
+        if (counter < stock && counter < 9) {
             setCounter(counter + 1);
         }
     }
@@ -20,12 +23,26 @@ const Counter = ({ stock, initial, addFunction }) => {
     }
 
     return (
-        <div className='counter d-flex gap-3 r align-items-center'>
-            <Button className='btn-1' onClick={countDecrease}> - </Button>
-            <p className='pt-3'>{counter}</p>
-            <Button className='btn-1' onClick={countIncrease}> + </Button>
-            <Button className='btn-1' onClick={()=> addFunction(counter) }>Agregar al carrito</Button>
-        </div>
+        <>
+            <Stack flexDirection='row' gap={2}>
+
+                <Button variant="contained" onClick={countDecrease} sx={{ fontSize: '3rem' }}>
+                    <RemoveIcon />
+                </Button>
+
+                <Typography component='h4' variant='h5' fontWeight='800' >
+                    {counter}
+                </Typography>
+
+                <Button variant="contained" onClick={countIncrease}>
+                    <AddIcon />
+                </Button>
+                <Button variant="contained" onClick={() => addFunction(counter)}>Agregar al carrito</Button>
+
+            </Stack>
+
+        </>
+
     )
 }
 

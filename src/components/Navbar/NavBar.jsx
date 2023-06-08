@@ -13,8 +13,8 @@ const NavBar = () => {
 
     return (
         <>
-            <AppBar position="sticky" sx={{ width: { lg: '60vw' }, top: { lg:'1rem'} , borderRadius: '1rem'}}>
-                <Toolbar component='nav' sx={{ gap: 5, justifyContent: 'space-evenly', backgroundColor: 'black' ,borderRadius: '1rem'}}>
+            <AppBar position="sticky" sx={{ width: { lg: '60vw' }, top: { lg: '1rem' }, borderRadius: '1rem' }}>
+                <Toolbar component='nav' sx={{ gap: 5, justifyContent: 'space-evenly', backgroundColor: 'black', borderRadius: '1rem' }}>
                     <IconButton onClick={() => setOpen(true)} sx={{ display: { xs: 'block', md: 'none' } }}>
                         <MenuIcon color='primary' sx={{ fontSize: 32 }} />
                     </IconButton>
@@ -36,10 +36,11 @@ const NavBar = () => {
                             textDecoration: 'none'
                         }}
                     >
+
                         <Button component={NavLink} to='/' >INICIO</Button>
-                        <Button component='li'>PRODUCTOS</Button>
-                        <Button component='li' disabled>PERSONALIZADOS</Button>
-                        <Button component='li'disabled>DUDAS</Button>
+                        <Button component='li' >PRODUCTOS</Button>
+                        <Button component='li'  disabled>PERSONALIZADOS</Button>
+                        <Button component='li' disabled>DUDAS</Button>
                         <Button component='li' disabled>CONTACTO</Button>
                     </Stack>
 

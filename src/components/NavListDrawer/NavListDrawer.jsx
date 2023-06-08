@@ -5,9 +5,10 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const NavListDrawer = ({ setOpen }) => {
 
-  const handleCloseDrawer = (e) => {
+  const handleCloseDrawer = () => {
     setOpen(false);
   }
+
 
   return (
 
@@ -101,7 +102,7 @@ const NavListDrawer = ({ setOpen }) => {
           </Button>
         </ListItem>
 
-        <ListItem sx={{ paddingLeft: '0.5rem' }}>
+        <ListItem sx={{ paddingLeft: '0.5rem'}}>
           <Button disabled
             sx={{ padding: '0rem' }}
             component={NavLink}

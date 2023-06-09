@@ -1,5 +1,5 @@
 import './Counter.css'
-import { Button, Stack, Typography} from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import { useState } from 'react'
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -24,21 +24,39 @@ const Counter = ({ stock, initial, addFunction }) => {
 
     return (
         <>
-            <Stack flexDirection='row' gap={2}>
+            <Stack gap={2} sx={{ flexDirection: { xs: 'column', md: 'row' } }} >
 
-                <Button variant="contained" onClick={countDecrease} sx={{ fontSize: '3rem' }}>
-                    <RemoveIcon />
-                </Button>
+                <Stack flexDirection='row' gap={5}>
 
-                <Typography component='h4' variant='h5' fontWeight='800' >
-                    {counter}
-                </Typography>
+                    <Button variant="contained"
+                        onClick={countDecrease}
+                    >
+                        <RemoveIcon />
+                    </Button>
 
-                <Button variant="contained" onClick={countIncrease}>
-                    <AddIcon />
-                </Button>
-                <Button variant="contained" onClick={() => addFunction(counter)}>Agregar al carrito</Button>
+                    <Typography
+                        component='h4'
+                        variant='h5'
+                        fontWeight='800'
+                       sx={{paddingTop: {xs: '0', md:'0.5rem'}}}>
+                        {counter}
+                    </Typography>
 
+                    <Button variant="contained" size='small'
+                        onClick={countIncrease}
+                    >
+                        <AddIcon  />
+                    </Button>
+
+                </Stack>
+
+                <Stack maxWidth='14rem' >
+                    <Button variant="contained" sx={{height:'3rem'}}
+                        onClick={() => addFunction(counter)}
+                    >
+                        Agregar al carrito
+                    </Button>
+                </Stack>
             </Stack>
 
         </>
@@ -47,3 +65,6 @@ const Counter = ({ stock, initial, addFunction }) => {
 }
 
 export default Counter
+
+
+// sx={{ paddingTop: '12px', paddingBottom: '12px', borderRadius: '12px' }} >

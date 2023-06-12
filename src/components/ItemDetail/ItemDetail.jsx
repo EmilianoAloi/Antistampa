@@ -4,7 +4,6 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
-import Talles from '../Talles/Talles';
 
 const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) => {
 
@@ -56,7 +55,7 @@ const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) 
                         </Typography>
 
                         <Grid item mb={3}>
-                            <Talles />
+                            {/* <Talles /> */}
                         </Grid>
 
                         {

@@ -5,7 +5,9 @@ import NavListDrawer from "../NavListDrawer/NavListDrawer";
 import { useState } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
 import CartWidget from '../CartWidget/CartWidget';
-import { NavLink } from 'react-router-dom';
+import ProductsButton from '../ProductsButton/ProductsButton';
+
+import { Link, NavLink } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -19,8 +21,10 @@ const NavBar = () => {
                         <MenuIcon color='primary' sx={{ fontSize: 32 }} />
                     </IconButton>
 
-                    <img className="logoMobile" src="../img/logo.png" alt="Logo" />
-
+                    <Link to='/'>
+                        <img className="logoMobile" src="../img/logo.png" alt="Logo" />
+                    </Link>
+                    
                     <IconButton sx={{ display: { xs: 'block', sm: 'none' }, }}>
                         <CartWidget />
                     </IconButton>
@@ -38,8 +42,8 @@ const NavBar = () => {
                     >
 
                         <Button component={NavLink} to='/' >INICIO</Button>
-                        <Button component='li' >PRODUCTOS</Button>
-                        <Button component='li'  disabled>PERSONALIZADOS</Button>
+                        <ProductsButton></ProductsButton>
+                        <Button component='li' disabled>PERSONALIZADOS</Button>
                         <Button component='li' disabled>DUDAS</Button>
                         <Button component='li' disabled>CONTACTO</Button>
                     </Stack>

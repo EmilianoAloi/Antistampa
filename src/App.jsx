@@ -13,6 +13,7 @@ import { theme } from './components/Theme/Theme';
 import { CartProvider } from './components/Context/CartContext';
 import Cart from './components/Cart/Cart';
 import NavBar from './components/Navbar/NavBar';
+import WpWidget from './components/WpWidget/WpWidget';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <BrowserRouter>
           <CartProvider>
             <NavBar />
+            <WpWidget />
+
             <Routes>
               <Route path='/' element={<ItemListContainer />} />
               <Route path='/categoria/:idCategory' element={<ItemListContainer />} />

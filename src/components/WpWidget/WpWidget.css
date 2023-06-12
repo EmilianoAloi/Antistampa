@@ -10,7 +10,7 @@
     .wpWidget {
         width: 3rem;
         position: fixed;
-        bottom: 2rem;
+        bottom: 0.3rem;
         right: 0.3rem;
     }
 }

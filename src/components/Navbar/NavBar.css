@@ -4,8 +4,16 @@ header {
     z-index: 999;
     margin-bottom: 25px;
     opacity: 0.97;
-    border: 0.2px solid yellow;
+    border: 1px solid yellow;
+
     
+}
+
+@media (max-width: 800px) {
+    header {
+        border: 0;
+
+    }
 }
 
 .logo {

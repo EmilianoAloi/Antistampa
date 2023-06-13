@@ -1,4 +1,10 @@
 .dropdown-button {
     text-decoration: none ;
-    color: #F4BF00 ;
+    color: #F4BF00 !important;
+}
+
+.btnCat:hover {
+
+    background-color: transparent !important;
+
 }

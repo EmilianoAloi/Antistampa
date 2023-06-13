@@ -24,11 +24,11 @@ const Counter = ({ stock, initial, addFunction }) => {
 
     return (
         <>
-            <Stack gap={2} sx={{ flexDirection: { xs: 'column', md: 'row' } }} >
+            <Stack gap={2} sx={{ flexDirection: { xs: 'row', md: 'row' } }} >
 
-                <Stack flexDirection='row' gap={5}>
+                <Stack flexDirection='row' gap={2}>
 
-                    <Button variant="contained"
+                    <Button variant="outlined" size='small' sx={{ minWidth: 'initial' }}
                         onClick={countDecrease}
                     >
                         <RemoveIcon />
@@ -38,11 +38,11 @@ const Counter = ({ stock, initial, addFunction }) => {
                         component='h4'
                         variant='h5'
                         fontWeight='800'
-                       sx={{paddingTop: {xs: '0', md:'0.5rem'}}}>
+                       sx={{paddingTop: {xs: '0.4rem', md:'0.5rem'}}}>
                         {counter}
                     </Typography>
 
-                    <Button variant="contained" size='small'
+                    <Button variant="outlined" size='small' sx={{ minWidth: 'initial' }}
                         onClick={countIncrease}
                     >
                         <AddIcon  />
@@ -50,7 +50,7 @@ const Counter = ({ stock, initial, addFunction }) => {
 
                 </Stack>
 
-                <Stack maxWidth='14rem' >
+                <Stack maxWidth='80%' >
                     <Button variant="contained" sx={{height:'3rem'}}
                         onClick={() => addFunction(counter)}
                     >

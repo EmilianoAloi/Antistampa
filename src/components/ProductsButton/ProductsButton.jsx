@@ -28,14 +28,26 @@ const ProductosDropdown = () => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose} >
-                    <NavLink to={'/categoria/internacional'} className="dropdown-button"> Bandas Internacionales </NavLink>
+
+                <MenuItem onClick={handleClose}
+                    component={NavLink}
+                    to={'/categoria/internacional'}
+                    className="dropdown-button" >
+                    Bandas Internacionales
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
-                    <NavLink to='./categoria/nacional' className="dropdown-button"> Bandas Nacionales </NavLink>
+
+                <MenuItem onClick={handleClose}
+                    component={NavLink}
+                    to={'./categoria/nacional'}
+                    className="dropdown-button" >
+                    Bandas Nacionales
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
-                    <NavLink to='./categoria/tote' className="dropdown-button"> Totes </NavLink>
+
+                <MenuItem onClick={handleClose}
+                    component={NavLink}
+                    to={'./categoria/tote'}
+                    className="dropdown-button">
+                    Totes
                 </MenuItem>
 
             </Menu>

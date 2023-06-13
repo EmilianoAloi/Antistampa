@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 
-const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) => {
+const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
     const [addQty, setAddQty] = useState(0);
 
@@ -16,7 +16,7 @@ const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) 
     const handleQty = (qty) => {
         setAddQty(qty);
         console.log("Productos Agregados:" + qty);
-        const item = { id, name, price, product };
+        const item = { id, name, price, product, img };
         addItem(item, qty);
 
     }
@@ -31,7 +31,7 @@ const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) 
 
                     <Grid item xs={12} mb={3} gap={3}>
                         <Typography component='h2' fontWeight='500' letterSpacing={2} mb={0.5}
-                            sx={{ fontSize: { xs: '1rem', sm: '2rem' }, marginTop: { sm: '2rem' } }} >
+                            sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: { sm: '2rem' } }} >
                             DETALLES DE PRODUCTO
                         </Typography>
                         <Stack className="line"></Stack>
@@ -43,7 +43,7 @@ const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) 
 
                     <Grid item xs={12} sm={6}  >
                         <Typography component='h3'
-                            sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: { sm: '2rem' } }} >
+                            sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: { sm: '' } }} >
 
                             Producto: {product}
                         </Typography>
@@ -92,21 +92,21 @@ const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) 
 
                             {product === 'Remera unisex' && (
                                 <>
-                                    <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1.2rem', sm: '2rem' }, fontWeight: '700' }} >
+                                    <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1.2rem', sm: '1.5rem' }, fontWeight: '700' }} >
 
                                         Remeras Ultrapremium de algodón 24.1 peinado.
                                     </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' } }} >
+                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >
                                         Costura Reforzada en hombro y sisa.
                                     </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' } }} >
+                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >
                                         Talles reales para adultos: Desde XS hasta XXXL.
                                     </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' } }} >
+                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >
                                         Talles de Niños: Desde el 2 al 14.
                                     </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' } }} >Colores: 30 disponibles.</Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' } }} mt={3}>
+                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >Colores: 30 disponibles.</Typography>
+                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} mt={3}>
                                         En Antistampa no vemos género, por ende todas nuestras prendas son unisex.
                                     </Typography>
                                 </>
@@ -131,6 +131,8 @@ const ItemDetail = ({ id, name, price, img, product, description, cat, stock }) 
 
 
                 </Grid>
+
+                
             </Container>
 
 

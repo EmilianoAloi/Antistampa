@@ -36,7 +36,7 @@ const Cart = () => {
 
                     <Button onClick={() => emptyCart()} > Vaciar Carrito </Button>
 
-                    <Link to='/checkout' >
+                    <Link to='/checkout' className="detailLinks" >
                         <Button>Finalizar Compra</Button>
                     </Link>
 

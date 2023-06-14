@@ -64,7 +64,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 <Grid item xs={12}>
 
 
-                                    <Link to='/cart'>
+                                    <Link to='/cart' className='detailLinks'>
                                         <Button variant='outlined' size='large'>
                                             Terminar Compra
                                         </Button>
@@ -77,8 +77,8 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                         {
                             addQty > 0 ?
                                 <Grid item xs={12}>
-                                    <Link to='/'>
-                                        <Button variant='contained' size='medium' sx={{ mt: '1rem' }}> Ver mas productos</Button>
+                                    <Link to='/' className='detailLinks'>
+                                        <Button variant='contained' size='large' sx={{ mt: '1rem', }}> Ver mas productos</Button>
                                     </Link>
                                 </Grid> : ''
                         }

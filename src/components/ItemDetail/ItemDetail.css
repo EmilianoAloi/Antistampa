@@ -10,6 +10,9 @@
     background-color: yellow;
 }
 
+.detailLinks {
+    text-decoration: none;
+}
 
 @media (max-width: 600px) {
     .line {

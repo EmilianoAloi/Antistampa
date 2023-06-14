@@ -28,17 +28,21 @@ const Cart = () => {
 
     return (
         <Container>
-            <Stack>
-                    {cart.map(product => <CartItem key={product.item.id} {...product} />)}
-                    <h3>Total: ${total}</h3>
-                    <h3>Cantidad total: {qtyTotal}</h3>
+            <Stack color='white' fontFamily='Roboto'>
+                {cart.map(product => <CartItem key={product.item.id} {...product} />)}
 
+                <Stack justifyContent='space-between' alignItems='flex-end' marginTop='1rem'>
+                    <Typography component='h3' variant="body2"> Cantidad total: {qtyTotal} </Typography>
+                    <Typography component='h3' variant="h5"> Total: ${total} </Typography>
+                </Stack>
 
-                    <Button onClick={() => emptyCart()} > Vaciar Carrito </Button>
+                <Stack gap={2} marginTop='2rem'>
+                    <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
 
-                    <Link to='/checkout' className="detailLinks" >
-                        <Button>Finalizar Compra</Button>
+                    <Link to='/checkout'>
+                        <Button variant="contained" sx={{ width: '100%', maxWidth: '20rem', marginBottom:'10rem'}}>Finalizar Compra</Button>
                     </Link>
+                </Stack>
 
             </Stack>
         </Container>

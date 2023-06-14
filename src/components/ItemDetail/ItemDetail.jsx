@@ -43,13 +43,13 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
                     <Grid item xs={12} sm={6}  >
                         <Typography component='h3'
-                            sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: { sm: '' } }} >
+                            sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: { sm: '4rem' } }} >
 
                             Producto: {product}
                         </Typography>
 
                         <Typography component='h3' fontWeight='800' mb={2}
-                            sx={{ fontSize: { xs: '2rem', md: '3rem' } }} >
+                            sx={{ fontSize: { xs: '1.7rem', md: '3rem' } }} >
 
                             {name} <br /> ${price}
                         </Typography>
@@ -65,7 +65,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
 
                                     <Link to='/cart' className='detailLinks'>
-                                        <Button variant='outlined' size='large'>
+                                        <Button variant='contained' size='large' sx={{ width: '15rem' }}>
                                             Terminar Compra
                                         </Button>
                                     </Link>
@@ -78,7 +78,9 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                             addQty > 0 ?
                                 <Grid item xs={12}>
                                     <Link to='/' className='detailLinks'>
-                                        <Button variant='contained' size='large' sx={{ mt: '1rem', }}> Ver mas productos</Button>
+                                        <Button variant='outlined'
+                                            size='large'
+                                            sx={{ width: '15rem', mt: '1rem', }}> Ver mas productos</Button>
                                     </Link>
                                 </Grid> : ''
                         }
@@ -132,7 +134,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
                 </Grid>
 
-                
+
             </Container>
 
 

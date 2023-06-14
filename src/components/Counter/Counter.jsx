@@ -51,7 +51,7 @@ const Counter = ({ stock, initial, addFunction }) => {
                 </Stack>
 
                 <Stack maxWidth='80%' >
-                    <Button variant="contained" sx={{height:'3rem'}}
+                    <Button variant="outlined" sx={{height:'3rem', fontSize:'0.7rem !important'}}
                         onClick={() => addFunction(counter)}
                     >
                         Agregar al carrito
@@ -67,4 +67,3 @@ const Counter = ({ stock, initial, addFunction }) => {
 export default Counter
 
 
-// sx={{ paddingTop: '12px', paddingBottom: '12px', borderRadius: '12px' }} >

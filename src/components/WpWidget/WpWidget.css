@@ -1,5 +1,5 @@
 .wpWidget {
-    width: 5rem;
+    width: 3rem;
     z-index: 999;
     position: fixed;
     bottom: 2rem;
@@ -8,8 +8,7 @@
 
 @media (max-width: 600px) {
     .wpWidget {
-        width: 3rem;
-        position: fixed;
+  
         bottom: 2rem;
         right: 1rem;
     }

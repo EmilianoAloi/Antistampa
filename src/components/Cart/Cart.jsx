@@ -3,6 +3,18 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
 import { Button, Container, Stack, Typography } from "@mui/material";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+import './Cart.css';
+
+
+
 
 
 const Cart = () => {
@@ -27,25 +39,86 @@ const Cart = () => {
     }
 
     return (
-        <Container>
-            <Stack color='white' fontFamily='Roboto'>
-                {cart.map(product => <CartItem key={product.item.id} {...product} />)}
 
-                <Stack justifyContent='space-between' alignItems='flex-end' marginTop='1rem'>
-                    <Typography component='h3' variant="body2"> Cantidad total: {qtyTotal} </Typography>
-                    <Typography component='h3' variant="h5"> Total: ${total} </Typography>
+        <>
+            <Container>
+                <Stack color='white' fontFamily='Roboto' sx={{ display: { md: 'none' } }}>
+
+                    {cart.map(product => <CartItem key={product.item.id} {...product} />)}
+
+                    <Stack justifyContent='space-between' alignItems='flex-end' marginTop='1rem'>
+                        <Typography component='h3' variant="body2"> Cantidad total: {qtyTotal} </Typography>
+                        <Typography component='h3' variant="h5"> Total: ${total} </Typography>
+                    </Stack>
+
+                    <Stack gap={2} marginTop='2rem'>
+                        <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
+                        <Link to='/checkout'>
+                            <Button variant="contained" sx={{ width: '100%', marginBottom: '10rem' }}>Finalizar Compra</Button>
+                        </Link>
+                    </Stack>
                 </Stack>
+            </Container>
 
-                <Stack gap={2} marginTop='2rem'>
-                    <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
+            <Container sx={{ display: { xs: 'none', md: 'block' } }}>
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>PRODUCTO</TableCell>
+                                <TableCell align="right">PRECIO</TableCell>
+                                <TableCell align="right">CANTIDAD</TableCell>
+                                <TableCell align="right">SUBTOTAL</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {cart.map((product) => (
+                                <TableRow
+                                    key={product.item.id}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row" >
+                                        <Stack direction='row' gap={3} alignItems='center'>
+                                            <img src={product.item.img} className="imgTable" alt={product.item.name}></img>
+                                            <Stack direction='column'>
+                                                {product.item.name} <br></br>
+                                                {product.item.product}
+                                            </Stack>
+                                        </Stack>
+                                    </TableCell>
+                                    <TableCell align="right">${product.item.price}</TableCell>
+                                    <TableCell align="right">{product.qty}</TableCell>
+                                    <TableCell align="right">${product.item.price * product.qty}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Container>
 
-                    <Link to='/checkout'>
-                        <Button variant="contained" sx={{ width: '100%', maxWidth: '20rem', marginBottom:'10rem'}}>Finalizar Compra</Button>
-                    </Link>
+
+            <Container>
+                <Stack color='white' fontFamily='Roboto' sx={{ display: { xs: 'none', md: 'block' } }}>
+
+
+                    <Stack justifyContent='space-between' alignItems='flex-end' marginTop='2rem' marginRight='2%'>
+                        <Typography component='h3' variant="body2"> Cantidad total: {qtyTotal} </Typography>
+                        <Typography component='h3' variant="h5"> Total: ${total} </Typography>
+                    </Stack>
+
+                    <Stack gap={2} marginTop='2rem'>
+                        <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
+
+                        <Link to='/checkout'>
+                            <Button variant="contained" sx={{ marginBottom: '10rem', width: '100%' }}>Finalizar Compra</Button>
+                        </Link>
+                    </Stack>
+
                 </Stack>
+            </Container>
 
-            </Stack>
-        </Container>
+        </>
+
     )
 }
 

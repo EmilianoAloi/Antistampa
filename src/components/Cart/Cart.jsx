@@ -2,7 +2,7 @@ import { CartContext } from "../Context/CartContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
-import { Button, Container, Stack, Typography } from "@mui/material";
+import { Button, Container, Stack, Typography, IconButton, } from "@mui/material";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,6 +11,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+
+
 import './Cart.css';
 
 
@@ -18,7 +21,7 @@ import './Cart.css';
 
 
 const Cart = () => {
-    const { cart, emptyCart, total, qtyTotal } = useContext(CartContext)
+    const { cart, emptyCart, total, qtyTotal, delProduct } = useContext(CartContext)
 
     if (qtyTotal === 0) {
         return (
@@ -53,6 +56,11 @@ const Cart = () => {
 
                     <Stack gap={2} marginTop='2rem'>
                         <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
+
+                        <Link to='/' >
+                            <Button variant='outlined' sx={{ width: '100%' }}> Ver mas productos</Button>
+                        </Link>
+
                         <Link to='/checkout'>
                             <Button variant="contained" sx={{ width: '100%', marginBottom: '10rem' }}>Finalizar Compra</Button>
                         </Link>
@@ -69,16 +77,18 @@ const Cart = () => {
                                 <TableCell align="right">PRECIO</TableCell>
                                 <TableCell align="right">CANTIDAD</TableCell>
                                 <TableCell align="right">SUBTOTAL</TableCell>
+                                <TableCell align="right"></TableCell>
+
                             </TableRow>
                         </TableHead>
-                        <TableBody>
+                        <TableBody >
                             {cart.map((product) => (
                                 <TableRow
                                     key={product.item.id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row" >
-                                        <Stack direction='row' gap={3} alignItems='center'>
+                                        <Stack sx={{ minHeight: '8rem' }} direction='row' gap={3} alignItems='center'>
                                             <img src={product.item.img} className="imgTable" alt={product.item.name}></img>
                                             <Stack direction='column'>
                                                 {product.item.name} <br></br>
@@ -89,6 +99,14 @@ const Cart = () => {
                                     <TableCell align="right">${product.item.price}</TableCell>
                                     <TableCell align="right">{product.qty}</TableCell>
                                     <TableCell align="right">${product.item.price * product.qty}</TableCell>
+                                    <TableCell align="right"> <IconButton onClick={() => delProduct(product.item.id)} disableRipple color='error' sx={{ marginLeft: '-4.5rem' }}>
+                                        <DeleteForeverIcon sx={{ fontSize: '1.5rem' }} />
+                                    </IconButton></TableCell>
+
+
+
+
+
                                 </TableRow>
                             ))}
                         </TableBody>
@@ -107,11 +125,16 @@ const Cart = () => {
                     </Stack>
 
                     <Stack gap={2} marginTop='2rem'>
-                        <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
+                            <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
+
+                            <Link to='/' >
+                                <Button variant='outlined' sx={{ width: '100%' }}> Ver mas productos</Button>
+                            </Link>
 
                         <Link to='/checkout'>
                             <Button variant="contained" sx={{ marginBottom: '10rem', width: '100%' }}>Finalizar Compra</Button>
                         </Link>
+
                     </Stack>
 
                 </Stack>

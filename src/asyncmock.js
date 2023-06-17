@@ -124,28 +124,28 @@ const products = [
     },
 ]
 
-export const getproducts = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(products)
-        }, 2000)
-    })
-}
+// export const getproducts = () => {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(products)
+//         }, 2000)
+//     })
+// }
 
-export const getProduct = (id) => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            const product = products.find(prod => prod.id === id)
-            resolve(product);
-        }, 2000)
-    })
-}
+// export const getProduct = (id) => {
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             const product = products.find(prod => prod.id === id)
+//             resolve(product);
+//         }, 2000)
+//     })
+// }
 
-export const getCatproducts = (idCategory) => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            const catProducts = products.filter(prod => prod.cat === idCategory)
-            resolve(catProducts);
-        }, 2000)
-    })
-}
+// export const getCatproducts = (idCategory) => {
+//     return new Promise(resolve => {
+//         setTimeout(() => {
+//             const catProducts = products.filter(prod => prod.cat === idCategory)
+//             resolve(catProducts);
+//         }, 2000)
+//     })
+// }

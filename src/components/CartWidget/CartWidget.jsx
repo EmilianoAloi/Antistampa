@@ -19,6 +19,5 @@ const CartWidget = () => {
 
     )
 }
-// sx={{ fontSize: {md: 'medium' , xs: 'large' } }}
 
 export default CartWidget;

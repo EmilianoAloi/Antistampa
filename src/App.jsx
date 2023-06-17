@@ -14,6 +14,7 @@ import { CartProvider } from './components/Context/CartContext';
 import Cart from './components/Cart/Cart';
 import NavBar from './components/Navbar/NavBar';
 import WpWidget from './components/WpWidget/WpWidget';
+import Checkout from './components/Checkout/Checkout';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
               <Route path='/item/:idItem' element={<ItemDetailContainer />} />
               <Route path='*' element={<h2>Cart en construccion</h2>} />
               <Route path='/cart' element={<Cart />} />
+              <Route path='/checkout' element={<Checkout />} />
             </Routes>
           </CartProvider>
         </BrowserRouter>

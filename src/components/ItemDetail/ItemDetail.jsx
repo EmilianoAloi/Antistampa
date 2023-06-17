@@ -18,15 +18,11 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
         console.log("Productos Agregados:" + qty);
         const item = { id, name, price, product, img };
         addItem(item, qty);
-
     }
 
     return (
         <>
-
-
-            <Container >
-
+            <Container sx={{mb:'10rem'}}>
                 <Grid container color='white' >
 
                     <Grid item xs={12} mb={3} gap={3}>
@@ -43,13 +39,13 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
                     <Grid item xs={12} sm={6}  >
                         <Typography component='h3'
-                            sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: { sm: '4rem' } }} >
+                            sx={{ fontSize: { xs: '0.8rem', sm: '1rem' }, marginTop: { sm: '4rem' } }} >
 
                             Producto: {product}
                         </Typography>
 
                         <Typography component='h3' fontWeight='800' mb={2}
-                            sx={{ fontSize: { xs: '1.7rem', md: '3rem' } }} >
+                            sx={{ fontSize: { xs: '1.3rem', md: '2.2rem' } }} >
 
                             {name} <br /> ${price}
                         </Typography>
@@ -94,21 +90,13 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
                             {product === 'Remera unisex' && (
                                 <>
-                                    <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1.2rem', sm: '1.5rem' }, fontWeight: '700' }} >
-
+                                    <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1rem', sm: '1.1rem' }, fontWeight: '700' }} >
                                         Remeras Ultrapremium de algodón 24.1 peinado.
                                     </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >
-                                        Costura Reforzada en hombro y sisa.
-                                    </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >
-                                        Talles reales para adultos: Desde XS hasta XXXL.
-                                    </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >
-                                        Talles de Niños: Desde el 2 al 14.
-                                    </Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} >Colores: 30 disponibles.</Typography>
-                                    <Typography component='h3' sx={{ fontSize: { xs: '1rem', sm: '1.2rem' } }} mt={3}>
+                                    <Typography component='h3' sx={{ fontSize: { xs: '0.8rem', sm: '1rem' } }} >
+                                        Costura Reforzada en hombro y sisa. <br />
+                                        Talles reales para adultos: Desde XS hasta XXXL.<br />
+                                        Talles de Niños: Desde el 2 al 14.<br /><br />
                                         En Antistampa no vemos género, por ende todas nuestras prendas son unisex.
                                     </Typography>
                                 </>

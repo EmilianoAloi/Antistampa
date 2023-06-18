@@ -15,7 +15,6 @@ export const CartProvider = ({ children }) => {
     const [total, setTotal] = useState(0);
     const [qtyTotal, setQtyTotal] = useState(0);
 
-    console.log(cart);
 
     const addItem = (item, qty) => {
 

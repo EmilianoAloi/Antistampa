@@ -25,14 +25,7 @@ const ItemListContainer = () => {
             .catch(error => console.log(error))
     }, [idCategory])
 
-    // useEffect(() => {
-
-    //     const productsFunction = idCategory ? getCatproducts : getproducts;
-
-    //     productsFunction(idCategory)
-    //         .then(res => setProducts(res))
-    //         .catch(error => console.error(error))
-    // }, [idCategory]);
+   
 
     return (
             <ItemList  products={products} />

@@ -3,6 +3,10 @@ import { CartContext } from '../Context/CartContext'
 import { db } from "../../services/config";
 import { collection, addDoc } from "firebase/firestore";
 
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Button, Container, Typography, Stack, Divider } from "@mui/material";
+
 const Checkout = () => {
 
     const { cart, emptyCart, total } = useContext(CartContext);
@@ -18,7 +22,7 @@ const Checkout = () => {
     const handleForm = (e) => {
         e.preventDefault();
         if (!name || !lastname || !tel || !email || !emailConfirm) {
-            setError('Por favor llena toods los campos');
+            setError('Por favor llena todos los campos');
             return;
         }
 
@@ -54,46 +58,68 @@ const Checkout = () => {
 
 
 
-
-
     return (
 
         <>
-            <h2>Checkout</h2>
-            <form onSubmit={handleForm}>
-                {cart.map(prod => (
-                    <div key={prod.item.id}>
-                        <p>
-                            {prod.item.name} x {prod.qty}
-                        </p>
-                        <p> Precio $: {prod.item.price}</p>
-                    </div>
-                ))}
-                <p>Total Compra: ${total}</p>
 
-                <label>Nombre</label>
-                <input type='text' value={name} onChange={(e) => setName(e.target.value)} required />
+            <Container >
+                <Typography component='h2' fontWeight='500' letterSpacing={2} sx={{ fontSize: { xs: '1.2rem', sm: '2rem' }, marginTop: { sm: '2rem' }, marginBottom: '2rem' }} color='white'> Checkout </Typography>
 
-                <label>Apellido</label>
-                <input type='text' value={lastname} onChange={(e) => setLastname(e.target.value)} required />
+                <Box
+                    component="form"
 
-                <label>Telefono</label>
-                <input type='tel' value={tel} onChange={(e) => setTel(e.target.value)} required />
+                    noValidate
+                    autoComplete="off"
+                    onSubmit={handleForm}
+                    fontFamily='Roboto'
 
-                <label>Email</label>
-                <input type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                >
 
-                <label>Confirmar email</label>
-                <input type='email' value={emailConfirm} onChange={(e) => setEmailConfirm(e.target.value)} required />
+                    {cart.map(prod => (
+                        <Stack key={prod.item.id} direction='row' alignItems='center' gap={3} color='white' marginBottom={2}   >
+                            <Typography variant="body" width='10rem'>{prod.item.product}</Typography>
+                            <Typography variant="body" width='10rem'> {prod.item.name} x {prod.qty} </Typography>
+                            <Typography > Precio: ${prod.item.price}</Typography>
+                        </Stack>
+                    ))}
+                    <Divider sx={{ width: { xs: '100%', md: '100%' } }} />
 
-                {error && <p>{error}</p>}
-                <button type='submit'>Finalizar compra</button>
+                    <Typography color='primary' variant="h5" textAlign='end' marginTop='1rem' >Total Compra: ${total}</Typography>
 
-            </form>
+                    <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: '2rem', }}>DATOS DE FACTURACION</Typography>
 
-            {
-                orderId && (<p> Gracias por tu compra, tu numero de orden es {orderId}</p>)
-            }
+
+                    <Stack gap={3} marginTop={4} marginBottom={3}  >
+                        <TextField id="outlined-basic" label="Nombre" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} required />
+
+                        <TextField id="outlined-basic" label="Apellido" variant="outlined" value={lastname} onChange={(e) => setLastname(e.target.value)} required />
+
+
+                        <TextField id="outlined-basic" label="Telefono" variant="outlined" value={tel} onChange={(e) => setTel(e.target.value)} required />
+
+                        <TextField id="outlined-basic" label="Email" type="email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)} required />
+
+                        <TextField id="outlined-basic" label="Confirmar Email" type="email" variant="outlined" value={emailConfirm} onChange={(e) => setEmailConfirm(e.target.value)} required />
+
+                    </Stack>
+                    {error && <Typography textAlign='center' color='red' marginBottom={3}> {error} </Typography>}
+
+                    {
+                        orderId && (
+                            <>
+                                <Typography textAlign='start' color='primary' sx={{ fontSize: { xs: '2rem', sm: '4rem' }}} marginTop='2rem' > GRACIAS POR TU COMPRA ! 🥳
+                                </Typography>
+
+                                <Typography textAlign='start' color='white' variant="h6" marginBottom='2rem'>   N de orden: {orderId}</Typography>
+                            </>
+                        )
+                    }
+
+                    <Box textAlign='center' marginBottom={10}>
+                        <Button type='submit' variant="contained" size="large" >Finalizar compra</Button>
+                    </Box>
+                </Box>
+            </Container>
         </>
     )
 }

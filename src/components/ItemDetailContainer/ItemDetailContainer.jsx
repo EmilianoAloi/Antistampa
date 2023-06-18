@@ -22,10 +22,7 @@ const ItemDetailContainer = () => {
 
 
 
-    // useEffect(() => {
-    //     getProduct(idItem)
-    //         .then(res => setProduct(res))
-    // }, [idItem])
+
 
     return (
         <>

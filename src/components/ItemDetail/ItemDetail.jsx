@@ -15,14 +15,13 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
     const handleQty = (qty) => {
         setAddQty(qty);
-        console.log("Productos Agregados:" + qty);
         const item = { id, name, price, product, img };
         addItem(item, qty);
     }
 
     return (
         <>
-            <Container sx={{mb:'10rem'}}>
+            <Container sx={{ mb: '10rem' }}>
                 <Grid container color='white' >
 
                     <Grid item xs={12} mb={3} gap={3}>
@@ -50,9 +49,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                             {name} <br /> ${price}
                         </Typography>
 
-                        <Grid item mb={3}>
-                            {/* <Talles /> */}
-                        </Grid>
+
 
                         {
 
@@ -81,11 +78,6 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 </Grid> : ''
                         }
 
-
-
-
-
-
                         <Grid item xs={12} mt={5}>
 
                             {product === 'Remera unisex' && (
@@ -104,7 +96,8 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
                             {product === 'Tote' && (
                                 <Typography variant='body1'>
-                                    TOTETOTETETOTETOTETETOTETOTETOTETETOTETETOTETOTETETOTETOTETE
+                                    Bolsa de lienzo para acompañarte a todos lados. Llenala con tus libros, ambos y apuntes!
+                                    <br /> Medida: 40x45 cm <br /> Tela: 100% algodón. Estampado.
                                 </Typography>
                             )}
 
@@ -116,20 +109,9 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                             )}
 
                         </Grid>
-
                     </Grid>
-
-
                 </Grid>
-
-
             </Container>
-
-
-
-
-
-
         </>
     )
 }

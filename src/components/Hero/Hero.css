@@ -1,0 +1,13 @@
+.videoHero {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+    .videoHero {
+        width: 50%;
+        border-radius: 10px;
+
+    }
+}
+

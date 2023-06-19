@@ -14,6 +14,7 @@ const Hero = () => {
                     className='videoHero'
                     autoPlay
                     loop
+                    muted
                     controls={false} />
 
                 <Button variant='contained' size='large' className='btn-hero'>

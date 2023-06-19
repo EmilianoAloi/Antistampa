@@ -1,5 +1,5 @@
 import { Button, Stack, Typography } from '@mui/material'
-import heroVideo from '../../assets/hero.gif'
+import heroVideo from '../../assets/hero.mp4'
 import './Hero.css'
 
 const Hero = () => {
@@ -9,7 +9,9 @@ const Hero = () => {
 
             <Stack alignItems='center' gap={7} marginBottom={5} >
 
-                <img src={heroVideo} className='videoHero' />
+                {/* <img src={heroVideo} className='videoHero' /> */}
+
+                <video muted="true" autoPlay='true' src={heroVideo} loop='true' playsInline  className='videoHero' ></video>
 
                 <Button variant='contained' size='large' className='btn-hero'>
                     Personaliza tu remera

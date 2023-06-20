@@ -2,6 +2,8 @@ import { Button, Stack, Typography } from '@mui/material'
 import heroVideo from '../../assets/hero.mp4'
 import './Hero.css'
 
+import SendIcon from '@mui/icons-material/Send';
+
 const Hero = () => {
 
     return (
@@ -9,16 +11,17 @@ const Hero = () => {
 
             <Stack alignItems='center' gap={7} marginBottom={5} >
 
-                {/* <img src={heroVideo} className='videoHero' /> */}
 
-                <video muted="true" autoPlay='true' src={heroVideo} loop='true' playsInline  className='videoHero' ></video>
+                <video muted autoPlay src={heroVideo} loop playsInline  className='videoHero' ></video>
 
-                <Button variant='contained' size='large' className='btn-hero'>
-                    Personaliza tu remera
+                <Button variant='contained' size='large' endIcon={<SendIcon />} sx={{fontWeight:'800', borderRadius: '10px', paddingY:'1rem', boxShadow:' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}>
+                    Personaliza tu prenda
                 </Button>
 
+
+
                 <Typography
-                    component='h1'
+                    component='h2'
                     color='white'
                     fontWeight={600}
                     sx={{ fontSize: { xs: '1.5rem', sm: '3rem' } }}

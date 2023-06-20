@@ -1,13 +1,6 @@
 .imgCartItem {
     width: 8rem;
-    height: 11rem;
+    max-height: 11rem;
     border-radius: 10%;
 }
-
-
-    /* @media (min-width: 800px) {
-        .cartMobile {
-            display: none;
-        }
-    } */
 

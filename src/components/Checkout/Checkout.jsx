@@ -79,7 +79,7 @@ const Checkout = () => {
                         <Stack key={prod.item.id} direction='row' alignItems='center' gap={3} color='white' marginBottom={2}   >
                             <Typography variant="body" width='10rem'>{prod.item.product}</Typography>
                             <Typography variant="body" width='10rem'> {prod.item.name} x {prod.qty} </Typography>
-                            <Typography > Precio: ${prod.item.price}</Typography>
+                            <Typography variant="body" width='10rem'> Precio: ${prod.item.price}</Typography>
                         </Stack>
                     ))}
                     <Divider sx={{ width: { xs: '100%', md: '100%' } }} />
@@ -107,7 +107,7 @@ const Checkout = () => {
                     {
                         orderId && (
                             <>
-                                <Typography textAlign='start' color='primary' sx={{ fontSize: { xs: '2rem', sm: '4rem' }}} marginTop='2rem' > GRACIAS POR TU COMPRA ! 🥳
+                                <Typography textAlign='start' color='primary' sx={{ fontSize: { xs: '2rem', sm: '4rem' } }} marginTop='2rem' > GRACIAS POR TU COMPRA ! 🥳
                                 </Typography>
 
                                 <Typography textAlign='start' color='white' variant="h6" marginBottom='2rem'>   N de orden: {orderId}</Typography>
@@ -116,7 +116,11 @@ const Checkout = () => {
                     }
 
                     <Box textAlign='center' marginBottom={10}>
-                        <Button type='submit' variant="contained" size="large" >Finalizar compra</Button>
+                        <Button type='submit'
+                            variant="contained"
+                            size="large"
+                            sx={{ paddingX: '50px', paddingY: '20px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
+                        >Finalizar compra</Button>
                     </Box>
                 </Box>
             </Container>

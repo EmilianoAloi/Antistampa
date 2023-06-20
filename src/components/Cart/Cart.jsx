@@ -132,7 +132,7 @@ const Cart = () => {
                             </Link>
 
                         <Link to='/checkout'>
-                            <Button variant="contained" sx={{ marginBottom: '10rem', width: '100%' }}>Finalizar Compra</Button>
+                            <Button variant="contained" sx={{fontSize:'1.5rem', fontWeight:'800' , marginBottom: '10rem', width: '100%', boxShadow:' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>Finalizar Compra</Button>
                         </Link>
 
                     </Stack>

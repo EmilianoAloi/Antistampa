@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
 
+import SearchIcon from '@mui/icons-material/Search';
+import PaymentIcon from '@mui/icons-material/Payment';
+
 const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
     const [addQty, setAddQty] = useState(0);
@@ -58,7 +61,9 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
 
                                     <Link to='/cart' className='detailLinks'>
-                                        <Button variant='contained' size='large' sx={{ width: '15rem' }}>
+                                        <Button variant='contained' size='large' 
+                                        startIcon={<PaymentIcon />}
+                                        sx={{textAlign: 'left', paddingRight:'36px' , boxShadow:' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                                             Terminar Compra
                                         </Button>
                                     </Link>
@@ -72,8 +77,9 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 <Grid item xs={12}>
                                     <Link to='/' className='detailLinks'>
                                         <Button variant='outlined'
-                                            size='large'
-                                            sx={{ width: '15rem', mt: '1rem', }}> Ver mas productos</Button>
+                                          size='large'
+                                            startIcon={<SearchIcon />}
+                                            sx={{ mt: '1rem',  }}> Ver mas productos</Button>
                                     </Link>
                                 </Grid> : ''
                         }

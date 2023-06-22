@@ -4,7 +4,6 @@ import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, where, query } from 'firebase/firestore';
 import { db } from '../../services/config';
-import Hero from '../Hero/Hero';
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([]);
@@ -30,9 +29,6 @@ const ItemListContainer = () => {
 
     return (
         <>
-
-            <Hero />
-
             <ItemList products={products} />
         </>
 

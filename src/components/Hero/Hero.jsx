@@ -3,6 +3,9 @@ import heroVideo from '../../assets/hero.mp4'
 import './Hero.css'
 
 import SendIcon from '@mui/icons-material/Send';
+import ItemListContainer from '../ItemListContainer/ItemListContainer';
+import InfoRemeras from '../InfoRemeras/InfoRemeras';
+
 
 const Hero = () => {
 
@@ -22,12 +25,19 @@ const Hero = () => {
 
                 <Typography
                     component='h2'
+                    className='heroTitle'
                     color='white'
                     fontWeight={600}
                     sx={{ fontSize: { xs: '1.5rem', sm: '3rem' } }}
                 >NUESTROS PRODUCTOS</Typography>
 
             </Stack>
+
+            <ItemListContainer />
+
+
+
+            <InfoRemeras />
 
         </>
     )

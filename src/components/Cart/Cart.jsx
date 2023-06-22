@@ -12,6 +12,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 
 import './Cart.css';
@@ -32,7 +34,8 @@ const Cart = () => {
                     </Typography>
 
                     <Link to='/' >
-                        <Button size='large' variant='contained' sx={{ fontWeight: '800', mt: '2rem' }}>
+                        <Button size='large' variant='contained' startIcon={<SearchIcon />}
+                            sx={{ fontWeight: '800', mt: '2rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                             Ver Productos
                         </Button>
                     </Link>
@@ -125,14 +128,14 @@ const Cart = () => {
                     </Stack>
 
                     <Stack gap={2} marginTop='2rem'>
-                            <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
+                        <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
 
-                            <Link to='/' >
-                                <Button variant='outlined' sx={{ width: '100%' }}> Ver mas productos</Button>
-                            </Link>
+                        <Link to='/' >
+                            <Button variant='outlined' sx={{ width: '100%' }}> Ver mas productos</Button>
+                        </Link>
 
                         <Link to='/checkout'>
-                            <Button variant="contained" sx={{fontSize:'1.5rem', fontWeight:'800' , marginBottom: '10rem', width: '100%', boxShadow:' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>Finalizar Compra</Button>
+                            <Button variant="contained" sx={{ fontSize: '1.2rem', fontWeight: '500', marginBottom: '10rem', width: '100%', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>Finalizar Compra</Button>
                         </Link>
 
                     </Stack>

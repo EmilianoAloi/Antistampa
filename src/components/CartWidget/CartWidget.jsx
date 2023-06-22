@@ -13,7 +13,7 @@ const CartWidget = () => {
 
         <Link to='./cart' style={{ textDecoration: 'none' }}>
             <Badge badgeContent={qtyTotal} color="error" sx={{ marginBottom: '0.6rem' }} >
-                <LocalMallOutlinedIcon color="primary" sx={{ fontSize: 32 }}/>
+                <LocalMallOutlinedIcon color="primary" sx={{ fontSize: 32,  }}/>
             </Badge>
         </Link>
 

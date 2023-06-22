@@ -1,0 +1,14 @@
+.detailShirt {
+    max-width: 60%;
+}
+
+.colors {
+    max-width: 60%;
+}
+
+.lineShirt {
+    width: 20rem;
+    height: 2px;
+    margin-top: 0.2rem;
+    background-color: yellow;
+}

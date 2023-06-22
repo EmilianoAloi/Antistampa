@@ -15,6 +15,7 @@ import Cart from './components/Cart/Cart';
 import NavBar from './components/Navbar/NavBar';
 import WpWidget from './components/WpWidget/WpWidget';
 import Checkout from './components/Checkout/Checkout';
+import Hero from './components/Hero/Hero';
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
             <WpWidget />
 
             <Routes>
-              <Route path='/' element={<ItemListContainer />} />
+              <Route path='/' element={<Hero />} />
               <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
               <Route path='/item/:idItem' element={<ItemDetailContainer />} />
               <Route path='*' element={<h2>En construccion</h2>} />

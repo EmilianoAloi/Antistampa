@@ -1,5 +1,4 @@
 import { Box, Typography, Container, Button, Stack } from "@mui/material"
-import SendIcon from '@mui/icons-material/Send';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 
 const ChooseDesing = () => {

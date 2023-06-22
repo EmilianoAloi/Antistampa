@@ -25,7 +25,7 @@ const Dtg = () => {
                     </Typography>
                 </Stack>
 
-                <Stack alignItems='center' mt={4} mb={20}>
+                <Stack alignItems='center' mt={4} mb={0}>
                     <video muted autoPlay src={machine} loop playsInline className='machine' ></video>
                 </Stack>
 

@@ -7,6 +7,7 @@ import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import InfoRemeras from '../InfoRemeras/InfoRemeras';
 import InfoBuzos from '../InfoBuzos/InfoBuzos';
 import Dtg from '../Dtg/Dtg';
+import ChooseDesing from '../ChooseDesing/ChooseDesing';
 
 
 const Hero = () => {
@@ -42,6 +43,8 @@ const Hero = () => {
             <InfoBuzos />
 
             <Dtg />
+
+            <ChooseDesing />
 
         </>
     )

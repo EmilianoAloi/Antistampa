@@ -1,0 +1,12 @@
+.machine {
+    max-width: 70%;
+    border-radius: 10px;
+    border: 3px solid yellow;
+}
+
+@media (max-width: 600px) {
+
+    .machine {
+        max-width: 110%;
+    }
+}

@@ -14,7 +14,7 @@ const InfoRemeras = () => {
 
                 <Typography component='h2' fontWeight={700}
                     sx={{ fontSize: { xs: '1rem', sm: '2rem' } }} >
-                    ASI SON NUESTRAS PRENDAS</Typography>
+                    ASI SON NUESTRAS REMERAS</Typography>
             </Box>
 
 

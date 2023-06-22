@@ -12,3 +12,15 @@
     margin-top: 0.2rem;
     background-color: yellow;
 }
+
+@media (max-width: 600px) {
+    .detailShirt {
+        max-width: 100%;
+    }
+    
+    .colors {
+        max-width: 100%;
+    }
+    
+
+}

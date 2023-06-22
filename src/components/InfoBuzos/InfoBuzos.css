@@ -1,0 +1,20 @@
+.buzos1 {
+    max-width: 40%;
+}
+
+.buzos2 {
+    max-width: 40%;
+}
+
+
+@media (max-width: 600px) {
+    .buzos1 {
+        max-width: 55%;
+    }
+    
+    .buzos2 {
+        max-width: 55%;
+    }
+    
+
+}

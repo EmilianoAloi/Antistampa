@@ -5,6 +5,8 @@ import './Hero.css'
 import SendIcon from '@mui/icons-material/Send';
 import ItemListContainer from '../ItemListContainer/ItemListContainer';
 import InfoRemeras from '../InfoRemeras/InfoRemeras';
+import InfoBuzos from '../InfoBuzos/InfoBuzos';
+import Dtg from '../Dtg/Dtg';
 
 
 const Hero = () => {
@@ -35,9 +37,11 @@ const Hero = () => {
 
             <ItemListContainer />
 
-
-
             <InfoRemeras />
+
+            <InfoBuzos />
+
+            <Dtg />
 
         </>
     )

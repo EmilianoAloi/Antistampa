@@ -16,7 +16,7 @@ const ChooseDesing = () => {
             <Container>
 
                 <Stack mb={15} >
-                    <Typography color='white' mb={4} sx={{ fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
+                    <Typography color='white' mb={4} sx={{ textAlign:'center' ,fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
                         1. Elegi que prenda queres personalizar. <br />
                         2. Elegir Color y Talle.<br />
                         3. Elegi tamaño de la impresion.<br />

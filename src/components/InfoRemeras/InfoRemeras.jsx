@@ -19,16 +19,12 @@ const InfoRemeras = () => {
 
 
 
-            {/* <Typography component='h3' color='white' fontWeight='500' letterSpacing={2} mt={7}
-                sx={{ fontSize: { xs: '1rem', sm: '3rem' }, lineHeight: '1.2' }}>NUESTRAS REMERAS</Typography>
-            <Stack className="lineShirt" mb={2}></Stack> */}
-
             <Container >
                 <Stack color='white' fontFamily='Roboto'>
-                    <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1rem', sm: '2rem' }, color: 'white', fontWeight: '700' }} >
+                    <Typography component='h3' mb={3} sx={{ textAlign:'center', fontSize: { xs: '1rem', sm: '2rem' }, color: 'white', fontWeight: '700' }} >
                         Remeras Ultrapremium de algodón 24.1 peinado.
                     </Typography>
-                    <Typography component='h3' sx={{ fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
+                    <Typography component='h3' sx={{textAlign:'center',  fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
                         Costura Reforzada en hombro y sisa. <br />
                         Talles reales para adultos: Desde XS hasta XXXL.<br />
                         Talles de Niños: Desde el 2 al 14.<br /><br />

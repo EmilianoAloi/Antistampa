@@ -19,10 +19,10 @@ const InfoBuzos = () => {
 
       <Container >
         <Stack color='white' fontFamily='Roboto'>
-          <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1rem', sm: '2rem' }, color: 'white', fontWeight: '700' }} >
+          <Typography component='h3' mb={3} sx={{ textAlign:'center', fontSize: { xs: '1rem', sm: '2rem' }, color: 'white', fontWeight: '700' }} >
             Buzos y Hoodies Ultrapremium.
           </Typography>
-          <Typography component='h3' sx={{ fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
+          <Typography component='h3' sx={{textAlign:'center',  fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
             Frisa invisible 50% algodón y 50% poliéster. <br />
             Tirilla de limpieza y costura reforzada en cuello, hombro y sisa. <br />
             Talles reales par adultos: Desde XS hasta XXXL. <br />

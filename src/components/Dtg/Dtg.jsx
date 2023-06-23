@@ -15,10 +15,10 @@ const Dtg = () => {
             <Container >
 
                 <Stack color='white' fontFamily='Roboto'>
-                    <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1rem', sm: '2rem' }, color: 'white', fontWeight: '700' }} >
+                    <Typography component='h3' mb={3} sx={{textAlign:'center',  fontSize: { xs: '1rem', sm: '2rem' }, color: 'white', fontWeight: '700' }} >
                         La técnica que usamos en Antistampa es DTG (impresión digital).
                     </Typography>
-                    <Typography component='h3' sx={{ fontSize: { xs: '0.8rem', sm: '1.2rem' } }} >
+                    <Typography component='h3' sx={{textAlign:'center', fontSize: { xs: '0.8rem', sm: '1.2rem' } }} >
                         Es un sistema que imprime directo sobre la prenda con tintas importadas de alta durabilidad y muy suave al tacto. <br />
                         Permite imprimir la imagen que ustedes quieran o cualquiera de nuestro catálogo sobre la prenda del color que elijan. <br /><br />
                         Ultima tecnología en lo que respecta a estampados sobre remeras. <br />

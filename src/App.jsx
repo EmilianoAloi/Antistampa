@@ -16,7 +16,7 @@ import NavBar from './components/Navbar/NavBar';
 import WpWidget from './components/WpWidget/WpWidget';
 import Checkout from './components/Checkout/Checkout';
 import Hero from './components/Hero/Hero';
-
+import Footer from './components/Footer/Footer';
 
 function App() {
 
@@ -30,6 +30,7 @@ function App() {
             <NavBar />
             <WpWidget />
 
+
             <Routes>
               <Route path='/' element={<Hero />} />
               <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
@@ -38,6 +39,9 @@ function App() {
               <Route path='/cart' element={<Cart />} />
               <Route path='/checkout' element={<Checkout />} />
             </Routes>
+
+            <Footer />
+
           </CartProvider>
         </BrowserRouter>
       </ThemeProvider>

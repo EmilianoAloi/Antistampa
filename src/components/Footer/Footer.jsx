@@ -1,11 +1,14 @@
-import { Stack, Typography, List, ListItem, ListItemAvatar, Avatar, ListItemText} from '@mui/material'
+import { Stack, Typography, List, ListItem, Paper, Button } from '@mui/material'
+import { NavLink } from 'react-router-dom';
 import './Footer.css'
 import logo from '../../assets/logo.png'
-import FolderIcon from '@mui/icons-material/Folder';
-import HomeIcon from '@mui/icons-material/Home';
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-import PortraitIcon from '@mui/icons-material/Portrait';
-import LiveHelpIcon from '@mui/icons-material/LiveHelp';
+
+
+// import FolderIcon from '@mui/icons-material/Folder';
+// import HomeIcon from '@mui/icons-material/Home';
+// import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+// import PortraitIcon from '@mui/icons-material/Portrait';
+// import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 
 const Footer = () => {
 
@@ -13,127 +16,101 @@ const Footer = () => {
         <>
 
 
-            <Stack sx={{ maxWidth: '95vw', margin: '0 auto', backgroundColor: '#F4BF00', mt: '5rem', flexDirection: 'column', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset', borderTopLeftRadius: '8rem', borderTopRightRadius: '8rem' }}>
+            <Paper elevation={10} className='footerDesktop' >
+                <Stack sx={{ backgroundColor: '#F4BF00', height: '2px', mt: '5rem' }}>   </Stack>
 
-                <Stack sx={{ flexDirection: 'row' , justifyContent: 'space-evenly', alignItems: 'center'}}>
-                    <Stack>
-                        <List >
-
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <HomeIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary="INICIO"
-                                />
-                            </ListItem>
-
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <ProductionQuantityLimitsIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary="PRODUCTOS"
-                                />
-                            </ListItem>
-
-
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <PortraitIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary="PERSONALIZADOS"
-                                />
-                            </ListItem>
-
-
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <FolderIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary="DUDAS"
-                                />
-                            </ListItem>
-
-                        </List>
-                    </Stack>
-
-                    <Stack sx={{ width: '12%' }}>
+                <Stack sx={{ flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'center', md: 'start' }, justifyContent: 'space-evenly', marginY: '2rem' }}>
+                    <Stack sx={{ width: {xs: '8rem', md:'12rem'}, alignSelf: 'center', marginBottom:'2rem' }}>
                         <img src={logo} alt="logo" />
                     </Stack>
 
-                    <Stack>
+                    <Stack sx={{ minWidth: '15rem' }}>
                         <List >
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <FolderIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary="INICIO"
-                                />
+
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='/'
+                                >INICIO
+                                </Button>
                             </ListItem>
 
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <FolderIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary="PRODUCTOS"
-                                />
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='./categoria/nacional'
+                                >BANDAS NACIONALES
+                                </Button>
                             </ListItem>
 
 
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar sx={{ color: 'black' }}>
-                                        <FolderIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText primary="PERSONALIZADOS"
-                                />
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='./categoria/internacional'
+                                >BANDAS INTERNACIONALES
+                                </Button>
+                            </ListItem>
+
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='./categoria/tote'
+                                >TOTES
+                                </Button>
+                            </ListItem>
+
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button disabled sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='/'
+                                >PRODUCTOS ANTISTAMPA
+                                </Button>
                             </ListItem>
 
 
-                            <ListItem>
-                                <ListItemAvatar>
-                                    <Avatar>
-                                        <LiveHelpIcon />
-                                    </Avatar>
-                                </ListItemAvatar>
-                                <ListItemText
-                                    primary="DUDAS"
-                                />
-                            </ListItem>
+
+
 
                         </List>
                     </Stack>
 
+                    <Stack sx={{ minWidth: '15rem', gap:5 }}>
+                        <List >
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='/'
+                                >PREGUNTAS FRECUENTES
+                                </Button>
+                            </ListItem>
+
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='./categoria/nacional'
+                                >CONTACTO
+                                </Button>
+                            </ListItem>
+                        </List>
+
+                        <Stack sx={{ width: { xs: '15rem', md: '20rem' } }}>
+                            <Typography sx={{ textAlign: { xs: 'center', md: 'start' }, fontSize: '0.8rem', marginTop: { md: '1rem' } }}>
+                                Términos y condiciones <br /> Políticas de privacidad <br />
+                                © 2023 Antistampa, Todos los derechos reservados.
+                                Argentina C1428CL
+                            </Typography>
+                        </Stack>
+
+                    </Stack>
+
+
                 </Stack>
 
-                <Stack sx={{color:'black',maxWidth: '80%', margin:'0 auto'}} >
-                    <Typography >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos accusantium sint fuga. Itaque assumenda, minus nostrum aperiam porro qui temporibus </Typography>
-                </Stack>
 
+                <Stack sx={{ backgroundColor: '#F4BF00', height: '2px', marginBottom: '2rem' }}>   </Stack>
 
-
-
-            </Stack>
-
-
+            </Paper>
 
 
 

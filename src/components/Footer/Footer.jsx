@@ -75,7 +75,7 @@ const Footer = () => {
                         </List>
                     </Stack>
 
-                    <Stack sx={{ minWidth: '15rem', gap:5 }}>
+                    <Stack sx={{ minWidth: '15rem', gap:3 }}>
                         <List >
                             <ListItem sx={{ padding: '.2rem' }}>
                                 <Button sx={{ padding: '0', minWidth: '0' }}
@@ -95,7 +95,7 @@ const Footer = () => {
                         </List>
 
                         <Stack sx={{ width: { xs: '15rem', md: '20rem' } }}>
-                            <Typography sx={{ textAlign: { xs: 'center', md: 'start' }, fontSize: '0.8rem', marginTop: { md: '1rem' } }}>
+                            <Typography sx={{ textAlign: { xs: 'center', md: 'start' }, fontSize: '0.8rem' }}>
                                 Términos y condiciones <br /> Políticas de privacidad <br />
                                 © 2023 Antistampa, Todos los derechos reservados.
                                 Argentina C1428CL

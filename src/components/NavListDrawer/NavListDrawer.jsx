@@ -93,10 +93,10 @@ const NavListDrawer = ({ setOpen }) => {
         <Divider />
 
         <ListItem sx={{ paddingLeft: '0rem' }}>
-          <Button disabled
+          <Button 
             sx={{ padding: '0rem' }}
             component={NavLink}
-            to='/'
+            to='/dudas'
             onClick={handleCloseDrawer}
           >DUDAS
           </Button>

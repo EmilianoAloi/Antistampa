@@ -24,7 +24,7 @@ const NavBar = () => {
                     <Link to='/'>
                         <img className="logoMobile" src="../img/logo.png" alt="Logo" />
                     </Link>
-                    
+
                     <IconButton sx={{ display: { xs: 'block', sm: 'none' }, }}>
                         <CartWidget />
                     </IconButton>
@@ -43,9 +43,9 @@ const NavBar = () => {
 
                         <Button component={NavLink} to='/' >INICIO</Button>
                         <ProductsButton></ProductsButton>
-                        <Button component='li' disabled>PERSONALIZADOS</Button>
-                        <Button component='li' disabled>DUDAS</Button>
-                        <Button component='li' disabled>CONTACTO</Button>
+                        <Button disabled>PERSONALIZADOS</Button>
+                        <Button component={NavLink} to={'/dudas'} >DUDAS</Button>
+                        <Button disabled>CONTACTO</Button>
                     </Stack>
 
                     <IconButton sx={{ display: { xs: 'none', sm: 'block' } }}>

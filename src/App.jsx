@@ -17,6 +17,7 @@ import WpWidget from './components/WpWidget/WpWidget';
 import Checkout from './components/Checkout/Checkout';
 import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
+import Faqs from './components/Faqs/Faqs';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
               <Route path='*' element={<h2>En construccion</h2>} />
               <Route path='/cart' element={<Cart />} />
               <Route path='/checkout' element={<Checkout />} />
+              <Route path='/dudas' element={<Faqs />} />
             </Routes>
 
             <Footer />

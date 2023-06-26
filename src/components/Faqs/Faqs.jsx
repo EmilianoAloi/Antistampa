@@ -16,7 +16,7 @@ const Faqs = () => {
     return (
 
         <>
-            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500} margin={5} sx={{ fontSize: { xs: '1.3rem', md: '2rem' }, textAlign: { xs: 'center', md: 'start' } }} >PREGUNTAS FRECUENTES</Typography>
+            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500}  sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, textAlign: { xs: 'center', md: 'center' }, marginY:'1.5rem' }} >PREGUNTAS FRECUENTES</Typography>
 
 
             <Container>

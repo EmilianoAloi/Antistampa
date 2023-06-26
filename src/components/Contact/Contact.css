@@ -1,0 +1,29 @@
+.contact1 {
+    transition: all 0.5s;
+}
+
+.contact1:hover {
+    transform: scale(1.1);
+}
+
+.contact2 {
+    transition: all 0.5s;
+}
+
+.contact2:hover {
+    transform: scale(1.1);
+}
+.contact3 {
+    transition: all 0.5s;
+}
+
+.contact3:hover {
+    transform: scale(1.1);
+}
+.contact4 {
+    transition: all 0.5s;
+}
+
+.contact4:hover {
+    transform: scale(1.1);
+}

@@ -103,10 +103,10 @@ const NavListDrawer = ({ setOpen }) => {
         </ListItem>
 
         <ListItem sx={{ paddingLeft: '0.5rem'}}>
-          <Button disabled
+          <Button 
             sx={{ padding: '0rem' }}
             component={NavLink}
-            to='/'
+            to='/contacto'
             onClick={handleCloseDrawer}
           >CONTACTO
           </Button>

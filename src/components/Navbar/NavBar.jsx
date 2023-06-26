@@ -45,7 +45,7 @@ const NavBar = () => {
                         <ProductsButton></ProductsButton>
                         <Button disabled>PERSONALIZADOS</Button>
                         <Button component={NavLink} to={'/dudas'} >DUDAS</Button>
-                        <Button disabled>CONTACTO</Button>
+                        <Button component={NavLink} to={'/contacto'}>CONTACTO</Button>
                     </Stack>
 
                     <IconButton sx={{ display: { xs: 'none', sm: 'block' } }}>

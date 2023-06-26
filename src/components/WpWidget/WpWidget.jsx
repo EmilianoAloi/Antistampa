@@ -7,7 +7,7 @@ const WpWidget = () => {
         <>
 
             <Container>
-                <a href="https://wa.me/5491164906306?text=Hola! Envianos tu consulta, en Antistampa te respondemos al instante!" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5491144034628?text=Hola! Envianos tu consulta, en Antistampa te respondemos al instante!" target="_blank" rel="noopener noreferrer">
                     <img src={logoWp} alt="whatsapp" className='wpWidget' />
                 </a>
             </Container>

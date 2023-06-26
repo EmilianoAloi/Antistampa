@@ -18,6 +18,7 @@ import Checkout from './components/Checkout/Checkout';
 import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
 import Faqs from './components/Faqs/Faqs';
+import Contact from './components/Contact/Contact';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
               <Route path='/cart' element={<Cart />} />
               <Route path='/checkout' element={<Checkout />} />
               <Route path='/dudas' element={<Faqs />} />
+              <Route path='/contacto' element={<Contact />}/>
             </Routes>
 
             <Footer />

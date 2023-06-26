@@ -4,11 +4,6 @@ import './Footer.css'
 import logo from '../../assets/logo.png'
 
 
-// import FolderIcon from '@mui/icons-material/Folder';
-// import HomeIcon from '@mui/icons-material/Home';
-// import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
-// import PortraitIcon from '@mui/icons-material/Portrait';
-// import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 
 const Footer = () => {
 
@@ -111,9 +106,6 @@ const Footer = () => {
                 <Stack sx={{ backgroundColor: '#F4BF00', height: '2px', marginBottom: '2rem' }}>   </Stack>
 
             </Paper>
-
-
-
 
         </>
     )

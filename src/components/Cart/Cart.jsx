@@ -28,7 +28,7 @@ const Cart = () => {
     if (qtyTotal === 0) {
         return (
             <>
-                <Container sx={{ color: 'white', textAlign: 'center', border: '1px solid yellow', padding: '2rem', maxWidth: '500px !important', mt: { xs: '5rem', md: '8rem' } }} >
+                <Container sx={{ color: 'white', textAlign: 'center', border: '1px solid yellow', padding: '2rem', maxWidth: '500px !important', mt: { xs: '5rem', md: '8rem' }, mb:'15rem' }} >
                     <Typography component='h2' variant="h5" fontWeight='800' >
                         No hay productos seleccionados 😔
                     </Typography>

@@ -1,5 +1,4 @@
 import { Typography, Container } from '@mui/material'
-
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -10,13 +9,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Faqs = () => {
 
-
-
-
     return (
 
         <>
-            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500}  sx={{ fontSize: { xs: '1.5rem', md: '2rem' }, textAlign: { xs: 'center', md: 'center' }, marginY:'1.5rem' }} >PREGUNTAS FRECUENTES</Typography>
+            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500}  sx={{ fontSize: { xs: '1.5rem', md: '2.5rem' }, textAlign: { xs: 'center', md: 'center' }, marginY:'1.5rem' }} >PREGUNTAS FRECUENTES</Typography>
 
 
             <Container>

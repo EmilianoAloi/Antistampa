@@ -81,10 +81,10 @@ const NavListDrawer = ({ setOpen }) => {
 
 
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
-          <Button disabled
+          <Button 
             sx={{ padding: '0rem' }}
             component={NavLink}
-            to='/'
+            to='/personalizados'
             onClick={handleCloseDrawer}
           >PERSONALIZADOS
           </Button>

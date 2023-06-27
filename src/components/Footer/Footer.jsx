@@ -63,6 +63,13 @@ const Footer = () => {
                                 </Button>
                             </ListItem>
 
+                            <ListItem sx={{ padding: '.2rem' }}>
+                                <Button sx={{ padding: '0', minWidth: '0' }}
+                                    component={NavLink}
+                                    to='/personalizados'
+                                >PERSONALIZADOS
+                                </Button>
+                            </ListItem>
 
 
 
@@ -83,7 +90,7 @@ const Footer = () => {
                             <ListItem sx={{ padding: '.2rem' }}>
                                 <Button sx={{ padding: '0', minWidth: '0' }}
                                     component={NavLink}
-                                    to='./categoria/nacional'
+                                    to='./contacto'
                                 >CONTACTO
                                 </Button>
                             </ListItem>

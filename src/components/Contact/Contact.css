@@ -1,7 +1,9 @@
-.contact1, .contact2, .contact3, .contact4 {
-    transition:  1s  !important;
-}
-
-.contact1:hover, .contact2:hover, .contact3:hover, .contact4:hover {
-    transform: scale(1.1);
+@media (min-width: 800px) {
+    .contact1, .contact2, .contact3, .contact4 {
+        transition:  1s  !important;
+    }
+    
+    .contact1:hover, .contact2:hover, .contact3:hover, .contact4:hover {
+        transform: scale(1.1);
+    }
 }

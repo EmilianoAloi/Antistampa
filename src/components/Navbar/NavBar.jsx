@@ -43,7 +43,7 @@ const NavBar = () => {
 
                         <Button component={NavLink} to='/' >INICIO</Button>
                         <ProductsButton></ProductsButton>
-                        <Button disabled>PERSONALIZADOS</Button>
+                        <Button component={NavLink} to={'/personalizados'}>PERSONALIZADOS</Button>
                         <Button component={NavLink} to={'/dudas'} >DUDAS</Button>
                         <Button component={NavLink} to={'/contacto'}>CONTACTO</Button>
                     </Stack>

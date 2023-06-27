@@ -8,6 +8,7 @@ import InfoRemeras from '../InfoRemeras/InfoRemeras';
 import InfoBuzos from '../InfoBuzos/InfoBuzos';
 import Dtg from '../Dtg/Dtg';
 import ChooseDesing from '../ChooseDesing/ChooseDesing';
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -20,7 +21,8 @@ const Hero = () => {
 
                 <video muted autoPlay src={heroVideo} loop playsInline  className='videoHero' ></video>
 
-                <Button variant='contained' size='large' endIcon={<SendIcon />} sx={{fontWeight:'800', borderRadius: '10px', paddingY:'1rem', boxShadow:' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}>
+                <Button variant='contained' className='btnPersonalizar' size='large' endIcon={<SendIcon />} component={Link} to={'./personalizados'}
+                sx={{fontWeight:'800', borderRadius: '10px', paddingY:'1rem', boxShadow:' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}>
                     Personaliza tu prenda
                 </Button>
 

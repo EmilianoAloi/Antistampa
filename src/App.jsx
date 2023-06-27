@@ -19,6 +19,7 @@ import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
 import Faqs from './components/Faqs/Faqs';
 import Contact from './components/Contact/Contact';
+import Personalizar from './components/Personalizar/Personalizar';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
               <Route path='/checkout' element={<Checkout />} />
               <Route path='/dudas' element={<Faqs />} />
               <Route path='/contacto' element={<Contact />}/>
+              <Route path='/personalizados' element ={<Personalizar />} />
             </Routes>
 
             <Footer />

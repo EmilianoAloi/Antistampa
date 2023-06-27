@@ -1,5 +1,6 @@
 import { Box, Typography, Container, Button, Stack } from "@mui/material"
 import CheckroomIcon from '@mui/icons-material/Checkroom';
+import { Link } from "react-router-dom";
 
 const ChooseDesing = () => {
     return (
@@ -24,7 +25,7 @@ const ChooseDesing = () => {
                         5. Y por ultimo, envianos tu diseño en formato jpg, jpeg o png y HD.
                     </Typography>
 
-                    <Button variant='contained' size='large' endIcon={<CheckroomIcon />} 
+                    <Button variant='contained' size='large' className="btnPersonalizar" component={Link} to={'/personalizados'} endIcon={<CheckroomIcon />} 
                         sx={{ fontSize: { xs: '1rem', sm: '1.4rem' }, margin:'0 auto', marginTop:'2rem', maxWidth: '25rem', fontWeight: '800', borderRadius: '10px', paddingY: '1rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                         Personaliza tu prenda
                     </Button>

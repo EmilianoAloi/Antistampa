@@ -11,7 +11,7 @@ const Contact = () => {
     return (
         <>
 
-            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500} sx={{ fontSize: { xs: '1.5rem', md: '2.5rem' }, textAlign: { xs: 'center', md: 'center' }, marginY: '1.5rem' }} >
+            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500} sx={{ fontSize: { xs: '1.5rem', md: '2.5rem' }, textAlign: { xs: 'center', sm: 'center' }, marginY: '1.5rem' }} >
                 CONTACTO</Typography>
 
             {/* <Typography color='#F4BF00'>Cualquier consulta que tengas, no dudes en escribirnos.

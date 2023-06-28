@@ -3,9 +3,9 @@
     margin: 0 auto;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     .videoHero {
-        width: 50%;
+        width: 60%;
         border-radius: 20px;
     }
 

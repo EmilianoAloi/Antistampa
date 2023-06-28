@@ -1,4 +1,4 @@
-import { Box, Typography, Stack, Grid, Container } from "@mui/material"
+import { Box, Typography, Stack, Grid, Container, Fab } from "@mui/material"
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -9,16 +9,39 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import PaymentIcon from '@mui/icons-material/Payment';
+
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+
 
 
 import remeraPersonalizada from '../../assets/remeraPerzonalizada.png'
 // import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
 // import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
 
+import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
+import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
+import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
+import PhotoSizeSelectLargeOutlinedIcon from '@mui/icons-material/PhotoSizeSelectLargeOutlined';
+import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+
 const Personalizar = () => {
 
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location])
 
     const [open, setOpen] = useState(false);
     const [open1, setOpen1] = useState(false);
@@ -26,10 +49,10 @@ const Personalizar = () => {
     const [open3, setOpen3] = useState(false);
     const [open4, setOpen4] = useState(false);
     const [prenda, setPrenda] = useState('');
-    const [color, setColor] = useState('');
-    const [talle, setTalle] = useState('');
-    const [estampado, setEstampado] = useState('');
-    const [ubicacion, setUbicacion] = useState('');
+    const [color, setColor] = useState('?');
+    const [talle, setTalle] = useState('?');
+    const [estampado, setEstampado] = useState('?');
+    const [ubicacion, setUbicacion] = useState('?');
 
 
 
@@ -115,57 +138,99 @@ const Personalizar = () => {
                 <Typography component='h2' fontWeight={700} className="heroTitle"
                     sx={{ fontSize: { xs: '1.5rem', sm: '2.5rem' } }} >
                     PERSONALIZA TU PRENDA</Typography>
-                <Typography sx={{ color: 'white' }}><i>Con la foto o frase que elijas estampar</i> </Typography>
+                <Typography sx={{ color: 'white' }}><i>Seleccionando cada caracteritica</i> </Typography>
             </Box>
 
             <Container>
-                <Grid container spacing={0} alignItems='center' justifyContent='center'>
+                <Grid container spacing={3} alignItems='center' justifyContent='center'>
 
-                    <Grid item xs={12} md={12}>
-                        <Stack gap={2} mb={2} mt={1} sx={{ flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'center' }}>
-                            <Button variant="outlined" color="success" onClick={handleClickOpen}>1. tipo de prenda </Button>
-                            <Button variant="outlined" color="success" onClick={handleClickOpen1}>2. Elegir talle</Button>
-                            <Button variant="outlined" color="success" onClick={handleClickOpen2}>3. Elegir  color</Button>
-                            <Button variant="outlined" color="success" onClick={handleClickOpen3}>4. tamaño del estampado</Button>
-                            <Button variant="outlined" color="success" onClick={handleClickOpen4}>5. ubicacion del estampado</Button>
+                    <Grid item xs={12} md={12} mb={0}>
+                        <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: { xs: '0.5rem', md: '2rem' } }}>
+                            <Stack width='fit-content'>
+                                <Fab color="success" aria-label="add" onClick={handleClickOpen}> <CollectionsOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Prenda</Typography>
+                            </Stack>
+
+                            <Stack width='fit-content'>
+                                <Fab color="success" aria-label="add" onClick={handleClickOpen1}> <StraightenOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Talle</Typography>
+                            </Stack>
+
+                            <Stack width='fit-content'>
+                                <Fab color="success" aria-label="add" onClick={handleClickOpen2}> <ColorLensOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Color</Typography>
+                            </Stack>
+
+                            <Stack width='fit-content'>
+                                <Fab color="success" aria-label="add" onClick={handleClickOpen3}> <PhotoSizeSelectLargeOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Tamaño </Typography>
+                            </Stack>
+
+                            <Stack width='fit-content'>
+                                <Fab color="success" aria-label="add" onClick={handleClickOpen4}> <MapOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Posición</Typography>
+                            </Stack>
                         </Stack>
                     </Grid>
 
-                    <Grid item xs={6} sm={6} >
-                        <Stack width='80%' sx={{ margin:'0 auto' }}><img src={remeraPersonalizada} alt="Remera Unisex" /></Stack>
+                    <Grid item>
+
+                    <Typography component='h3' 
+                                sx={{ color: 'white', fontSize: { xs: '1.5rem', sm: '3rem' } }} >
+                                Producto:  <strong>{prenda}</strong>
+                            </Typography>
+
+
                     </Grid>
 
-                    <Grid item xs={6} sm={6}>
+                    <Grid item xs={12} md={6}>
+                        <TableContainer component={Paper} sx={{ width: '100%' }}>
+                            <Table aria-label="simple table">
 
-                        <Stack direction='column' gap={2}>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>PRENDA</TableCell>
+                                        <TableCell align="right"></TableCell>
+                                        <TableCell align="left">ESTAMPADO</TableCell>
+                                    </TableRow>
+                                </TableHead>
+
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell component="th" scope="row">Talle: <strong>{talle}</strong> </TableCell>
+                                        <TableCell align="right"></TableCell>
+                                        <TableCell align="left">Tamaño: <strong>{estampado}</strong></TableCell>
+                                    </TableRow>
+
+                                    <TableRow>
+                                        <TableCell component="th" scope="row">Color: <strong>{color}</strong> </TableCell>
+                                        <TableCell align="right"></TableCell>
+                                        <TableCell align="left">Ubicacion: <strong>{ubicacion}</strong></TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+
+                    </Grid>
+
+                    <Grid item xs={12} sm={6} mt={0}>
+                        <Stack width='80%' sx={{ margin: '0 auto' }}><img src={remeraPersonalizada} alt="Remera Unisex" /></Stack>
+                    </Grid>
+
+                    
+
+                    <Grid item xs={12} sm={6} >
+
+                        <Stack direction='column' gap={0}>
                             <Typography component='h3'
-                                sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '3rem' } }} >
-                                Personalizado:  <strong>{prenda}</strong>
+                                sx={{ color: 'white', fontSize: { xs: '1.5rem', sm: '3rem' } }} >
+                                <strong>{prenda}</strong> personalizado.
                             </Typography>
-                            <Stack direction='column' gap={0}>
-                                <Typography sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '0.8rem' } }}>PRENDA</Typography>
-                                <Typography component='h3'
-                                    sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.7rem' } }} >
-                                    Talle: <strong>{talle}</strong>
-                                </Typography>
-                                <Typography component='h3'
-                                    sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.7rem' } }} >
-                                    Color: <strong>{color}</strong>
-                                </Typography>
-                            </Stack>
-                            <Stack direction='column'>
-                                <Typography sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '0.8rem' } }}>ESTAMPADO</Typography>
-                                <Typography component='h3'
-                                    sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.2rem' } }} >
-                                    Tamaño: <strong>{estampado}</strong>
-                                </Typography>
-                                <Typography component='h3'
-                                    sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.2rem' } }} >
-                                    Ubicacion: <strong>{ubicacion}</strong>
-                                </Typography>
-                            </Stack>
-                            <Typography component='h3' fontWeight='800' mb={2}
-                                sx={{ color: 'white', fontSize: { xs: '1.3rem', md: '3rem' } }} >
+                     
+
+
+                            <Typography component='h3' fontWeight='800' mb={2} mt={2}
+                                sx={{ color: 'white', fontSize: { xs: '1.3rem', md: '2.5rem' }, textAlign: 'start' }} >
                                 Precio: $3500
                             </Typography>
                             <Button variant='contained' size='large' color='success'
@@ -178,13 +243,10 @@ const Personalizar = () => {
 
                     </Grid>
 
+                    
+
                 </Grid>
             </Container>
-
-
-
-
-
 
 
 
@@ -309,12 +371,12 @@ const Personalizar = () => {
             </Dialog>
 
             <Dialog disableEscapeKeyDown open={open4} onClose={handleClose4}>
-                <DialogTitle>SELECCION DE UBICACION</DialogTitle>
+                <DialogTitle>UBICACION DE ESTAMPADO</DialogTitle>
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
                         <FormControl sx={{ m: 1, minWidth: '15rem' }}>
-                            <InputLabel id="ubicacion-dialog-select-label" color='success'>Tamaño de estampado:</InputLabel>
+                            <InputLabel id="ubicacion-dialog-select-label" color='success'>Ubicacion de estampado:</InputLabel>
                             <Select
                                 color='success'
                                 labelId="ubicacion-select-label"
@@ -349,3 +411,28 @@ const Personalizar = () => {
 }
 
 export default Personalizar
+
+
+
+ /* <Stack direction='column' gap={0}>
+                                    <Typography sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '0.8rem' } }}>PRENDA</Typography>
+                                    <Typography component='h3'
+                                        sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
+                                        Talle: <strong>{talle}</strong>
+                                    </Typography>
+                                    <Typography component='h3'
+                                        sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
+                                        Color: <strong>{color}</strong>
+                                    </Typography>
+                                </Stack>
+                                <Stack direction='column'>
+                                    <Typography sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '0.8rem' } }}>ESTAMPADO</Typography>
+                                    <Typography component='h3'
+                                        sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
+                                        Tamaño: <strong>{estampado}</strong>
+                                    </Typography>
+                                    <Typography component='h3'
+                                        sx={{ color: 'white', fontSize: { xs: '0.8rem', sm: '1.5rem' } }} >
+                                        Ubicacion: <strong>{ubicacion}</strong>
+                                    </Typography>
+                                </Stack> */

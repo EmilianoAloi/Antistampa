@@ -82,7 +82,7 @@ const Footer = () => {
                             <ListItem sx={{ padding: '.2rem' }}>
                                 <Button sx={{ padding: '0', minWidth: '0' }}
                                     component={NavLink}
-                                    to='/personalizados'
+                                    to='/dudas'
                                 >PREGUNTAS FRECUENTES
                                 </Button>
                             </ListItem>

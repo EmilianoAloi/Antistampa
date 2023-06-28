@@ -3,12 +3,18 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 
 
 
 const Faqs = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location])
 
     return (
 

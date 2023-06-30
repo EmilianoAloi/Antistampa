@@ -13,7 +13,6 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
     const [addQty, setAddQty] = useState(0);
 
 
-
     const { addItem } = useContext(CartContext);
 
     const handleQty = (qty) => {
@@ -35,7 +34,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                         <Stack className="line"></Stack>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} mt={1} textAlign='center'>
+                    <Grid item xs={12} sm={6} mt={1}  textAlign='center'>
                         <img className='imgDetail' src={img} alt={name} />
                     </Grid>
 

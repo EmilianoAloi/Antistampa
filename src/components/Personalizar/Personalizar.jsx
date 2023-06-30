@@ -9,11 +9,10 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
 import PaymentIcon from '@mui/icons-material/Payment';
-
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -21,19 +20,17 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-
+import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
+import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
+import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
+import PhotoSizeSelectLargeOutlinedIcon from '@mui/icons-material/PhotoSizeSelectLargeOutlined';
+import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
 
 import remeraPersonalizada from '../../assets/remeraPerzonalizada.png'
 // import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
 // import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
 
-import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
-import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
-import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
-import PhotoSizeSelectLargeOutlinedIcon from '@mui/icons-material/PhotoSizeSelectLargeOutlined';
-import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
 const Personalizar = () => {
 
@@ -42,6 +39,33 @@ const Personalizar = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location])
+
+    const { addItem } = useContext(CartContext);
+
+    const handlePersonalizado = () => {
+
+        const item = {
+            id:'0',
+            prenda: '',
+            talle: '',
+            color: '',
+            estampado: '',
+            ubicacion: '',
+            price: 50000,
+            product: prenda + ' Personalizado/a',
+        };
+
+        addItem(item, 1);
+
+        setPrenda('');
+        setColor('');
+        setTalle('');
+        setEstampado('');
+        setUbicacion('');
+
+    }
+
+
 
     const [open, setOpen] = useState(false);
     const [open1, setOpen1] = useState(false);
@@ -53,6 +77,8 @@ const Personalizar = () => {
     const [talle, setTalle] = useState('');
     const [estampado, setEstampado] = useState('');
     const [ubicacion, setUbicacion] = useState('');
+
+
 
     const handleChange = (e) => {
         setPrenda(e.target.value);
@@ -126,45 +152,51 @@ const Personalizar = () => {
     };
 
 
+
+
+
+
+
+
     return (
         <>
-            <Box sx={{ color: 'white', textAlign: 'center', margin: '0 auto', marginBottom: '2rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+            <Box sx={{ color: 'white', textAlign: 'center', margin: '0 auto', marginBottom: '1rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                 <Typography component='h2' fontWeight={700} className="heroTitle"
                     sx={{ fontSize: { xs: '1.5rem', sm: '2.5rem' } }} >
                     PERSONALIZA TU PRENDA</Typography>
-                <Typography sx={{ color: 'white', fontSize: '.8rem', textAlign: 'center', fontWeight: '500', marginBottom: { xs: '1rem' }, display: { md: 'none' } }}><i>Selecciona tus preferencias</i> </Typography>
+                <Typography sx={{ color: 'white', fontSize: '.8rem', marginTop: '1rem', textAlign: 'center', fontWeight: '500', display: { md: 'none' } }}><i>Selecciona tus preferencias</i> </Typography>
             </Box>
 
             <Container>
                 <Grid container spacing={3} alignItems='center' justifyContent='center'>
 
-                    <Grid item className="mobile" xs={12} sm={6} mb={0} sx={{ display: { md: 'none' } }} >
+                    <Grid item className="mobile" xs={12} sm={6} sx={{ display: { md: 'none' } }} >
 
-                        <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: { xs: '0.8rem', md: '2rem' }, marginBottom: { xs: '1rem' } }}>
+                        <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: { xs: '0.5rem', md: '2rem' }, marginBottom: { xs: '1rem' } }}>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}} onClick={handleClickOpen}> <CollectionsOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Prenda</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen}> <CollectionsOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.8rem' }} fontWeight={400} textAlign='center'>Prenda</Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}} onClick={handleClickOpen1}> <StraightenOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Talle</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen1}> <StraightenOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.8rem' }} fontWeight={400} textAlign='center'>Talle</Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen2}> <ColorLensOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Color</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen2}> <ColorLensOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.8rem' }} fontWeight={400} textAlign='center'>Color</Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen3}> <PhotoSizeSelectLargeOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Tamaño </Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen3}> <PhotoSizeSelectLargeOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.8rem' }} fontWeight={400} textAlign='center'>Tamaño </Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen4}> <MapOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Posición</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen4}> <MapOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.8rem' }} fontWeight={400} textAlign='center'>Posición</Typography>
                             </Stack>
                         </Stack>
 
@@ -223,7 +255,7 @@ const Personalizar = () => {
 
 
 
-                            <Button variant='contained' size='large' color='success'
+                            <Button variant='contained' size='large' color='success' onClick={handlePersonalizado}
                                 startIcon={<PaymentIcon />}
                                 sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                                 Terminar Compra
@@ -235,31 +267,31 @@ const Personalizar = () => {
                         <Typography sx={{ color: 'white', textAlign: 'center', fontWeight: '605000', marginBottom: '1.5rem' }}>SELECCIONA TUS PREFERENCIAS </Typography>
 
 
-                        <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: { xs: '0.5rem', md: '2rem' }, marginBottom: { xs: '', md: '2rem' } }}>
+                        <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: { xs: '0.5rem', md: '2rem' }, marginBottom: { xs: '', md: '1rem' } }}>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen}> <CollectionsOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Prenda</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen}> <CollectionsOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.9rem' }} fontWeight={400} textAlign='center'>Prenda</Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen1}> <StraightenOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Talle</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen1}> <StraightenOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.9rem' }} fontWeight={400} textAlign='center'>Talle</Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen2}> <ColorLensOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Color</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen2}> <ColorLensOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.9rem' }} fontWeight={400} textAlign='center'>Color</Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen3}> <PhotoSizeSelectLargeOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Tamaño </Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen3}> <PhotoSizeSelectLargeOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.9rem' }} fontWeight={400} textAlign='center'>Tamaño </Typography>
                             </Stack>
 
                             <Stack width='fit-content'>
-                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;'}}  onClick={handleClickOpen4}> <MapOutlinedIcon size='' />  </Fab>
-                                <Typography sx={{ color: 'success.main' }} fontWeight={400} textAlign='center'>Posición</Typography>
+                                <Fab color="success" aria-label="add" sx={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} onClick={handleClickOpen4}> <MapOutlinedIcon size='' />  </Fab>
+                                <Typography sx={{ color: 'success.main', fontSize: '.9rem' }} fontWeight={400} textAlign='center'>Posición</Typography>
                             </Stack>
                         </Stack>
 
@@ -308,7 +340,7 @@ const Personalizar = () => {
 
 
 
-                            <Button variant='contained' size='large' color='success'
+                            <Button variant='contained' size='large' color='success' onClick={handlePersonalizado}
                                 startIcon={<PaymentIcon />}
                                 sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                                 Terminar Compra

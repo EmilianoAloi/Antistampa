@@ -28,7 +28,7 @@ const Counter = ({ stock, initial, addFunction }) => {
 
                 <Stack flexDirection='row' gap={2}>
 
-                    <Button variant="outlined" size='small' sx={{ minWidth: 'initial' }}
+                    <Button variant="text"  sx={{ minWidth: '0' }}
                         onClick={countDecrease}
                     >
                         <RemoveIcon />
@@ -38,20 +38,20 @@ const Counter = ({ stock, initial, addFunction }) => {
                         component='h4'
                         variant='h5'
                         fontWeight='800'
-                       sx={{paddingTop: {xs: '0.4rem', md:'0.5rem'}}}>
+                        sx={{ paddingTop: { xs: '0.4rem', md: '0.5rem' } }}>
                         {counter}
                     </Typography>
 
-                    <Button variant="outlined" size='small' sx={{ minWidth: 'initial' }}
+                    <Button variant="text"  sx={{ minWidth: '0' }}
                         onClick={countIncrease}
                     >
-                        <AddIcon  />
+                        <AddIcon />
                     </Button>
 
                 </Stack>
 
                 <Stack maxWidth='80%' >
-                    <Button variant="outlined" sx={{height:'3rem', fontSize:'0.7rem !important'}}
+                    <Button variant="outlined" sx={{ height: '3rem', fontSize: '0.7rem !important' }}
                         onClick={() => addFunction(counter)}
                     >
                         Agregar al carrito

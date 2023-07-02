@@ -1,6 +1,6 @@
 import { CartContext } from "../Context/CartContext";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
 import { Button, Container, Stack, Typography, IconButton, } from "@mui/material";
 import Table from '@mui/material/Table';
@@ -10,12 +10,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import SearchIcon from '@mui/icons-material/Search';
-
-
-
 import './Cart.css';
 
 
@@ -23,6 +19,15 @@ import './Cart.css';
 
 
 const Cart = () => {
+
+    const location = useLocation();
+
+    useEffect(() => {
+window.scrollTo(0, 0);
+    }, [location])
+
+
+
     const { cart, emptyCart, total, qtyTotal, delProduct } = useContext(CartContext)
 
     if (qtyTotal === 0) {

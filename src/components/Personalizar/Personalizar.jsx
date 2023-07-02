@@ -27,9 +27,10 @@ import PhotoSizeSelectLargeOutlinedIcon from '@mui/icons-material/PhotoSizeSelec
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
 
-import remeraPersonalizada from '../../assets/remeraPerzonalizada.png'
-// import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
-// import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
+import remeraPersonalizadaFrente from '../../assets/remeraPerzonalizada.png'
+import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
+import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
+import totePersonalizado from '../../assets/totePersonalizado.jpg'
 
 
 const Personalizar = () => {
@@ -45,14 +46,15 @@ const Personalizar = () => {
     const handlePersonalizado = () => {
 
         const item = {
-            id:'0',
-            prenda: '',
-            talle: '',
-            color: '',
-            estampado: '',
-            ubicacion: '',
+            id: '0',
+            prenda: prenda,
+            talle: talle,
+            color: color,
+            estampado: estampado,
+            ubicacion: ubicacion,
             price: 50000,
             product: prenda + ' Personalizado/a',
+            img:'../../assetes/logo.png' ,
         };
 
         addItem(item, 1);
@@ -72,11 +74,12 @@ const Personalizar = () => {
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
     const [open4, setOpen4] = useState(false);
-    const [prenda, setPrenda] = useState('');
+    const [prenda, setPrenda] = useState('Remera');
     const [color, setColor] = useState('');
     const [talle, setTalle] = useState('');
     const [estampado, setEstampado] = useState('');
     const [ubicacion, setUbicacion] = useState('');
+
 
 
 
@@ -239,7 +242,28 @@ const Personalizar = () => {
                     </Grid>
 
                     <Grid item xs={12} sm={6} >
-                        <Stack width='80%' sx={{ margin: '0 auto' }}><img src={remeraPersonalizada} alt="Remera Unisex" /></Stack>
+                        <Stack width='80%' sx={{ margin: '0 auto' }}>
+
+
+                            {prenda === 'Remera' && (
+                                <img src={remeraPersonalizadaFrente} alt="Remera" />
+                            )}
+
+                            {prenda === 'Buzo' && (
+                                <img src={buzoPersonalizado} alt="Buzo" />
+                            )}
+
+                            {prenda === 'Hoddie' && (
+                                <img src={hoddiePersonalizado} alt="Hoddie" />
+                            )}
+
+                            {prenda === 'Tote' && (
+                                <img src={totePersonalizado} alt='Tote' />
+                            )}
+
+
+
+                        </Stack>
                     </Grid>
 
                     <Grid item className="desktop" xs={12} sx={{ display: { md: 'none' } }}>

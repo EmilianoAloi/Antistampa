@@ -382,7 +382,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', color: 'success' }}>
 
-                        <FormControl sx={{ m: 1, minWidth: '15rem', color: 'success' }}>
+                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
                             <InputLabel id="prenda-dialog-select-label" color='success' >Prenda:</InputLabel>
                             <Select
                                 color='success'
@@ -411,7 +411,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                        <FormControl sx={{ m: 1, minWidth: '15rem' }}>
+                        <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
                             <InputLabel id="talle-dialog-select-label" color='success'>Talle:</InputLabel>
                             <Select
                                 color='success'
@@ -440,7 +440,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                        <FormControl sx={{ m: 1, minWidth: '15rem' }}>
+                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
                             <InputLabel id="color-dialog-select-label" color='success'>Color:</InputLabel>
                             <Select
                                 color='success'
@@ -469,7 +469,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                        <FormControl sx={{ m: 1, minWidth: '15rem' }}>
+                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
                             <InputLabel id="estampado-dialog-select-label" color='success'>Tamaño de estampado:</InputLabel>
                             <Select
                                 color='success'
@@ -499,8 +499,8 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                        <FormControl sx={{ m: 1, minWidth: '15rem' }}>
-                            <InputLabel id="ubicacion-dialog-select-label" color='success'>Ubicacion de estampado:</InputLabel>
+                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
+                            <InputLabel id="ubicacion-dialog-select-label" color='success'>Ubicacion:</InputLabel>
                             <Select
                                 color='success'
                                 labelId="ubicacion-select-label"

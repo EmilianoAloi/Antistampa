@@ -1,9 +1,10 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import { Button, Container, Grid, Stack, Typography } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
 import PaymentIcon from '@mui/icons-material/Payment';
@@ -11,8 +12,6 @@ import PaymentIcon from '@mui/icons-material/Payment';
 const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
     const [addQty, setAddQty] = useState(0);
-
-
     const { addItem } = useContext(CartContext);
 
     const handleQty = (qty) => {
@@ -20,6 +19,15 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
         const item = { id, name, price, product, img };
         addItem(item, qty);
     }
+
+
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
+
 
     return (
         <>

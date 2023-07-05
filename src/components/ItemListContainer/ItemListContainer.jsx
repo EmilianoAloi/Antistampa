@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import ItemList from '../ItemList/ItemList';
 // import { getproducts, getCatproducts } from '../../asyncmock'
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, where, query } from 'firebase/firestore';
 import { db } from '../../services/config';
 import { useLocation } from 'react-router-dom';
+import Carrousel from '../Carrousel/Carrousel';
 
 const ItemListContainer = () => {
 
@@ -31,11 +31,11 @@ const ItemListContainer = () => {
             .catch(error => console.log(error))
     }, [idCategory])
 
-
-
+ 
     return (
         <>
-            <ItemList products={products} />
+            {/* <ItemList products={products} /> */}
+            <Carrousel products={products}  />
         </>
 
     )

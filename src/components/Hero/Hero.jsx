@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom';
 
 const Hero = () => {
 
-const location = useLocation();
+    const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -47,6 +47,7 @@ const location = useLocation();
                 >NUESTROS PRODUCTOS</Typography>
 
             </Stack>
+
 
             <ItemListContainer />
 

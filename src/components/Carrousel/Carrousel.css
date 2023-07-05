@@ -26,7 +26,7 @@
 
 .swiper-button-next, .swiper-button-prev {
     color: yellow !important;
-    top: 11rem !important;
+    top: 30rem !important;
 }
 
 .swiper-button-prev {
@@ -36,3 +36,12 @@
 .swiper-button-next {
     right: -0.1rem !important;
 }
+
+.swiper-pagination-bullet {
+    background-color: #F4BF00 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: yellow !important;
+}
+

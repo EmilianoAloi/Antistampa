@@ -8,8 +8,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 
-
 import Item from '../Item/Item';
+
 
 const Carrousel = ({ products }) => {
 
@@ -24,7 +24,9 @@ const Carrousel = ({ products }) => {
                 coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 5 }}
                 slidesPerView={1}
                 spaceBetween={0}
-                pagination={{ el: '.swiper-pagination', clickable: true }}
+                speed={700}
+
+                pagination={{ clickable: true }}
                 navigation={{
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
@@ -54,14 +56,16 @@ const Carrousel = ({ products }) => {
 
 
                 <div className="slider-controler">
-                    <div className="swiper-button-prev slider-arrow">
+
+                    {/* <div className="swiper-button-prev slider-arrow">
                     </div>
+
                     <div className="swiper-button-next slider-arrow">
-                    </div>
+                    </div> */}
+                    
                     <div className="swiper-pagination"></div>
                 </div>
             </Swiper>
-
         </>
 
     )

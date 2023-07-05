@@ -3,7 +3,7 @@ import Counter from '../Counter/Counter';
 import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
-import { Button, Container, Grid, Stack, Typography, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
+import { Button, Container, Grid, Stack, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';

@@ -42,41 +42,36 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                         <Stack className="line"></Stack>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} mt={1}  textAlign='center'>
+                    <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent:'center', alignItems: 'center' }}>
                         <img className='imgDetail' src={img} alt={name} />
                     </Grid>
 
                     <Grid item xs={12} sm={6}  >
                         <Typography component='h3'
-                            sx={{ fontSize: { xs: '0.8rem', sm: '1rem' }, marginTop: { sm: '4rem' } }} >
-
+                            sx={{ fontSize: { xs: '0.8rem', sm: '1rem' }, marginTop: { sm: '2rem' } }} >
                             Producto: {product}
                         </Typography>
 
                         <Typography component='h3' fontWeight='800' mb={2}
                             sx={{ fontSize: { xs: '1.3rem', md: '2.2rem' } }} >
-
                             {name} <br /> ${price}
                         </Typography>
 
 
 
                         {
-
                             addQty > 0 ?
                                 <Grid item xs={12}>
-
-
                                     <Link to='/cart' className='detailLinks'>
-                                        <Button variant='contained' size='large' 
-                                        startIcon={<PaymentIcon />}
-                                        sx={{textAlign: 'left', paddingRight:'36px' , boxShadow:' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+                                        <Button variant='contained' size='large'
+                                            startIcon={<PaymentIcon />}
+                                            sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                                             Terminar Compra
                                         </Button>
                                     </Link>
-                                </Grid> :
+                                </Grid>
+                                :
                                 <Counter initial={1} stock={stock} addFunction={handleQty} />
-
                         }
 
                         {
@@ -84,15 +79,15 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 <Grid item xs={12}>
                                     <Link to='/' className='detailLinks'>
                                         <Button variant='outlined'
-                                          size='large'
+                                            size='large'
                                             startIcon={<SearchIcon />}
-                                            sx={{ mt: '1rem',  }}> Ver mas productos</Button>
+                                            sx={{ mt: '1rem', }}> Ver mas productos</Button>
                                     </Link>
-                                </Grid> : ''
+                                </Grid>
+                                : ''
                         }
 
                         <Grid item xs={12} mt={5}>
-
                             {product === 'Remera unisex' && (
                                 <>
                                     <Typography component='h3' mb={3} sx={{ fontSize: { xs: '1rem', sm: '1.1rem' }, fontWeight: '700' }} >

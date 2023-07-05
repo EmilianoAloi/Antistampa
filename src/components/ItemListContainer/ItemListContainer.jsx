@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-// import { getproducts, getCatproducts } from '../../asyncmock'
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, where, query } from 'firebase/firestore';
 import { db } from '../../services/config';
 import { useLocation } from 'react-router-dom';
 import Carrousel from '../Carrousel/Carrousel';
+import { Typography } from '@mui/material';
 
 const ItemListContainer = () => {
 
@@ -31,11 +31,45 @@ const ItemListContainer = () => {
             .catch(error => console.log(error))
     }, [idCategory])
 
- 
+
     return (
         <>
+
+            {idCategory === 'internacional' &&
+                <Typography
+                    component='h2'
+                    className='heroTitle'
+                    color='white'
+                    fontWeight={600}
+                    sx={{ fontSize: { xs: '1.5rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
+                >Bandas Internacionales
+                </Typography>}
+
+            {idCategory === 'tote' &&
+                <Typography
+                    component='h2'
+                    className='heroTitle'
+                    color='white'
+                    fontWeight={600}
+                    sx={{ fontSize: { xs: '1.5rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
+                >Totes
+                </Typography>}
+
+                {idCategory === 'nacional' &&
+                <Typography
+                    component='h2'
+                    className='heroTitle'
+                    color='white'
+                    fontWeight={600}
+                    sx={{ fontSize: { xs: '1.5rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
+                >Bandas Nacionales
+                </Typography>}
+
+
+
+            <Carrousel products={products} />
             {/* <ItemList products={products} /> */}
-            <Carrousel products={products}  />
+
         </>
 
     )

@@ -19,4 +19,10 @@
     .line {
         width: 10rem;
     }
+
+    .imgDetail {
+        width: 90%;
+        margin-top: 0rem;
+
+    }
 }

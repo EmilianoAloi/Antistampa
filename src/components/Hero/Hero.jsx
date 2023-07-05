@@ -44,7 +44,8 @@ const Hero = () => {
                     color='white'
                     fontWeight={600}
                     sx={{ fontSize: { xs: '1.5rem', sm: '3rem' } }}
-                >NUESTROS PRODUCTOS</Typography>
+                >NUESTROS PRODUCTOS
+                </Typography>
 
             </Stack>
 

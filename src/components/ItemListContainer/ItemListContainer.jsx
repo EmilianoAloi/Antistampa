@@ -41,7 +41,7 @@ const ItemListContainer = () => {
                     className='heroTitle'
                     color='white'
                     fontWeight={600}
-                    sx={{ fontSize: { xs: '1.5rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
+                    sx={{ fontSize: { xs: '1.4rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
                 >Bandas Internacionales
                 </Typography>}
 
@@ -51,7 +51,7 @@ const ItemListContainer = () => {
                     className='heroTitle'
                     color='white'
                     fontWeight={600}
-                    sx={{ fontSize: { xs: '1.5rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
+                    sx={{ fontSize: { xs: '1.4rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
                 >Totes
                 </Typography>}
 
@@ -61,7 +61,7 @@ const ItemListContainer = () => {
                     className='heroTitle'
                     color='white'
                     fontWeight={600}
-                    sx={{ fontSize: { xs: '1.5rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
+                    sx={{ fontSize: { xs: '1.4rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
                 >Bandas Nacionales
                 </Typography>}
 

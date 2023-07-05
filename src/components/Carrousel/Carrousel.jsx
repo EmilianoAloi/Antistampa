@@ -25,7 +25,7 @@ const Carrousel = ({ products }) => {
                 slidesPerView={1}
                 spaceBetween={0}
                 speed={700}
-                autoplay={{delay: 700, disableOnInteraction: false}}
+                autoplay={{ delay: 700, disableOnInteraction: false }}
 
                 pagination={{ clickable: true }}
                 navigation={{
@@ -45,7 +45,7 @@ const Carrousel = ({ products }) => {
                     },
                     1024: {
                         slidesPerView: 4,
-                        spaceBetween: 20,
+                        spaceBetween: 2,
                     },
                 }}
                 className="mySwiper"
@@ -57,13 +57,6 @@ const Carrousel = ({ products }) => {
 
 
                 <div className="slider-controler">
-
-                    {/* <div className="swiper-button-prev slider-arrow">
-                    </div>
-
-                    <div className="swiper-button-next slider-arrow">
-                    </div> */}
-                    
                     <div className="swiper-pagination"></div>
                 </div>
             </Swiper>

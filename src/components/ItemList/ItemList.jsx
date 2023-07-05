@@ -17,18 +17,10 @@ const ItemList = ({ products }) => {
 
 
         <Container>
-            <Grid 
-                container
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                }}
-                
-            >
+            <Grid container sx={{ display: 'flex', justifyContent: 'center' }}  >
                 {products.map(prod =>
-                    <Item  key={prod.id} {...prod} />
+                    <Item key={prod.id} {...prod} />
                 )};
-
             </Grid>
         </Container>
 

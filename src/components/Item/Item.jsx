@@ -8,8 +8,7 @@ const Item = ({ id, name, price, img }) => {
         <Grid item md={3}   >
 
             <Link to={`/item/${id}`} style={{ textDecoration: 'none' }}>
-                <Card
-                    sx={{ maxWidth: '18rem'}}>
+                <Card sx={{ maxWidth: '18rem'}}>
                     <CardActionArea className="item-link"
 
                         sx={{

@@ -23,7 +23,6 @@ export const CartProvider = ({ children }) => {
             setCart(prev => [...prev, { item, qty }]);
             setQtyTotal(prev => prev + qty);
             setTotal(prev => prev + (item.price * qty));
-            console.log(cart)
 
         } else {
             const newCart = cart.map(prod => {

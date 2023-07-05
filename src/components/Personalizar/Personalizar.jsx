@@ -54,7 +54,7 @@ const Personalizar = () => {
             ubicacion: ubicacion,
             price: 50000,
             product: prenda + ' Personalizado/a',
-            img:'../../assetes/logo.png' ,
+            img:'./img/logo.png' ,
         };
 
         addItem(item, 1);
@@ -153,8 +153,6 @@ const Personalizar = () => {
             setOpen4(false);
         }
     };
-
-
 
 
 

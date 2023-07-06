@@ -1,18 +1,50 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
+import colors from '../../assets/colors.png';
+import talles from '../../assets/talles.jpg'
+
 import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
-import { Button, Container, Grid, Stack, Typography, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { Button, Container, Grid, Stack, Typography, FormControl, InputLabel, Select, MenuItem, Box, Backdrop, Modal, Fade } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
 import PaymentIcon from '@mui/icons-material/Payment';
+import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
+import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: { xs: '95%', sm: '70%', md: '40%' },
+    margin: '0 auto',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+};
 
 const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
+    const [talle, setTalle] = useState('');
+    const handleChange = (e) => {
+        setTalle(e.target.value);
+    }
+
+    const [color, setColor] = useState('');
+    const handleChange2 = (e) => {
+        setColor(e.target.value);
+    }
+
     const [addQty, setAddQty] = useState(0);
-    const { addItem} = useContext(CartContext);
+    const { addItem } = useContext(CartContext);
 
     const handleQty = (qty) => {
         setAddQty(qty);
@@ -20,24 +52,16 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
         addItem(item, qty);
     }
 
+    // MODALES
 
-    const location = useLocation();
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [location]);
+    const [open1, setOpen1] = useState(false);
+    const handleOpen1 = () => setOpen1(true);
+    const handleClose1 = () => setOpen1(false);
 
-    const [talle, setTalle] = useState('');
-
-    const handleChange = (e) => {
-        setTalle(e.target.value);
-    }
-
-    const [color, setColor] = useState('');
-
-    const handleChange2 = (e) => {
-        setColor(e.target.value);
-    }
 
     return (
         <>
@@ -69,70 +93,120 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                         </Typography>
 
 
-                        <Stack sx={{ flexDirection: 'row', gap: '2.5rem', justifyContent: {xs:'center', md:'start'} }}>
-                            <FormControl variant="standard" sx={{ m: 1, minWidth: 110, marginBottom: '2rem' }} >
-                                <InputLabel id="talle-simple-select-standard-label" >Talle</InputLabel>
-                                <Select
-                                    labelId="talle-simple-select-standard-label"
-                                    id="talle-simple-select-standard"
-                                    value={talle}
-                                    onChange={handleChange}
-                                    label="Talle"
-                                    color='primary'
-                                >
+                        <Stack sx={{ justifyContent: 'center', gap: '2rem' }}>
 
-                                    <MenuItem value='XS'>XS</MenuItem>
-                                    <MenuItem value='XL'>XL</MenuItem>
-                                    <MenuItem value='XXL'>XXL</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <Stack sx={{ flexDirection: 'row', gap: '1rem', marginLeft: { xs: '0rem' }, justifyContent: { xs: 'space-evenly', md: 'start' } }}>
+                                <Button onClick={handleOpen} color='success' variant='outlined' sx={{ paddingX: '10px', fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
+                                <Button onClick={handleOpen1} color='success' variant='outlined' sx={{ paddingX: '10px', fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Tabla de colores</Button>
+                            </Stack>
 
-                            <FormControl variant="standard" sx={{ m: 1, minWidth: 110, marginBottom: '2rem' }} >
-                                <InputLabel id="color-simple-select-standard-label" >Color</InputLabel>
-                                <Select
-                                    labelId="color-simple-select-standard-label"
-                                    id="color-simple-select-standard"
-                                    value={color}
-                                    onChange={handleChange2}
-                                    label="color"
-                                    color='primary'
-                                >
+                            <Modal
+                                aria-labelledby="talle-transition-modal-title"
+                                aria-describedby="talle-transition-modal-description"
+                                open={open}
+                                onClose={handleClose}
+                                closeAfterTransition
+                                slots={{ backdrop: Backdrop }}
+                                slotProps={{
+                                    backdrop: {
+                                        timeout: 500,
+                                    },
+                                }}
+                            >
+                                <Fade in={open}>
+                                    <Box sx={style}>
+                                        <img src={talles} alt='tabla de talles' className='tablaTalles' />
+                                    </Box>
+                                </Fade>
+                            </Modal>
 
-                                    <MenuItem value='Blanco'>Blanco</MenuItem>
-                                    <MenuItem value='Negro'>Negro</MenuItem>
-                                    <MenuItem value='Amarillo'>Amarillo</MenuItem>
-                                </Select>
-                            </FormControl>
+                            <Modal
+                                aria-labelledby="color-transition-modal-title"
+                                aria-describedby="color-transition-modal-description"
+                                open={open1}
+                                onClose={handleClose1}
+                                closeAfterTransition
+                                slots={{ backdrop: Backdrop }}
+                                slotProps={{
+                                    backdrop: {
+                                        timeout: 500,
+                                    },
+                                }}
+                            >
+                                <Fade in={open1}>
+                                    <Box sx={style}>
+                                        <img src={colors} alt='tabla de colores' className='tablaColores' />
+                                    </Box>
+                                </Fade>
+                            </Modal>
+
+                            <Stack sx={{ flexDirection: 'column', gap: '2rem', justifyContent: { xs: 'center', md: 'start' }, alignItems: 'center', }}>
+                                <FormControl variant="standard" sx={{ width: '100%', padding: '0', margin: '0' }} >
+                                    <InputLabel id="talle-simple-select-standard-label" >Seleccionar Talle</InputLabel>
+                                    <Select
+                                        labelId="talle-simple-select-standard-label"
+                                        id="talle-simple-select-standard"
+                                        value={talle}
+                                        onChange={handleChange}
+                                        label="Talle"
+                                        color='primary'
+                                    >
+                                        <MenuItem value='XS'>XS</MenuItem>
+                                        <MenuItem value='XL'>XL</MenuItem>
+                                        <MenuItem value='XXL'>XXL</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl variant="standard" sx={{ width: '100%', padding: '0', margin: '0' }} >
+                                    <InputLabel id="color-simple-select-standard-label" >Seleccionar Color</InputLabel>
+                                    <Select
+                                        labelId="color-simple-select-standard-label"
+                                        id="color-simple-select-standard"
+                                        value={color}
+                                        onChange={handleChange2}
+                                        label="color"
+                                        color='primary'
+                                    >
+
+                                        <MenuItem value='Blanco'>Blanco</MenuItem>
+                                        <MenuItem value='Negro'>Negro</MenuItem>
+                                        <MenuItem value='Amarillo'>Amarillo</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Stack>
+
+                            <Stack sx={{ justifyContent: 'center', alignItems: { xs: 'center', md: 'start' } }}>
+                                {
+                                    addQty > 0 ?
+                                        <Grid item xs={12}>
+                                            <Link to='/cart' className='detailLinks'>
+                                                <Button variant='contained' size='large'
+                                                    startIcon={<PaymentIcon />}
+                                                    sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+                                                    Terminar Compra
+                                                </Button>
+                                            </Link>
+                                        </Grid>
+                                        :
+                                        <Counter initial={1} stock={stock} addFunction={handleQty} />
+                                }
+
+                                {
+                                    addQty > 0 ?
+                                        <Grid item xs={12}>
+                                            <Link to='/' className='detailLinks'>
+                                                <Button variant='outlined'
+                                                    size='large'
+                                                    startIcon={<SearchIcon />}
+                                                    sx={{ mt: '1rem', }}> Ver mas productos</Button>
+                                            </Link>
+                                        </Grid>
+                                        : ''
+                                }
+                            </Stack>
                         </Stack>
 
 
-                        {
-                            addQty > 0 ?
-                                <Grid item xs={12}>
-                                    <Link to='/cart' className='detailLinks'>
-                                        <Button variant='contained' size='large'
-                                            startIcon={<PaymentIcon />}
-                                            sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
-                                            Terminar Compra
-                                        </Button>
-                                    </Link>
-                                </Grid>
-                                :
-                                <Counter initial={1} stock={stock} addFunction={handleQty} />
-                        }
-
-                        {
-                            addQty > 0 ?
-                                <Grid item xs={12}>
-                                    <Link to='/' className='detailLinks'>
-                                        <Button variant='outlined'
-                                            size='large'
-                                            startIcon={<SearchIcon />}
-                                            sx={{ mt: '1rem', }}> Ver mas productos</Button>
-                                    </Link>
-                                </Grid>
-                                : ''
-                        }
 
                         <Grid item xs={12} mt={5}>
                             {product === 'Remera unisex' && (

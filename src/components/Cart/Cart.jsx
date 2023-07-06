@@ -104,12 +104,14 @@ const Cart = () => {
                                             </Stack>
                                         </Stack>
                                     </TableCell>
-                                    <TableCell align="right">${product.item.price}</TableCell>
+                                    <TableCell align="right">${product.item.newTotal}</TableCell>
                                     <TableCell align="right">{product.qty}</TableCell>
-                                    <TableCell align="right">${product.item.price * product.qty}</TableCell>
+                                    <TableCell align="right">${product.item.newTotal * product.qty}</TableCell>
                                     <TableCell align="right"> <IconButton onClick={() => delProduct(product.item.id)} disableRipple color='error' sx={{ marginLeft: '-4.5rem' }}>
                                         <DeleteForeverIcon sx={{ fontSize: '1.5rem' }} />
                                     </IconButton></TableCell>
+
+
 
                                 </TableRow>
                             ))}
@@ -140,7 +142,6 @@ const Cart = () => {
                         </Link>
 
                         {console.log(cart)}
-                        
                     </Stack>
 
                 </Stack>

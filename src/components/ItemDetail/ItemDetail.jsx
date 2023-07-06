@@ -43,13 +43,53 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
         setColor(e.target.value);
     }
 
+
+
+
+
     const [addQty, setAddQty] = useState(0);
     const { addItem } = useContext(CartContext);
 
-    const handleQty = (qty) => {
+    const handleAddItem = (qty) => {
+
+
+
+        let newTotal = parseInt(price);
+        switch (talle) {
+
+            case 'XS':
+                newTotal = price + 1000
+                break;
+            case 'XL':
+                newTotal = price + 1100
+                break;
+            case 'XXL':
+                newTotal = price + 1200
+                break;
+
+            default:
+                newTotal = price;
+                break;
+        }
+
+        const item = { id, name, price, product, img, color, talle, newTotal };
+
+
+
+        if (color !== '' && talle !== '') {
+            addItem(item, qty);
+            alert('item agregado');
+        } else {
+            alert('faltan completar campos');
+            return;
+        }
+
+
+
+
         setAddQty(qty);
-        const item = { id, name, price, product, img, color, talle };
-        addItem(item, qty);
+
+
     }
 
     // MODALES
@@ -76,19 +116,19 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                         <Stack className="line"></Stack>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <img className='imgDetail' src={img} alt={name} />
                     </Grid>
 
-                    <Grid item xs={12} sm={6}  >
+                    <Grid item xs={12} md={6}  >
 
                         <Typography component='h3'
                             sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: { sm: '2rem' } }} >
                             Producto: {product}
                         </Typography>
 
-                        <Typography component='h3' fontWeight='800' mb={2}
-                            sx={{ fontSize: { xs: '1.5rem', md: '2.2rem' } }} >
+                        <Typography component='h3' fontWeight='800' mb={4}
+                            sx={{ fontSize: { xs: '2rem', sm: '2.2rem' } }} >
                             {name} <br /> ${price}
                         </Typography>
 
@@ -96,8 +136,8 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                         <Stack sx={{ justifyContent: 'center', gap: '2rem' }}>
 
                             <Stack sx={{ flexDirection: 'row', gap: '1rem', marginLeft: { xs: '0rem' }, justifyContent: { xs: 'space-evenly', md: 'start' } }}>
-                                <Button onClick={handleOpen} color='success' variant='outlined' sx={{ paddingX: '10px', fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
-                                <Button onClick={handleOpen1} color='success' variant='outlined' sx={{ paddingX: '10px', fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Tabla de colores</Button>
+                                <Button onClick={handleOpen} color='success' variant='outlined' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
+                                <Button onClick={handleOpen1} color='success' variant='outlined' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
                             </Stack>
 
                             <Modal
@@ -140,8 +180,8 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 </Fade>
                             </Modal>
 
-                            <Stack sx={{ flexDirection: 'column', gap: '2rem', justifyContent: { xs: 'center', md: 'start' }, alignItems: 'center', }}>
-                                <FormControl variant="standard" sx={{ width: '100%', padding: '0', margin: '0' }} >
+                            <Stack sx={{ flexDirection: 'column', gap: '2rem', justifyContent: { xs: 'center', md: 'start' }, alignItems: { xs: 'center', md: 'start' } }}>
+                                <FormControl variant="standard" sx={{ width: { xs: '100%', md: '65%' }, padding: '0', margin: '0' }} >
                                     <InputLabel id="talle-simple-select-standard-label" >Seleccionar Talle</InputLabel>
                                     <Select
                                         labelId="talle-simple-select-standard-label"
@@ -157,7 +197,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                     </Select>
                                 </FormControl>
 
-                                <FormControl variant="standard" sx={{ width: '100%', padding: '0', margin: '0' }} >
+                                <FormControl variant="standard" sx={{ width: { xs: '100%', md: '65%' }, padding: '0', margin: '0' }} >
                                     <InputLabel id="color-simple-select-standard-label" >Seleccionar Color</InputLabel>
                                     <Select
                                         labelId="color-simple-select-standard-label"
@@ -188,7 +228,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                             </Link>
                                         </Grid>
                                         :
-                                        <Counter initial={1} stock={stock} addFunction={handleQty} />
+                                        <Counter initial={1} stock={stock} addFunction={handleAddItem} />
                                 }
 
                                 {

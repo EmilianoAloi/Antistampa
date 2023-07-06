@@ -5,7 +5,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
 
-const Counter = ({ stock, initial, addFunction }) => {
+const Counter = ({ stock, initial, addFunction,  }) => {
 
     const [counter, setCounter] = useState(initial);
 

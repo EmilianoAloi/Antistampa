@@ -22,7 +22,7 @@ export const CartProvider = ({ children }) => {
         if (!itemExists) {
             setCart(prev => [...prev, { item, qty }]);
             setQtyTotal(prev => prev + qty);
-            setTotal(prev => prev + (item.price * qty));
+            setTotal(prev => prev + (item.newTotal * qty));
 
         } else {
             const newCart = cart.map(prod => {
@@ -34,7 +34,7 @@ export const CartProvider = ({ children }) => {
             });
             setCart(newCart);
             setQtyTotal(prev => prev + qty);
-            setTotal(prev => prev + (item.price * qty));
+            setTotal(prev => prev + (item.newTotal * qty));
 
         }
     }
@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) => {
         const newCart = cart.filter(prod => prod.item.id !== id);
         setCart(newCart);
         setQtyTotal(prev => prev - itemDeleted.qty);
-        setTotal(prev => prev - (itemDeleted.item.price * itemDeleted.qty));
+        setTotal(prev => prev - (itemDeleted.item.newTotal * itemDeleted.qty));
 
     }
 

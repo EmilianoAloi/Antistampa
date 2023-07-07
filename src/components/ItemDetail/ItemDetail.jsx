@@ -7,6 +7,9 @@ import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import { Button, Container, Grid, Stack, Typography, FormControl, InputLabel, Select, MenuItem, Box, Backdrop, Modal, Fade } from '@mui/material';
+
+
+
 import { useLocation } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -51,8 +54,6 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
     const { addItem } = useContext(CartContext);
 
     const handleAddItem = (qty) => {
-
-
 
         let newTotal = parseInt(price);
         switch (talle) {

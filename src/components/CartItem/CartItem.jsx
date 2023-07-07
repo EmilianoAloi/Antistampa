@@ -15,10 +15,11 @@ const CartItem = ({ item, qty }) => {
 
                 <Stack>
                     <Typography component='h2' variant='subtitle1' fontWeight={600}>{item.name}</Typography>
-                    <Typography component='h2' variant='body2'>Precio: ${item.newTotal}</Typography>
                     <Typography component='h2' variant='body2'>{item.product}</Typography>
                     <Typography component='h2' variant='body2'>Cantidad: {qty}</Typography>
-                    <IconButton onClick={() => delProduct(item.id)} disableRipple color='error' sx={{ marginLeft: '-4.5rem' }}>
+
+                    <Typography component='h2' variant='body2'>Precio: ${item.newTotal}</Typography>
+                    <IconButton onClick={() => delProduct(item.id)} disableRipple color='error' sx={{ marginLeft: '0 auto' }}>
                         <DeleteForeverIcon sx={{ fontSize: '1.5rem' }} />
                     </IconButton>
                 </Stack>

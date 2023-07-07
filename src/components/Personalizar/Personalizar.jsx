@@ -36,7 +36,6 @@ import totePersonalizado from '../../assets/totePersonalizado.jpg'
 const Personalizar = () => {
 
     const location = useLocation();
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location])
@@ -44,30 +43,18 @@ const Personalizar = () => {
     const { addItem } = useContext(CartContext);
 
     const handlePersonalizado = () => {
-
-        const item = {
-            id: '0',
-            prenda: prenda,
-            talle: talle,
-            color: color,
-            estampado: estampado,
-            ubicacion: ubicacion,
-            price: 50000,
-            product: prenda + ' Personalizado/a',
-            img:'./img/logo.png' ,
-        };
-
-        addItem(item, 1);
-
-        setPrenda('');
-        setColor('');
-        setTalle('');
-        setEstampado('');
-        setUbicacion('');
-
+        if (prenda === '' || color === '' || talle === '' || estampado === '' || ubicacion === '') {
+            alert('falta seleccionar alguna preferencia');
+        } else {
+            addItem(item, 1);
+            alert('item personalizado agregado')
+            setPrenda('');
+            setColor('');
+            setTalle('');
+            setEstampado('');
+            setUbicacion('');
+        }
     }
-
-
 
     const [open, setOpen] = useState(false);
     const [open1, setOpen1] = useState(false);
@@ -79,50 +66,62 @@ const Personalizar = () => {
     const [talle, setTalle] = useState('');
     const [estampado, setEstampado] = useState('');
     const [ubicacion, setUbicacion] = useState('');
+    const [pricePrenda, setPricePrenda] = useState(0);
+    const [priceTalle, setPriceTalle] = useState(0);
+    const [priceEstampado, setPriceEstampado] = useState(0);
+    const [priceUbicacion, setPriceUbicacion] = useState(0);
+    const [newTotal, setNewTotal] = useState(0);
 
 
+    const item = {
+        id: '0',
+        prenda: prenda,
+        talle: talle,
+        color: color,
+        estampado: estampado,
+        ubicacion: ubicacion,
+        price: 0,
+        product: prenda + ' Personalizado/a',
+        img: './img/logo.png',
+        newTotal: newTotal,
+    };
+
+
+    // handles de selectores
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClickOpen1 = () => {
+        setOpen1(true);
+    };
+    const handleClickOpen2 = () => {
+        setOpen2(true);
+    };
+    const handleClickOpen3 = () => {
+        setOpen3(true);
+    };
+    const handleClickOpen4 = () => {
+        setOpen4(true);
+    };
 
 
     const handleChange = (e) => {
         setPrenda(e.target.value);
     };
-
     const handleChange1 = (e) => {
         setTalle(e.target.value);
     };
-
     const handleChange2 = (e) => {
         setColor(e.target.value);
     };
-
     const handleChange3 = (e) => {
         setEstampado(e.target.value);
     };
-
     const handleChange4 = (e) => {
         setUbicacion(e.target.value);
     };
 
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClickOpen1 = () => {
-        setOpen1(true);
-    };
-
-    const handleClickOpen2 = () => {
-        setOpen2(true);
-    };
-
-    const handleClickOpen3 = () => {
-        setOpen3(true);
-    };
-
-    const handleClickOpen4 = () => {
-        setOpen4(true);
-    };
 
     const handleClose = (e, reason) => {
         if (reason !== 'backdropClick') {
@@ -134,6 +133,7 @@ const Personalizar = () => {
         if (reason !== 'backdropClick') {
             setOpen1(false);
         }
+
     };
 
     const handleClose2 = (e, reason) => {
@@ -152,10 +152,94 @@ const Personalizar = () => {
         if (reason !== 'backdropClick') {
             setOpen4(false);
         }
+
     };
 
 
 
+    // Logica de precios
+
+    useEffect(() => {
+        switch (prenda) {
+            case 'Remera':
+                setPricePrenda(1000);
+                break;
+            case 'Buzo':
+                setPricePrenda(1500);
+                break;
+            case 'Hoodie':
+                setPricePrenda(2000);
+                break;
+            case 'Tote':
+                setPricePrenda(3000);
+                break;
+            default:
+                setPricePrenda(0);
+                break;
+        }
+    }, [prenda])
+
+
+    useEffect(() => {
+        switch (talle) {
+            case 'X':
+                setPriceTalle(1000);
+                break;
+            case 'XS':
+                setPriceTalle(800);
+                break;
+            case 'XL':
+                setPriceTalle(1100);
+                break;
+            case 'XXL':
+                setPriceTalle(1300);
+                break;
+            default:
+                setPriceTalle(0);
+                break;
+        }
+    }, [talle]);
+
+
+    useEffect(() => {
+        switch (estampado) {
+            case 'Tamaño 1':
+                setPriceEstampado(1000);
+                break;
+            case 'Tamaño 2':
+                setPriceEstampado(2000);
+                break;
+            case 'Tamaño 3':
+                setPriceEstampado(3000);
+                break;
+            case 'Tamaño 4':
+                setPriceEstampado(4000);
+                break;
+            default:
+                setPriceEstampado(0);
+                break;
+        }
+    }, [estampado]);
+
+
+    useEffect(() => {
+        switch (ubicacion) {
+            case 'Frente':
+                setPriceUbicacion(1000);
+                break;
+            case 'Dorso':
+                setPriceUbicacion(800);
+                break;
+            default:
+                setPriceUbicacion(0);
+                break;
+        };
+    }, [ubicacion]);
+
+
+    useEffect(() => {
+        setNewTotal(pricePrenda + priceTalle + priceEstampado + priceUbicacion)
+    }, [pricePrenda, priceTalle, priceEstampado, priceUbicacion]);
 
 
 
@@ -251,7 +335,7 @@ const Personalizar = () => {
                                 <img src={buzoPersonalizado} alt="Buzo" />
                             )}
 
-                            {prenda === 'Hoddie' && (
+                            {prenda === 'Hoodie' && (
                                 <img src={hoddiePersonalizado} alt="Hoddie" />
                             )}
 
@@ -264,7 +348,7 @@ const Personalizar = () => {
                         </Stack>
                     </Grid>
 
-                    <Grid item className="desktop" xs={12} sx={{ display: { md: 'none' } }}>
+                    <Grid item className="mobile" xs={12} sx={{ display: { md: 'none' } }}>
                         <Stack>
                             <Typography component='h3'
                                 sx={{ color: 'white', fontSize: '1.5rem', textAlign: 'start' }} >
@@ -272,7 +356,7 @@ const Personalizar = () => {
                             </Typography>
                             <Typography component='h3' fontWeight='800' mb={2} mt={0}
                                 sx={{ color: 'white', fontSize: { xs: '1.3rem', md: '1.5rem' }, textAlign: 'start' }} >
-                                Total: $3500
+                                Total: ${item.newTotal}
                             </Typography>
 
 
@@ -357,7 +441,7 @@ const Personalizar = () => {
 
                             <Typography component='h3' fontWeight='800' mb={2} mt={0}
                                 sx={{ color: 'white', fontSize: { xs: '1.3rem', md: '1.5rem' }, textAlign: 'end' }} >
-                                Total: $3500
+                                Total: ${item.newTotal}
                             </Typography>
 
 
@@ -380,7 +464,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', color: 'success' }}>
 
-                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
+                        <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="prenda-dialog-select-label" color='success' >Prenda:</InputLabel>
                             <Select
                                 color='success'
@@ -392,7 +476,7 @@ const Personalizar = () => {
                             >
                                 <MenuItem value="Remera">Remera</MenuItem>
                                 <MenuItem value='Buzo'>Buzo</MenuItem>
-                                <MenuItem value='Hoddie'>Hoodie</MenuItem>
+                                <MenuItem value='Hoodie'>Hoodie</MenuItem>
                                 <MenuItem value='Tote'>Tote</MenuItem>
                             </Select>
                         </FormControl>
@@ -409,7 +493,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                        <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
+                        <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="talle-dialog-select-label" color='success'>Talle:</InputLabel>
                             <Select
                                 color='success'
@@ -438,7 +522,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
+                        <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="color-dialog-select-label" color='success'>Color:</InputLabel>
                             <Select
                                 color='success'
@@ -467,7 +551,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
+                        <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="estampado-dialog-select-label" color='success'>Tamaño de estampado:</InputLabel>
                             <Select
                                 color='success'
@@ -478,10 +562,10 @@ const Personalizar = () => {
                                 input={<OutlinedInput label="Tamaño de estampado:" color='success' />}
 
                             >
-                                <MenuItem value="Tamaño1">Tamaño 1</MenuItem>
-                                <MenuItem value='Tamaño2'>Tamaño 2</MenuItem>
-                                <MenuItem value='Tamaño3'>Tamaño 3</MenuItem>
-                                <MenuItem value='Tamaño4'>Tamaño 4</MenuItem>
+                                <MenuItem value="Tamaño 1">Tamaño 1</MenuItem>
+                                <MenuItem value='Tamaño 2'>Tamaño 2</MenuItem>
+                                <MenuItem value='Tamaño 3'>Tamaño 3</MenuItem>
+                                <MenuItem value='Tamaño 4'>Tamaño 4</MenuItem>
                             </Select>
                         </FormControl>
                     </Box>
@@ -497,7 +581,7 @@ const Personalizar = () => {
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                    <FormControl sx={{ m: 1, minWidth: {xs:'12rem', sm:'15rem'} }}>
+                        <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="ubicacion-dialog-select-label" color='success'>Ubicacion:</InputLabel>
                             <Select
                                 color='success'

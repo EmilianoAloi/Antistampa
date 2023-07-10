@@ -73,7 +73,20 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                 break;
         }
 
-        const item = { id, name, price, product, img, color, talle, newTotal };
+        const item = {
+            id,
+            name,
+            price,
+            product,
+            img,
+            color,
+            talle,
+            newTotal,
+            prenda: '',
+            estampado: '',
+            ubicacion: '',
+
+        };
 
 
 

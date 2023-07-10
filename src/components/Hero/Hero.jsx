@@ -49,8 +49,9 @@ const Hero = () => {
 
             </Stack>
 
-
-            <ItemListContainer />
+            {/* <Stack sx={{width:'50%'}}> */}
+                <ItemListContainer />
+            {/* </Stack> */}
 
             <InfoRemeras />
 

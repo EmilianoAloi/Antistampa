@@ -34,10 +34,18 @@ const Checkout = () => {
         const order = {
             items: cart.map(prod => ({
                 id: prod.item.id,
+                prenda: prod.item.prenda,
+                talle: prod.item.talle,
+                color: prod.item.color,
+                producto: prod.item.product,
+                medidaEstampado: prod.item.estampado,
+                ubicacionEstampado: prod.item.ubicacion,
+                precio: prod.item.newTotal,
                 nombre: prod.item.name,
-                cantidad: prod.qty
+                cantidad: prod.qty,
+
             })),
-            total: cart.reduce((total, prod) => total + prod.item.price * prod.qty, 0),
+            total: cart.reduce((total, prod) => total + prod.item.newTotal * prod.qty, 0),
             name,
             lastname,
             tel,

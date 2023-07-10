@@ -1,25 +1,8 @@
-import { Box, Typography, Stack, Grid, Container, Fab, Modal, Backdrop, Fade, } from "@mui/material"
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { Box, Typography, Stack, Grid, Container, Fab, Modal, Backdrop, Fade, Button, Dialog, DialogActions, DialogContent, DialogTitle, InputLabel, OutlinedInput, MenuItem, FormControl, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material"
 import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import PaymentIcon from '@mui/icons-material/Payment';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import CollectionsOutlinedIcon from '@mui/icons-material/CollectionsOutlined';
 import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
@@ -29,7 +12,22 @@ import remeraPersonalizadaFrente from '../../assets/remeraPerzonalizada.png'
 import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
 import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
 import totePersonalizado from '../../assets/totePersonalizado.jpg'
+import colors from '../../assets/colors.png';
+import talles from '../../assets/talles.jpg';
 
+import { v4 } from "uuid";
+
+const styleModal = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: { xs: '95%', sm: '70%', md: '40%' },
+    margin: '0 auto',
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+};
 
 const Personalizar = () => {
 
@@ -41,11 +39,15 @@ const Personalizar = () => {
     const { addItem } = useContext(CartContext);
 
     const handlePersonalizado = () => {
+
+
         if (prenda === '' || color === '' || talle === '' || estampado === '' || ubicacion === '') {
             alert('falta seleccionar alguna preferencia');
         } else {
+
             addItem(item, 1);
             alert('item personalizado agregado')
+            setImgItem('')
             setPrenda('Remera');
             setColor('');
             setTalle('');
@@ -55,11 +57,14 @@ const Personalizar = () => {
         }
     }
 
+    // Estados Personalizar prenda
+
     const [open, setOpen] = useState(false);
     const [open1, setOpen1] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
     const [open4, setOpen4] = useState(false);
+    const [imgItem, setImgItem] = useState('')
     const [prenda, setPrenda] = useState('Remera');
     const [color, setColor] = useState('');
     const [talle, setTalle] = useState('');
@@ -72,8 +77,17 @@ const Personalizar = () => {
     const [newTotal, setNewTotal] = useState(0);
 
 
+    // Estados Modales
+
+    const [openModal, setOpenModal] = useState(false);
+    const handleOpenModal = () => setOpenModal(true);
+    const handleCloseModal = () => setOpenModal(false);
+    const [openModal1, setOpenModal1] = useState(false);
+    const handleOpenModal1 = () => setOpenModal1(true);
+    const handleCloseModal1 = () => setOpenModal1(false);
+
     const item = {
-        id: '0',
+        id: v4(),
         prenda: prenda,
         talle: talle,
         color: color,
@@ -81,12 +95,11 @@ const Personalizar = () => {
         ubicacion: ubicacion,
         price: 0,
         product: prenda + ' Personalizado/a',
-        img: './img/logo.png',
+        img: imgItem,
         newTotal: newTotal,
+        qty: 1,
+        name:'Prenda personalizada'
     };
-
-// Modal tables
-
 
 
 
@@ -158,21 +171,26 @@ const Personalizar = () => {
     };
 
 
+
     // Logica de precios
 
     useEffect(() => {
         switch (prenda) {
             case 'Remera':
                 setPricePrenda(1000);
+                setImgItem(remeraPersonalizadaFrente);
                 break;
             case 'Buzo':
                 setPricePrenda(1500);
+                setImgItem(buzoPersonalizado);
                 break;
             case 'Hoodie':
                 setPricePrenda(2000);
+                setImgItem(hoddiePersonalizado);
                 break;
             case 'Tote':
                 setPricePrenda(3000);
+                setImgItem(totePersonalizado);
                 break;
             default:
                 setPricePrenda(0);
@@ -256,7 +274,7 @@ const Personalizar = () => {
             <Container>
 
 
-                
+
                 <Grid container spacing={3} alignItems='center' justifyContent='center'>
 
                     <Grid item className="mobilePreferencias" xs={12} sm={6} sx={{ display: { md: 'none' } }} >
@@ -292,8 +310,8 @@ const Personalizar = () => {
 
 
                         <Stack sx={{ flexDirection: 'row', gap: '0rem', marginLeft: { xs: '0rem' }, justifyContent: { xs: 'space-evenly', md: 'start' } }}>
-                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
-                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
+                            <Button color='success' variant='text' onClick={handleOpenModal} sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
+                            <Button color='success' variant='text' onClick={handleOpenModal1} sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
                         </Stack>
 
 
@@ -414,8 +432,8 @@ const Personalizar = () => {
                         </Stack>
 
                         <Stack sx={{ flexDirection: 'row', gap: '0rem', marginLeft: { xs: '0rem' }, justifyContent: { xs: 'space-evenly', md: 'center' } }}>
-                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
-                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
+                            <Button color='success' variant='text' onClick={handleOpenModal} sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
+                            <Button color='success' variant='text' onClick={handleOpenModal1} sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
                         </Stack>
 
 
@@ -464,7 +482,7 @@ const Personalizar = () => {
                             <Button variant='contained' size='large' color='success' onClick={handlePersonalizado}
                                 startIcon={<PaymentIcon />}
                                 sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
-                                Terminar Compra
+                                Agregar al carrito
                             </Button>
 
                         </Stack>
@@ -617,6 +635,48 @@ const Personalizar = () => {
                     <Button onClick={handleClose4} color='success'>Ok</Button>
                 </DialogActions>
             </Dialog>
+
+            {/* Modal Tables */}
+
+            <Modal
+                aria-labelledby="talle-transition-modal-title"
+                aria-describedby="talle-transition-modal-description"
+                open={openModal}
+                onClose={handleCloseModal}
+                closeAfterTransition
+                slots={{ backdrop: Backdrop }}
+                slotProps={{
+                    backdrop: {
+                        timeout: 500,
+                    },
+                }}
+            >
+                <Fade in={openModal}>
+                    <Box sx={styleModal}>
+                        <img src={talles} alt='tabla de talles' className='tablaTalles' />
+                    </Box>
+                </Fade>
+            </Modal>
+
+            <Modal
+                aria-labelledby="color-transition-modal-title"
+                aria-describedby="color-transition-modal-description"
+                open={openModal1}
+                onClose={handleCloseModal1}
+                closeAfterTransition
+                slots={{ backdrop: Backdrop }}
+                slotProps={{
+                    backdrop: {
+                        timeout: 500,
+                    },
+                }}
+            >
+                <Fade in={openModal1}>
+                    <Box sx={styleModal}>
+                        <img src={colors} alt='tabla de colores' className='tablaColores' />
+                    </Box>
+                </Fade>
+            </Modal>
 
         </>
     )

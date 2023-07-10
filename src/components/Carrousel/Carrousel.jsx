@@ -1,6 +1,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import './Carrousel.css';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -18,7 +18,6 @@ const Carrousel = ({ products }) => {
 
         <>
             <Swiper
-                effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
                 coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 5 }}
@@ -33,7 +32,7 @@ const Carrousel = ({ products }) => {
                     prevEl: '.swiper-button-prev',
                     clickable: true
                 }}
-                modules={[Pagination, EffectCoverflow, Autoplay]}
+                modules={[Pagination, Autoplay]}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,

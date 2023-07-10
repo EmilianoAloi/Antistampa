@@ -1,7 +1,7 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
 import colors from '../../assets/colors.png';
-import talles from '../../assets/talles.jpg'
+import talles from '../../assets/talles.jpg';
 
 import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 
-const style = {
+const styleModal = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -155,7 +155,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 }}
                             >
                                 <Fade in={open}>
-                                    <Box sx={style}>
+                                    <Box sx={styleModal}>
                                         <img src={talles} alt='tabla de talles' className='tablaTalles' />
                                     </Box>
                                 </Fade>
@@ -175,7 +175,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 }}
                             >
                                 <Fade in={open1}>
-                                    <Box sx={style}>
+                                    <Box sx={styleModal}>
                                         <img src={colors} alt='tabla de colores' className='tablaColores' />
                                     </Box>
                                 </Fade>

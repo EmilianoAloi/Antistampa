@@ -33,7 +33,7 @@ const Carrousel = ({ products }) => {
                     prevEl: '.swiper-button-prev',
                     clickable: true
                 }}
-                modules={[Pagination, EffectCoverflow, Navigation, Autoplay]}
+                modules={[Pagination, EffectCoverflow, Autoplay]}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,

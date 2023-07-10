@@ -1,4 +1,4 @@
-import { Box, Typography, Stack, Grid, Container, Fab } from "@mui/material"
+import { Box, Typography, Stack, Grid, Container, Fab, Modal, Backdrop, Fade, } from "@mui/material"
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -25,8 +25,6 @@ import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import PhotoSizeSelectLargeOutlinedIcon from '@mui/icons-material/PhotoSizeSelectLargeOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
-
-
 import remeraPersonalizadaFrente from '../../assets/remeraPerzonalizada.png'
 import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
 import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
@@ -38,7 +36,7 @@ const Personalizar = () => {
     const location = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location])
+    }, [location]);
 
     const { addItem } = useContext(CartContext);
 
@@ -48,11 +46,12 @@ const Personalizar = () => {
         } else {
             addItem(item, 1);
             alert('item personalizado agregado')
-            setPrenda('');
+            setPrenda('Remera');
             setColor('');
             setTalle('');
             setEstampado('');
             setUbicacion('');
+            window.scrollTo(0, 0);
         }
     }
 
@@ -86,8 +85,13 @@ const Personalizar = () => {
         newTotal: newTotal,
     };
 
+// Modal tables
 
-    // handles de selectores
+
+
+
+
+    // Handles Preferencias
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -133,7 +137,6 @@ const Personalizar = () => {
         if (reason !== 'backdropClick') {
             setOpen1(false);
         }
-
     };
 
     const handleClose2 = (e, reason) => {
@@ -152,9 +155,7 @@ const Personalizar = () => {
         if (reason !== 'backdropClick') {
             setOpen4(false);
         }
-
     };
-
 
 
     // Logica de precios
@@ -253,9 +254,12 @@ const Personalizar = () => {
             </Box>
 
             <Container>
+
+
+                
                 <Grid container spacing={3} alignItems='center' justifyContent='center'>
 
-                    <Grid item className="mobile" xs={12} sm={6} sx={{ display: { md: 'none' } }} >
+                    <Grid item className="mobilePreferencias" xs={12} sm={6} sx={{ display: { md: 'none' } }} >
 
                         <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: { xs: '0.5rem', md: '2rem' }, marginBottom: { xs: '1rem' } }}>
 
@@ -284,6 +288,15 @@ const Personalizar = () => {
                                 <Typography sx={{ color: 'success.main', fontSize: '.8rem' }} fontWeight={400} textAlign='center'>Posición</Typography>
                             </Stack>
                         </Stack>
+
+
+
+                        <Stack sx={{ flexDirection: 'row', gap: '0rem', marginLeft: { xs: '0rem' }, justifyContent: { xs: 'space-evenly', md: 'start' } }}>
+                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
+                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
+                        </Stack>
+
+
 
 
                         <Stack direction='column'>
@@ -323,9 +336,8 @@ const Personalizar = () => {
 
                     </Grid>
 
-                    <Grid item xs={12} sm={6} >
+                    <Grid className="imgRender" item xs={12} sm={6} >
                         <Stack width='80%' sx={{ margin: '0 auto' }}>
-
 
                             {prenda === 'Remera' && (
                                 <img src={remeraPersonalizadaFrente} alt="Remera" />
@@ -348,7 +360,7 @@ const Personalizar = () => {
                         </Stack>
                     </Grid>
 
-                    <Grid item className="mobile" xs={12} sx={{ display: { md: 'none' } }}>
+                    <Grid item className="mobilePrice" xs={12} sx={{ display: { md: 'none' } }}>
                         <Stack>
                             <Typography component='h3'
                                 sx={{ color: 'white', fontSize: '1.5rem', textAlign: 'start' }} >
@@ -401,7 +413,10 @@ const Personalizar = () => {
                             </Stack>
                         </Stack>
 
-
+                        <Stack sx={{ flexDirection: 'row', gap: '0rem', marginLeft: { xs: '0rem' }, justifyContent: { xs: 'space-evenly', md: 'center' } }}>
+                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
+                            <Button color='success' variant='text' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
+                        </Stack>
 
 
 
@@ -463,7 +478,6 @@ const Personalizar = () => {
                 <DialogTitle>ELEGIR PRENDA</DialogTitle>
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', color: 'success' }}>
-
                         <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="prenda-dialog-select-label" color='success' >Prenda:</InputLabel>
                             <Select

@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from 'firebase/storage'
+import { v4 } from "uuid";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,7 +13,14 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-
 export const db = getFirestore(app);
+export const storage = getStorage(app);
+
+export function uploadImg(file) {
+  const storageRef = ref(storage, 'imgProducts/' + v4());
+  uploadBytes(storageRef, file).then(snapshot => {
+    console.log(snapshot)
+  })
+}
 
 

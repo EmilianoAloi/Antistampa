@@ -1,4 +1,3 @@
-import { Container, Grid } from "@mui/material"
 import Item from "../Item/Item"
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -25,9 +24,9 @@ const ItemList = ({ products }) => {
         // </Container>
 
 
-                products.map(prod =>
-                    <Item key={prod.id} {...prod} />
-                )
+        products.map(prod =>
+            <Item key={prod.id} {...prod} />
+        )
 
 
 

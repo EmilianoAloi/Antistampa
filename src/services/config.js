@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes } from 'firebase/storage'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { v4 } from "uuid";
 
 const firebaseConfig = {
@@ -16,11 +16,26 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
+// export function uploadImg(file) {
+//   const storageRef = ref(storage, 'imgProducts/' + v4());
+//   uploadBytes(storageRef, file).then(snapshot => {
+//     console.log(snapshot);
+//     const urlImg = getDownloadURL(storageRef);
+//   })
+// }
+
+
 export function uploadImg(file) {
-  const storageRef = ref(storage, 'imgProducts/' + v4());
-  uploadBytes(storageRef, file).then(snapshot => {
-    console.log(snapshot)
-  })
+  const storage = getStorage();
+  const fileId = v4();
+  const extension = file.name.split('.').pop();
+  const filename = `imgProducts/${fileId}.${extension}`;
+  const storageRef = ref(storage, filename);
+  
+  return uploadBytes(storageRef, file)
+    .then(() => getDownloadURL(storageRef))
+    .catch((error) => {
+      console.error('Error al subir la imagen:', error);
+      throw error;
+    });
 }
-
-

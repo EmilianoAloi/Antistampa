@@ -38,7 +38,7 @@ const Cart = () => {
                         No hay productos seleccionados 😔
                     </Typography>
 
-                    <Link to='/' >
+                    <Link to='/productos' >
                         <Button size='large' variant='contained' startIcon={<SearchIcon />}
                             sx={{ fontWeight: '800', mt: '2rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                             Ver Productos
@@ -65,7 +65,7 @@ const Cart = () => {
                     <Stack gap={2} marginTop='2rem'>
                         <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
 
-                        <Link to='/' >
+                        <Link to='/productos' >
                             <Button variant='outlined' sx={{ width: '100%' }}> Ver mas productos</Button>
                         </Link>
 
@@ -133,7 +133,7 @@ const Cart = () => {
                     <Stack gap={2} marginTop='2rem'>
                         <Button onClick={() => emptyCart()} color="error" variant="outlined" > Vaciar Carrito </Button>
 
-                        <Link to='/' >
+                        <Link to='/productos' >
                             <Button variant='outlined' sx={{ width: '100%' }}> Ver mas productos</Button>
                         </Link>
 

@@ -50,6 +50,13 @@ const ProductosDropdown = () => {
                     Totes
                 </MenuItem>
 
+                <MenuItem onClick={handleClose}
+                    component={NavLink}
+                    to={'./categoria/antistampa'}
+                    className="dropdown-button">
+                    Antistampa
+                </MenuItem>
+
             </Menu>
         </>
     );

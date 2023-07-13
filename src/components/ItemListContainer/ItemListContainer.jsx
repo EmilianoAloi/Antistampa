@@ -66,12 +66,10 @@ const ItemListContainer = () => {
                 </Typography>}
 
 
-            {products.length === 0 ? ( <Stack sx={{margin:'0 auto', marginY:'20rem'}}><CircularProgress size={80} sx={{ margin: '0 auto' }} /> </Stack>) 
-            : ( <Carrousel products={products} /> )}
+            {products.length === 0 ? (<Stack sx={{ margin: '0 auto', marginY: '20rem' }}><CircularProgress size={80} sx={{ margin: '0 auto' }} /> </Stack>)
+                : (<Carrousel products={products} />)}
 
 
-            {/* <Carrousel products={products} /> */}
-            {/* <ItemList products={products} /> */}
 
         </>
 

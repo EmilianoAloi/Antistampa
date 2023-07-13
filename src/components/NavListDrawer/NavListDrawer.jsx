@@ -69,10 +69,10 @@ const NavListDrawer = ({ setOpen }) => {
         </ListItem>
 
         <ListItem sx={{ paddingLeft: '0.5rem' }}>
-          <Button disabled
+          <Button 
             sx={{ padding: '0rem' }}
             component={NavLink}
-            to='/'
+            to={'./categoria/antistampa'}
             onClick={handleCloseDrawer}
           >PRODUCTOS ANTISTAMPA
           </Button>

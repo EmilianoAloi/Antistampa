@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [cat, setCat] = useState('');
     const [stock, setStock] = useState(0);
 
-    const [productId, setProductId] = useState();
+    // const [productId, setProductId] = useState();
     const [error, setError] = useState();
 
     const [file, setFile] = useState();
@@ -42,6 +42,7 @@ const Dashboard = () => {
             .catch((error) => {
                 setError('Se produjo un error al crear nuevo producto, vuelva a intentar.');
             });
+            console.log(error)
 
         setCat('');
         setPrice('');

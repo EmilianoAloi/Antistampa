@@ -65,7 +65,7 @@ const Personalizar = () => {
     const [open3, setOpen3] = useState(false);
     const [open4, setOpen4] = useState(false);
     const [imgItem, setImgItem] = useState('')
-    const [prenda, setPrenda] = useState('Remera');
+    const [prenda, setPrenda] = useState('Remera Unisex');
     const [color, setColor] = useState('');
     const [talle, setTalle] = useState('');
     const [estampado, setEstampado] = useState('');
@@ -77,7 +77,7 @@ const Personalizar = () => {
     const [newTotal, setNewTotal] = useState(0);
 
 
-    // Estados Modales
+    // Estados Modales (tablas de talles y colores)
 
     const [openModal, setOpenModal] = useState(false);
     const handleOpenModal = () => setOpenModal(true);
@@ -98,7 +98,7 @@ const Personalizar = () => {
         img: imgItem,
         newTotal: newTotal,
         qty: 1,
-        name:'Prenda personalizada'
+        name: 'Prenda personalizada'
     };
 
 
@@ -176,20 +176,24 @@ const Personalizar = () => {
 
     useEffect(() => {
         switch (prenda) {
-            case 'Remera':
-                setPricePrenda(1000);
+            case 'Remera Unisex':
+                setPricePrenda(7000);
                 setImgItem(remeraPersonalizadaFrente);
                 break;
-            case 'Buzo':
-                setPricePrenda(1500);
+            case 'Remera Niño':
+                setPricePrenda(7000);
+                setImgItem(remeraPersonalizadaFrente);
+                break;
+            case 'Buzo Oversize XXXL':
+                setPricePrenda(17000);
                 setImgItem(buzoPersonalizado);
                 break;
-            case 'Hoodie':
-                setPricePrenda(2000);
+            case 'Hoodie Oversize XXXL':
+                setPricePrenda(17000);
                 setImgItem(hoddiePersonalizado);
                 break;
             case 'Tote':
-                setPricePrenda(3000);
+                setPricePrenda(14000);
                 setImgItem(totePersonalizado);
                 break;
             default:
@@ -202,16 +206,19 @@ const Personalizar = () => {
     useEffect(() => {
         switch (talle) {
             case 'X':
-                setPriceTalle(1000);
+                setPriceTalle(0);
                 break;
             case 'XS':
-                setPriceTalle(800);
+                setPriceTalle(0);
                 break;
             case 'XL':
-                setPriceTalle(1100);
+                setPriceTalle(0);
                 break;
             case 'XXL':
-                setPriceTalle(1300);
+                setPriceTalle(500);
+                break;
+            case 'XXXL':
+                setPriceTalle(500);
                 break;
             default:
                 setPriceTalle(0);
@@ -223,16 +230,16 @@ const Personalizar = () => {
     useEffect(() => {
         switch (estampado) {
             case 'Tamaño 1':
-                setPriceEstampado(1000);
+                setPriceEstampado(0);
                 break;
             case 'Tamaño 2':
-                setPriceEstampado(2000);
+                setPriceEstampado(0);
                 break;
             case 'Tamaño 3':
-                setPriceEstampado(3000);
+                setPriceEstampado(0);
                 break;
             case 'Tamaño 4':
-                setPriceEstampado(4000);
+                setPriceEstampado(0);
                 break;
             default:
                 setPriceEstampado(0);
@@ -244,10 +251,16 @@ const Personalizar = () => {
     useEffect(() => {
         switch (ubicacion) {
             case 'Frente':
-                setPriceUbicacion(1000);
+                setPriceUbicacion(0);
                 break;
             case 'Dorso':
-                setPriceUbicacion(800);
+                setPriceUbicacion(0);
+                break;
+            case 'Frente + Dorso':
+                setPriceUbicacion(1500);
+                break;
+            case 'Dorso + Frente':
+                setPriceUbicacion(3000);
                 break;
             default:
                 setPriceUbicacion(0);
@@ -320,7 +333,7 @@ const Personalizar = () => {
                         <Stack direction='column'>
                             <Typography component='h3'
                                 sx={{ color: 'white', fontSize: '1.5rem', textAlign: 'center', marginBottom: '1.5rem' }} >
-                                Producto: <strong>{prenda} Unisex</strong>
+                                Producto: <strong>{prenda}</strong>
                             </Typography>
 
                         </Stack>
@@ -357,15 +370,20 @@ const Personalizar = () => {
                     <Grid className="imgRender" item xs={12} sm={6} >
                         <Stack width='80%' sx={{ margin: '0 auto' }}>
 
-                            {prenda === 'Remera' && (
-                                <img src={remeraPersonalizadaFrente} alt="Remera" />
+                            {prenda === 'Remera Niño' && (
+                                <img src={remeraPersonalizadaFrente} alt="Remera Niño" />
                             )}
 
-                            {prenda === 'Buzo' && (
+                            {prenda === 'Remera Unisex' && (
+                                <img src={remeraPersonalizadaFrente} alt="Remera Unisex" />
+                            )}
+
+
+                            {prenda === 'Buzo Oversize XXXL' && (
                                 <img src={buzoPersonalizado} alt="Buzo" />
                             )}
 
-                            {prenda === 'Hoodie' && (
+                            {prenda === 'Hoodie Oversize XXXL' && (
                                 <img src={hoddiePersonalizado} alt="Hoddie" />
                             )}
 
@@ -382,7 +400,7 @@ const Personalizar = () => {
                         <Stack>
                             <Typography component='h3'
                                 sx={{ color: 'white', fontSize: '1.5rem', textAlign: 'start' }} >
-                                Producto: <strong>{prenda} Unisex</strong>
+                                Producto: <strong>{prenda}</strong>
                             </Typography>
                             <Typography component='h3' fontWeight='800' mb={2} mt={0}
                                 sx={{ color: 'white', fontSize: { xs: '1.3rem', md: '1.5rem' }, textAlign: 'start' }} >
@@ -441,7 +459,7 @@ const Personalizar = () => {
                         <Stack direction='column'>
                             <Typography component='h3'
                                 sx={{ color: 'white', fontSize: { xs: '1.5rem', sm: '3rem' }, marginBottom: '1rem' }} >
-                                Producto: <strong>{prenda} Unisex</strong>
+                                Producto: <strong>{prenda}</strong>
                             </Typography>
 
                             <TableContainer component={Paper} sx={{ marginBottom: '1rem' }}>
@@ -506,9 +524,10 @@ const Personalizar = () => {
                                 onChange={handleChange}
                                 input={<OutlinedInput label="Prenda" />}
                             >
-                                <MenuItem value="Remera">Remera</MenuItem>
-                                <MenuItem value='Buzo'>Buzo</MenuItem>
-                                <MenuItem value='Hoodie'>Hoodie</MenuItem>
+                                <MenuItem value="Remera Unisex">Remera Unisex</MenuItem>
+                                <MenuItem value="Remera Niño">Remera Niño</MenuItem>
+                                <MenuItem value='Buzo Oversize XXXL'>Buzo Oversize XXXL </MenuItem>
+                                <MenuItem value='Hoodie Oversize XXXL'>Hoodie Oversize XXXL </MenuItem>
                                 <MenuItem value='Tote'>Tote</MenuItem>
                             </Select>
                         </FormControl>
@@ -527,7 +546,40 @@ const Personalizar = () => {
 
                         <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="talle-dialog-select-label" color='success'>Talle:</InputLabel>
-                            <Select
+
+
+                            {prenda === 'Remera Unisex' ? (
+                                <Select
+                                    color='success'
+
+                                    value={talle}
+                                    onChange={handleChange1}
+                                    input={<OutlinedInput label="Talle" color='success' />}
+                                >
+                                    <MenuItem value='XS'>XS</MenuItem>
+                                    <MenuItem value="S">S</MenuItem>
+                                    <MenuItem value="M">M</MenuItem>
+                                    <MenuItem value="L">L</MenuItem>
+                                    <MenuItem value="XL">XL</MenuItem>
+                                    <MenuItem value='XXL'>XXL ( +$500 )</MenuItem>
+                                    <MenuItem value='XXXL'>XXXL ( +$500 )</MenuItem>
+                                </Select>
+
+                            ) : prenda === 'Remera Niño' ? (<Select
+                                color='success'
+
+                                value={talle}
+                                onChange={handleChange1}
+                                input={<OutlinedInput label="Talle" color='success' />}
+                            >
+                                <MenuItem value='2'>2</MenuItem>
+                                <MenuItem value="4">4</MenuItem>
+                                <MenuItem value="6">6</MenuItem>
+                                <MenuItem value="8">8</MenuItem>
+                                <MenuItem value="10">10</MenuItem>
+                                <MenuItem value='12'>12</MenuItem>
+                                <MenuItem value='14'>14</MenuItem>
+                            </Select>) : (<Select
                                 color='success'
                                 labelId="talle-select-label"
                                 id="talle-dialog-select"
@@ -535,11 +587,13 @@ const Personalizar = () => {
                                 onChange={handleChange1}
                                 input={<OutlinedInput label="Talle" color='success' />}
                             >
-                                <MenuItem value="X">X</MenuItem>
-                                <MenuItem value='XS'>XS</MenuItem>
-                                <MenuItem value='XL'>XL</MenuItem>
-                                <MenuItem value='XXL'>XXL</MenuItem>
+                                <MenuItem value='Talle unico'>Talle Unico</MenuItem>
                             </Select>
+                            )}
+
+
+
+
                         </FormControl>
                     </Box>
                 </DialogContent>
@@ -626,6 +680,15 @@ const Personalizar = () => {
                             >
                                 <MenuItem value="Frente">Frente</MenuItem>
                                 <MenuItem value='Dorso'> Dorso</MenuItem>
+
+                                {prenda === 'Buzo Oversize XXXL' || prenda === 'Hoodie Oversize XXXL' ? (
+                                    <MenuItem value='Dorso + Frente'>Frente + Dorso ( +$3000 )</MenuItem>
+                                ) : (prenda === 'Remera Unisex' || prenda === 'Remera Niño') ? (
+                                    <MenuItem value='Frente + Dorso'>Frente + Dorso ( +$1500 )</MenuItem>
+                                ) : null}
+
+
+
                             </Select>
                         </FormControl>
                     </Box>

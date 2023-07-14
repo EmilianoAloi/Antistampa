@@ -100,7 +100,6 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
 
 
-
         setAddQty(qty);
 
 
@@ -206,8 +205,12 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                         color='primary'
                                     >
                                         <MenuItem value='XS'>XS</MenuItem>
-                                        <MenuItem value='XL'>XL</MenuItem>
-                                        <MenuItem value='XXL'>XXL</MenuItem>
+                                        <MenuItem value='XS'>S</MenuItem>
+                                        <MenuItem value='XS'>M</MenuItem>
+                                        <MenuItem value='XS'>L</MenuItem>
+                                        <MenuItem value='XS'>XL</MenuItem>
+                                        <MenuItem value='XL'>XXL (+ $500)</MenuItem>
+                                        <MenuItem value='XXL'>XXXL (+ $500)</MenuItem>
                                     </Select>
                                 </FormControl>
 

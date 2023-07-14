@@ -110,20 +110,20 @@ const Dashboard = () => {
     const [buzoNiñoXXL, setBuzoNiñoXXL] = useState(0)
     const [buzoNiñoXXXL, setBuzoNiñoXXXL] = useState(0)
 
-    // const [hoodieS, setHoodieS] = useState(0)
-    // const [hoodieM, setHoodieM] = useState(0)
-    // const [hoodieL, setHoodieL] = useState(0)
-    // const [hoodieXL, setHoodieXL] = useState(0)
-    // const [hoodieXXL, setHoodieXXL] = useState(0)
-    // const [hoodieXXXL, setHoodieXXXL] = useState(0)
+    const [hoodieS, setHoodieS] = useState(0)
+    const [hoodieM, setHoodieM] = useState(0)
+    const [hoodieL, setHoodieL] = useState(0)
+    const [hoodieXL, setHoodieXL] = useState(0)
+    const [hoodieXXL, setHoodieXXL] = useState(0)
+    const [hoodieXXXL, setHoodieXXXL] = useState(0)
 
 
-    // const [hoodieNiñoS, setHoodieNiñoS] = useState(0)
-    // const [hoodieNiñoM, setHoodieNiñoM] = useState(0)
-    // const [hoodieNiñoL, setHoodieNiñoL] = useState(0)
-    // const [hoodieNiñoXL, setHoodieNiñoXL] = useState(0)
-    // const [hoodieNiñoXXL, setHoodieNiñoXXL] = useState(0)
-    // const [hoodieNiñoXXXL, setHoodieNiñoXXXL] = useState(0)
+    const [hoodieNiñoS, setHoodieNiñoS] = useState(0)
+    const [hoodieNiñoM, setHoodieNiñoM] = useState(0)
+    const [hoodieNiñoL, setHoodieNiñoL] = useState(0)
+    const [hoodieNiñoXL, setHoodieNiñoXL] = useState(0)
+    const [hoodieNiñoXXL, setHoodieNiñoXXL] = useState(0)
+    const [hoodieNiñoXXXL, setHoodieNiñoXXXL] = useState(0)
 
 
     return (
@@ -216,8 +216,8 @@ const Dashboard = () => {
                 </Box>
                 <Divider />
 
-                <Typography sx={{ color: 'white', fontSize: '1.5rem', fontWeight: '600', marginTop:'2rem' }}>MODIFICAR PRECIOS</Typography>
-                <Typography sx={{ color: 'white', marginBottom:'1rem' }}>TALLES</Typography>
+                <Typography sx={{ color: 'white', fontSize: '1.5rem', fontWeight: '600', marginTop: '2rem' }}>MODIFICAR PRECIOS</Typography>
+                <Typography sx={{ color: 'white', marginBottom: '1rem' }}>TALLES</Typography>
 
                 <Stack className="modificarPrecios" direction='row' gap={8}>
                     <Stack color='white' gap={3} width={200} padding={5} border='1px solid yellow'>
@@ -530,40 +530,40 @@ const Dashboard = () => {
                             <Typography sx={{ fontSize: '1rem' }}>XS: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraUnisexXs}
-                                onChange={(e) => setRemeraUnisexXs(e.target.value)} />
+                                value={hoodieS}
+                                onChange={(e) => setHoodieS(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>S: $ </Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraUnisexS}
-                                onChange={(e) => setRemeraUnisexS(e.target.value)} />
+                                value={hoodieM}
+                                onChange={(e) => setHoodieM(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>M: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraUnisexM}
-                                onChange={(e) => setRemeraUnisexM(e.target.value)} />
+                                value={hoodieL}
+                                onChange={(e) => setHoodieL(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>L: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraUnisexL}
-                                onChange={(e) => setRemeraUnisexL(e.target.value)} />
+                                value={hoodieXL}
+                                onChange={(e) => setHoodieXL(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>XL: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraUnisexXl}
-                                onChange={(e) => setRemeraUnisexXl(e.target.value)} />
+                                value={hoodieXXL}
+                                onChange={(e) => setHoodieXXL(e.target.value)} />
                         </Stack>
 
 
@@ -571,78 +571,51 @@ const Dashboard = () => {
                             <Typography sx={{ fontSize: '1rem' }}>XXL: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraUnisexXxl}
-                                onChange={(e) => setRemeraUnisexXxl(e.target.value)} />
+                                value={hoodieXXXL}
+                                onChange={(e) => setHoodieXXXL(e.target.value)} />
                         </Stack>
-
-
-
-                        <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
-                            <Typography sx={{ fontSize: '1rem' }}>XXXL: $</Typography>
-                            <TextField
-                                sx={{ width: '100px' }}
-                                value={remeraUnisexXxxl}
-                                onChange={(e) => setRemeraUnisexXxxl(e.target.value)} />
-                        </Stack>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </Stack>
+
                     <Stack color='white' gap={3} width={160} padding={5} border='1px solid yellow'>
                         <Typography sx={{ fontSize: '1.2rem', marginBottom: '0.5rem', textAlign: 'center' }}>Hoodie Niños:</Typography>
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>2: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraNiño2}
-                                onChange={(e) => setRemeraNiño2(e.target.value)} />
+                                value={hoodieNiñoS}
+                                onChange={(e) => setHoodieNiñoS(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>4: $ </Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraNiño4}
-                                onChange={(e) => setRemeraNiño4(e.target.value)} />
+                                value={hoodieNiñoM}
+                                onChange={(e) => setHoodieNiñoM(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>6: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraNiño6}
-                                onChange={(e) => setRemeraNiño6(e.target.value)} />
+                                value={hoodieNiñoL}
+                                onChange={(e) => setHoodieNiñoL(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>8: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraNiño8}
-                                onChange={(e) => setRemeraNiño8(e.target.value)} />
+                                value={hoodieNiñoXL}
+                                onChange={(e) => setHoodieNiñoXL(e.target.value)} />
                         </Stack>
 
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
                             <Typography sx={{ fontSize: '1rem' }}>10: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraNiño10}
-                                onChange={(e) => setRemeraNiño10(e.target.value)} />
+                                value={hoodieNiñoXXL}
+                                onChange={(e) => setHoodieNiñoXXL(e.target.value)} />
                         </Stack>
 
 
@@ -650,8 +623,8 @@ const Dashboard = () => {
                             <Typography sx={{ fontSize: '1rem' }}>12: $</Typography>
                             <TextField
                                 sx={{ width: '100px' }}
-                                value={remeraNiño12}
-                                onChange={(e) => setRemeraNiño12(e.target.value)} />
+                                value={hoodieNiñoXXXL}
+                                onChange={(e) => setHoodieNiñoXXXL(e.target.value)} />
                         </Stack>
 
 
@@ -684,7 +657,7 @@ const Dashboard = () => {
                     </Stack>
                 </Stack>
 
-                <Typography sx={{ color: 'white', marginBottom:'1rem' }}>ESTAMPADOS</Typography>
+                <Typography sx={{ color: 'white', marginY: '2rem' }}>ESTAMPADOS</Typography>
 
 
 

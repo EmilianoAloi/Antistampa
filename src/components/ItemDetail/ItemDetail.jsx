@@ -209,8 +209,8 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                         <MenuItem value='XS'>M</MenuItem>
                                         <MenuItem value='XS'>L</MenuItem>
                                         <MenuItem value='XS'>XL</MenuItem>
-                                        <MenuItem value='XL'>XXL (+ $500)</MenuItem>
-                                        <MenuItem value='XXL'>XXXL (+ $500)</MenuItem>
+                                        <MenuItem value='XL'>XXL  +$500</MenuItem>
+                                        <MenuItem value='XXL'>XXXL   +$500</MenuItem>
                                     </Select>
                                 </FormControl>
 

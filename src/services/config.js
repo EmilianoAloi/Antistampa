@@ -16,13 +16,7 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
-// export function uploadImg(file) {
-//   const storageRef = ref(storage, 'imgProducts/' + v4());
-//   uploadBytes(storageRef, file).then(snapshot => {
-//     console.log(snapshot);
-//     const urlImg = getDownloadURL(storageRef);
-//   })
-// }
+
 
 
 export function uploadImg(file) {

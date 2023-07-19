@@ -16,6 +16,7 @@ import colors from '../../assets/colors.png';
 import talles from '../../assets/talles.jpg';
 
 import { v4 } from "uuid";
+import Print from "../Print/Print";
 
 const styleModal = {
     position: 'absolute',
@@ -75,6 +76,7 @@ const Personalizar = () => {
     const [priceEstampado, setPriceEstampado] = useState(0);
     const [priceUbicacion, setPriceUbicacion] = useState(0);
     const [newTotal, setNewTotal] = useState(0);
+    const [imgPrint, setImgPrint] = useState('');
 
 
     // Estados Modales (tablas de talles y colores)
@@ -96,6 +98,7 @@ const Personalizar = () => {
         price: 0,
         product: prenda + ' Personalizado/a',
         img: imgItem,
+        imgPrint: imgPrint,
         newTotal: newTotal,
         qty: 1,
         name: 'Prenda personalizada'
@@ -181,7 +184,7 @@ const Personalizar = () => {
                 setImgItem(remeraPersonalizadaFrente);
                 break;
             case 'Remera Niño':
-                setPricePrenda(7000);
+                setPricePrenda(6000);
                 setImgItem(remeraPersonalizadaFrente);
                 break;
             case 'Buzo Oversize XXXL':
@@ -364,6 +367,9 @@ const Personalizar = () => {
                                 </TableBody>
                             </Table>
                         </TableContainer>
+                        <Stack sx={{ alignItems:'center'}}>
+                            <Print />
+                        </Stack>
 
                     </Grid>
 
@@ -489,13 +495,12 @@ const Personalizar = () => {
                                 </Table>
                             </TableContainer>
 
+                            <Print />
 
                             <Typography component='h3' fontWeight='800' mb={2} mt={0}
                                 sx={{ color: 'white', fontSize: { xs: '1.3rem', md: '1.5rem' }, textAlign: 'end' }} >
                                 Total: ${item.newTotal}
                             </Typography>
-
-
 
                             <Button variant='contained' size='large' color='success' onClick={handlePersonalizado}
                                 startIcon={<PaymentIcon />}

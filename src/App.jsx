@@ -21,6 +21,7 @@ import Faqs from './components/Faqs/Faqs';
 import Contact from './components/Contact/Contact';
 import Personalizar from './components/Personalizar/Personalizar';
 import Dashboard from './components/Dashboard/Dashboard';
+import { PersonalizeProvider } from './components/Context/PersonalizeContext';
 
 function App() {
 
@@ -31,24 +32,24 @@ function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <CartProvider>
-            <NavBar />
-            <WpWidget />
-            <Routes>
-              <Route path='/' element={<Hero />} />
-              <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
-              <Route path='/item/:idItem' element={<ItemDetailContainer />} />
-              <Route path='*' element={<h2>En construccion</h2>} />
-              <Route path='/cart' element={<Cart />} />
-              <Route path='/checkout' element={<Checkout />} />
-              <Route path='/dudas' element={<Faqs />} />
-              <Route path='/contacto' element={<Contact />} />
-              <Route path='/personalizados' element={<Personalizar />} />
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/productos' element={<ItemListContainer />} />
-            </Routes>
-
-            <Footer />
-
+            <PersonalizeProvider>
+              <NavBar />
+              <WpWidget />
+              <Routes>
+                <Route path='/' element={<Hero />} />
+                <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
+                <Route path='/item/:idItem' element={<ItemDetailContainer />} />
+                <Route path='*' element={<h2>En construccion</h2>} />
+                <Route path='/cart' element={<Cart />} />
+                <Route path='/checkout' element={<Checkout />} />
+                <Route path='/dudas' element={<Faqs />} />
+                <Route path='/contacto' element={<Contact />} />
+                <Route path='/personalizados' element={<Personalizar />} />
+                <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='/productos' element={<ItemListContainer />} />
+              </Routes>
+              <Footer />
+            </PersonalizeProvider>
           </CartProvider>
         </BrowserRouter>
       </ThemeProvider>

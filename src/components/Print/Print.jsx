@@ -1,44 +1,58 @@
-import { db } from "../../services/config";
-import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytes } from 'firebase/storage';
-import { storage } from '../../services/config';
-import { Button } from '@mui/material'
-import { useState } from "react";
 
+import { Button } from '@mui/material'
+import { useContext } from 'react';
+import { Stack, Input } from '@mui/material';
+import UploadIcon from '@mui/icons-material/Upload';
+import ImageIcon from '@mui/icons-material/Image';
+import { PersonalizeContext } from '../Context/PersonalizeContext';
 
 const Print = () => {
 
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [imageURL, setImageURL] = useState('');
-
-    const handleImageUpload = async () => {
-        try {
-            // Subir la imagen al almacenamiento de Firebase
-            const storageRef = ref(storage, `imgPrint/${selectedImage.name}`);
-            await uploadBytes(storageRef, selectedImage);
-
-            // Obtener la URL de descarga de la imagen
-            const imageURL = await storageRef.getDownloadURL();
-
-            // Guardar la URL de la imagen en Firestore
-            const docRef = await addDoc(collection(db, 'imgPrint'), {
-                imageURL: imageURL
-            });
-
-            // Actualizar el estado con la URL de la imagen
-            setImageURL(imageURL);
-
-            console.log('Imagen subida correctamente');
-        } catch (error) {
-            console.error('Error al subir la imagen', error);
-        }
-    };
+    const { handleImageUpload, selectedImage, setSelectedImage } = useContext(PersonalizeContext);
 
     return (
         <>
+            {/* <Stack>
+                <input type="file" accept="image/*" onChange={(e) => setSelectedImage(e.target.files[0])} />
+                <Button variant='outlined' startIcon={<UploadIcon />} onClick={handleImageUpload} sx={{ width: '13rem', padding: '.2rem' }}>Subir estampado</Button>;
+            </Stack> */}
+            <Stack >
 
-            <input type="file" accept="image/*" onChange={(e) => setSelectedImage(e.target.files[0])} />
-            <Button variant='outlined' sx={{ width: '17rem', padding: '.2rem' }}>Agregar imagen de estampado</Button>;
+                <Input
+                    component='Button'
+                    type="file"
+                    accept="image/*"
+                    id="print-input"
+                    inputProps={{ accept: 'image/*' }}
+                    style={{ display: 'none' }}
+                    onChange={(e) => setSelectedImage(e.target.files[0])}
+                />
+                <label htmlFor="print-input">
+                    <Button
+                        startIcon={<ImageIcon />}
+                        color='success'
+                        variant="text"
+                        component='span'
+                        sx={{ width: '13rem', padding: '.2rem' }}>
+                        Buscar imagen...
+                    </Button>
+                </label>
+                <Button
+                    variant='text'
+                    startIcon={<UploadIcon />}
+                    onClick={handleImageUpload}
+                    sx={{ width: '13rem', padding: '.2rem' }}
+                    disabled={!selectedImage}
+                >
+                    Subir estampado
+                </Button>
+            </Stack>
+
+
+
+
+
+
 
 
         </>

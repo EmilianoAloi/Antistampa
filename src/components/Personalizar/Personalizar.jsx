@@ -17,6 +17,7 @@ import talles from '../../assets/talles.jpg';
 
 import { v4 } from "uuid";
 import Print from "../Print/Print";
+import { PersonalizeContext } from "../Context/PersonalizeContext";
 
 const styleModal = {
     position: 'absolute',
@@ -38,6 +39,8 @@ const Personalizar = () => {
     }, [location]);
 
     const { addItem } = useContext(CartContext);
+    const { setSelectedImage, imageURL } = useContext(PersonalizeContext);
+
 
     const handlePersonalizado = () => {
 
@@ -45,15 +48,16 @@ const Personalizar = () => {
         if (prenda === '' || color === '' || talle === '' || estampado === '' || ubicacion === '') {
             alert('falta seleccionar alguna preferencia');
         } else {
-
             addItem(item, 1);
             alert('item personalizado agregado')
             setImgItem('')
-            setPrenda('Remera');
+            setPrenda('Remera Unisex');
             setColor('');
             setTalle('');
             setEstampado('');
             setUbicacion('');
+            setSelectedImage(false);
+            setNewTotal(0);
             window.scrollTo(0, 0);
         }
     }
@@ -76,7 +80,8 @@ const Personalizar = () => {
     const [priceEstampado, setPriceEstampado] = useState(0);
     const [priceUbicacion, setPriceUbicacion] = useState(0);
     const [newTotal, setNewTotal] = useState(0);
-    const [imgPrint, setImgPrint] = useState('');
+
+
 
 
     // Estados Modales (tablas de talles y colores)
@@ -98,7 +103,7 @@ const Personalizar = () => {
         price: 0,
         product: prenda + ' Personalizado/a',
         img: imgItem,
-        imgPrint: imgPrint,
+        imgPrint: imageURL,
         newTotal: newTotal,
         qty: 1,
         name: 'Prenda personalizada'
@@ -367,7 +372,7 @@ const Personalizar = () => {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                        <Stack sx={{ alignItems:'center'}}>
+                        <Stack sx={{ alignItems: 'center' }}>
                             <Print />
                         </Stack>
 

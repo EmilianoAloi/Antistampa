@@ -57,7 +57,6 @@ const Personalizar = () => {
             setEstampado('');
             setUbicacion('');
             setSelectedImage(false);
-            setNewTotal(0);
             window.scrollTo(0, 0);
         }
     }

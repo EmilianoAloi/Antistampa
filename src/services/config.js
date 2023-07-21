@@ -25,7 +25,7 @@ export function uploadImg(file) {
   const extension = file.name.split('.').pop();
   const filename = `imgProducts/${fileId}.${extension}`;
   const storageRef = ref(storage, filename);
-  
+
   return uploadBytes(storageRef, file)
     .then(() => getDownloadURL(storageRef))
     .catch((error) => {
@@ -33,3 +33,4 @@ export function uploadImg(file) {
       throw error;
     });
 }
+

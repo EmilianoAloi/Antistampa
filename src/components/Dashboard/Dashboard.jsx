@@ -3,6 +3,7 @@ import { uploadImg } from '../../services/config';
 import { useState } from "react";
 import { db } from "../../services/config";
 import { collection, addDoc } from "firebase/firestore";
+import PriceModifier from "../PriceModifier/PriceModifier";
 
 const Dashboard = () => {
 
@@ -80,50 +81,50 @@ const Dashboard = () => {
 
     // Modificar precios
 
-    const [remeraUnisexXs, setRemeraUnisexXs] = useState(0)
-    const [remeraUnisexS, setRemeraUnisexS] = useState(0)
-    const [remeraUnisexM, setRemeraUnisexM] = useState(0)
-    const [remeraUnisexL, setRemeraUnisexL] = useState(0)
-    const [remeraUnisexXl, setRemeraUnisexXl] = useState(0)
-    const [remeraUnisexXxl, setRemeraUnisexXxl] = useState(0)
-    const [remeraUnisexXxxl, setRemeraUnisexXxxl] = useState(0)
+    // const [remeraUnisexXs, setRemeraUnisexXs] = useState(0)
+    // const [remeraUnisexS, setRemeraUnisexS] = useState(0)
+    // const [remeraUnisexM, setRemeraUnisexM] = useState(0)
+    // const [remeraUnisexL, setRemeraUnisexL] = useState(0)
+    // const [remeraUnisexXl, setRemeraUnisexXl] = useState(0)
+    // const [remeraUnisexXxl, setRemeraUnisexXxl] = useState(0)
+    // const [remeraUnisexXxxl, setRemeraUnisexXxxl] = useState(0)
 
-    const [remeraNiño2, setRemeraNiño2] = useState(0)
-    const [remeraNiño4, setRemeraNiño4] = useState(0)
-    const [remeraNiño6, setRemeraNiño6] = useState(0)
-    const [remeraNiño8, setRemeraNiño8] = useState(0)
-    const [remeraNiño10, setRemeraNiño10] = useState(0)
-    const [remeraNiño12, setRemeraNiño12] = useState(0)
-    const [remeraNiño14, setRemeraNiño14] = useState(0)
+    // const [remeraNiño2, setRemeraNiño2] = useState(0)
+    // const [remeraNiño4, setRemeraNiño4] = useState(0)
+    // const [remeraNiño6, setRemeraNiño6] = useState(0)
+    // const [remeraNiño8, setRemeraNiño8] = useState(0)
+    // const [remeraNiño10, setRemeraNiño10] = useState(0)
+    // const [remeraNiño12, setRemeraNiño12] = useState(0)
+    // const [remeraNiño14, setRemeraNiño14] = useState(0)
 
-    const [buzoS, setBuzoS] = useState(0)
-    const [buzoM, setBuzoM] = useState(0)
-    const [buzoL, setBuzoL] = useState(0)
-    const [buzoXL, setBuzoXL] = useState(0)
-    const [buzoXXL, setBuzoXXL] = useState(0)
-    const [buzoXXXL, setBuzoXXXL] = useState(0)
+    // const [buzoS, setBuzoS] = useState(0)
+    // const [buzoM, setBuzoM] = useState(0)
+    // const [buzoL, setBuzoL] = useState(0)
+    // const [buzoXL, setBuzoXL] = useState(0)
+    // const [buzoXXL, setBuzoXXL] = useState(0)
+    // const [buzoXXXL, setBuzoXXXL] = useState(0)
 
-    const [buzoNiñoS, setBuzoNiñoS] = useState(0)
-    const [buzoNiñoM, setBuzoNiñoM] = useState(0)
-    const [buzoNiñoL, setBuzoNiñoL] = useState(0)
-    const [buzoNiñoXL, setBuzoNiñoXL] = useState(0)
-    const [buzoNiñoXXL, setBuzoNiñoXXL] = useState(0)
-    const [buzoNiñoXXXL, setBuzoNiñoXXXL] = useState(0)
+    // const [buzoNiñoS, setBuzoNiñoS] = useState(0)
+    // const [buzoNiñoM, setBuzoNiñoM] = useState(0)
+    // const [buzoNiñoL, setBuzoNiñoL] = useState(0)
+    // const [buzoNiñoXL, setBuzoNiñoXL] = useState(0)
+    // const [buzoNiñoXXL, setBuzoNiñoXXL] = useState(0)
+    // const [buzoNiñoXXXL, setBuzoNiñoXXXL] = useState(0)
 
-    const [hoodieS, setHoodieS] = useState(0)
-    const [hoodieM, setHoodieM] = useState(0)
-    const [hoodieL, setHoodieL] = useState(0)
-    const [hoodieXL, setHoodieXL] = useState(0)
-    const [hoodieXXL, setHoodieXXL] = useState(0)
-    const [hoodieXXXL, setHoodieXXXL] = useState(0)
+    // const [hoodieS, setHoodieS] = useState(0)
+    // const [hoodieM, setHoodieM] = useState(0)
+    // const [hoodieL, setHoodieL] = useState(0)
+    // const [hoodieXL, setHoodieXL] = useState(0)
+    // const [hoodieXXL, setHoodieXXL] = useState(0)
+    // const [hoodieXXXL, setHoodieXXXL] = useState(0)
 
 
-    const [hoodieNiñoS, setHoodieNiñoS] = useState(0)
-    const [hoodieNiñoM, setHoodieNiñoM] = useState(0)
-    const [hoodieNiñoL, setHoodieNiñoL] = useState(0)
-    const [hoodieNiñoXL, setHoodieNiñoXL] = useState(0)
-    const [hoodieNiñoXXL, setHoodieNiñoXXL] = useState(0)
-    const [hoodieNiñoXXXL, setHoodieNiñoXXXL] = useState(0)
+    // const [hoodieNiñoS, setHoodieNiñoS] = useState(0)
+    // const [hoodieNiñoM, setHoodieNiñoM] = useState(0)
+    // const [hoodieNiñoL, setHoodieNiñoL] = useState(0)
+    // const [hoodieNiñoXL, setHoodieNiñoXL] = useState(0)
+    // const [hoodieNiñoXXL, setHoodieNiñoXXL] = useState(0)
+    // const [hoodieNiñoXXXL, setHoodieNiñoXXXL] = useState(0)
 
 
     return (
@@ -216,10 +217,9 @@ const Dashboard = () => {
                 </Box>
                 <Divider />
 
-                <Typography sx={{ color: 'white', fontSize: '1.5rem', fontWeight: '600', marginTop: '2rem' }}>MODIFICAR PRECIOS</Typography>
-                <Typography sx={{ color: 'white', marginBottom: '1rem' }}>TALLES</Typography>
+                <Typography sx={{ color: 'white', fontSize: '1.5rem', fontWeight: '600', marginTop: '2rem' }}>MODIFICAR PRECIOS BASE DE PRODUCTOS</Typography>
 
-                <Stack className="modificarPrecios" direction='row' gap={8}>
+                {/* <Stack className="modificarPrecios" direction='row' gap={8}>
                     <Stack color='white' gap={3} width={200} padding={5} border='1px solid yellow'>
                         <Typography sx={{ fontSize: '1.2rem', marginBottom: '0.5rem', textAlign: 'center' }}>Remeras Unisex:</Typography>
                         <Stack direction='row' alignItems='center' justifyContent='space-between' gap={1}>
@@ -655,11 +655,10 @@ const Dashboard = () => {
 
 
                     </Stack>
-                </Stack>
-
-                <Typography sx={{ color: 'white', marginY: '2rem' }}>ESTAMPADOS</Typography>
+                </Stack> */}
 
 
+                <PriceModifier />
 
             </Container>
 

@@ -12,10 +12,7 @@ const Print = () => {
 
     return (
         <>
-            {/* <Stack>
-                <input type="file" accept="image/*" onChange={(e) => setSelectedImage(e.target.files[0])} />
-                <Button variant='outlined' startIcon={<UploadIcon />} onClick={handleImageUpload} sx={{ width: '13rem', padding: '.2rem' }}>Subir estampado</Button>;
-            </Stack> */}
+       
             <Stack >
 
                 <Input
@@ -34,7 +31,7 @@ const Print = () => {
                         variant="text"
                         component='span'
                         sx={{ width: '13rem', padding: '.2rem' }}>
-                        Buscar imagen...
+                        Buscar imagen ...
                     </Button>
                 </label>
                 <Button

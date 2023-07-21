@@ -7,9 +7,6 @@ import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import { Button, Container, Grid, Stack, Typography, FormControl, InputLabel, Select, MenuItem, Box, Backdrop, Modal, Fade } from '@mui/material';
-
-
-
 import { useLocation } from 'react-router-dom';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -36,6 +33,9 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
         window.scrollTo(0, 0);
     }, [location]);
 
+
+
+
     const [talle, setTalle] = useState('');
     const handleChange = (e) => {
         setTalle(e.target.value);
@@ -59,13 +59,16 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
         switch (talle) {
 
             case 'XS':
-                newTotal = price + 1000
+                newTotal = price;
                 break;
             case 'XL':
-                newTotal = price + 1100
+                newTotal = price;
                 break;
             case 'XXL':
-                newTotal = price + 1200
+                newTotal = price + 500;
+                break;
+            case 'XXXL':
+                newTotal = price + 500;
                 break;
 
             default:
@@ -116,6 +119,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
     const handleClose1 = () => setOpen1(false);
 
 
+
     return (
         <>
             <Container sx={{ mb: '10rem' }}>
@@ -152,6 +156,9 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                 <Button onClick={handleOpen} color='success' variant='outlined' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<StraightenOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de talles</Button>
                                 <Button onClick={handleOpen1} color='success' variant='outlined' sx={{ paddingX: { xs: '8px', sm: '30px' }, fontSize: '10px', borderRadius: '20px' }} startIcon={<ColorLensOutlinedIcon sx={{ padding: '0', fontSize: '10px' }} />}>Guia de colores</Button>
                             </Stack>
+
+
+
 
                             <Modal
                                 aria-labelledby="talle-transition-modal-title"
@@ -194,6 +201,14 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                             </Modal>
 
                             <Stack sx={{ flexDirection: 'column', gap: '2rem', justifyContent: { xs: 'center', md: 'start' }, alignItems: { xs: 'center', md: 'start' } }}>
+
+
+
+
+
+
+
+
                                 <FormControl variant="standard" sx={{ width: { xs: '100%', md: '65%' }, padding: '0', margin: '0' }} >
                                     <InputLabel id="talle-simple-select-standard-label" >Seleccionar Talle</InputLabel>
                                     <Select
@@ -209,8 +224,8 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                         <MenuItem value='XS'>M</MenuItem>
                                         <MenuItem value='XS'>L</MenuItem>
                                         <MenuItem value='XS'>XL</MenuItem>
-                                        <MenuItem value='XL'>XXL  +$500</MenuItem>
-                                        <MenuItem value='XXL'>XXXL   +$500</MenuItem>
+                                        <MenuItem value='XXL'>XXL  +$500</MenuItem>
+                                        <MenuItem value='XXXL'>XXXL   +$500</MenuItem>
                                     </Select>
                                 </FormControl>
 

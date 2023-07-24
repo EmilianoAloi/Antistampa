@@ -58,7 +58,7 @@ const PriceModifier = () => {
 
 
 
-            <Stack direction='row' gap={5} margin={2}>
+            <Stack direction='row' gap={5} marginY={2}>
                 <Box sx={{ minWidth: 120, width: '30%' }}>
                     <FormControl fullWidth>
                         <InputLabel id="select-category">Categoria</InputLabel>
@@ -73,7 +73,7 @@ const PriceModifier = () => {
                             <MenuItem value={'nacional'}>Bandas nacionales</MenuItem>
                             <MenuItem value={'internacional'}>Bandas internacionales</MenuItem>
                             <MenuItem value={'tote'}>Totes </MenuItem>
-                            <MenuItem value={'antistampa'}>Producto Antistampa</MenuItem>
+                            <MenuItem value={'antistampa'}>Antistampa</MenuItem>
 
                         </Select>
                     </FormControl>

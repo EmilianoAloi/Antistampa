@@ -154,7 +154,7 @@ const Dashboard = () => {
                                         <MenuItem value={'nacional'}>Bandas nacionales</MenuItem>
                                         <MenuItem value={'internacional'}>Bandas internacionales</MenuItem>
                                         <MenuItem value={'tote'}>Totes </MenuItem>
-                                        <MenuItem value={'Producto Antistampa'}>Producto Antistampa</MenuItem>
+                                        <MenuItem value={'antistampa'}>Antistampa</MenuItem>
 
                                     </Select>
                                 </FormControl>
@@ -174,7 +174,7 @@ const Dashboard = () => {
                                         <MenuItem value={'Buzo Unisex'}>Buzo Unisex</MenuItem>
                                         <MenuItem value={'Hoodie Unisex'}>Hoodie </MenuItem>
                                         <MenuItem value={'Tote'}>Tote </MenuItem>
-                                        <MenuItem value={'Antistampa'}>Producto Antistampa</MenuItem>
+                                        <MenuItem value={'antistampa'}> Antistampa</MenuItem>
 
                                     </Select>
                                 </FormControl>
@@ -659,6 +659,8 @@ const Dashboard = () => {
 
 
                 <PriceModifier />
+
+
 
             </Container>
 

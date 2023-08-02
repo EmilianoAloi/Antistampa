@@ -6,6 +6,7 @@ import '@fontsource/roboto/700.css';
 
 import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemListContainer2 from './components/ItemListContainer2/ItemListContainer2';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
@@ -37,7 +38,7 @@ function App() {
               <WpWidget />
               <Routes>
                 <Route path='/' element={<Hero />} />
-                <Route path='/categoria/:idCategory' element={<ItemListContainer />} />
+                <Route path='/categoria/:idCategory' element={<ItemListContainer2 />} />
                 <Route path='/item/:idItem' element={<ItemDetailContainer />} />
                 <Route path='*' element={<h2>En construccion</h2>} />
                 <Route path='/cart' element={<Cart />} />

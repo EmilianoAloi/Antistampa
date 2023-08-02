@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, Stack } from '@mui/material';
+import { Card, CardActionArea, CardMedia, CardContent, Typography, Stack, Grid  } from '@mui/material';
 import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
 
 const Item = ({ id, name, price, img }) => {
     return (
+
+        
+        <Grid item xs={12} sm={6} md={4} lg={3}   >
 
             <Link to={`/item/${id}`} style={{ textDecoration: 'none' }}>
                 <Card sx={{ }}>
@@ -20,7 +23,7 @@ const Item = ({ id, name, price, img }) => {
                             component="img"
                             image={`${img}`}
                             alt={name}
-                            height={400}
+                            height={430}
                         />
                         <CardContent
                             sx={{
@@ -63,6 +66,7 @@ const Item = ({ id, name, price, img }) => {
                     </CardActionArea>
                 </Card>
             </Link>
+        </Grid>
     )
 }
 

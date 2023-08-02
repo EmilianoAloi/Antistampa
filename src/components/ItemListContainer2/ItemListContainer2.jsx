@@ -3,10 +3,10 @@ import { useParams } from 'react-router-dom';
 import { collection, getDocs, where, query } from 'firebase/firestore';
 import { db } from '../../services/config';
 import { useLocation } from 'react-router-dom';
-import Carrousel from '../Carrousel/Carrousel';
-import { Typography, CircularProgress, Stack } from '@mui/material';
+import { Typography, CircularProgress, Stack, Grid } from '@mui/material';
+import ItemList from '../ItemList/ItemList';
 
-const ItemListContainer = () => {
+const ItemListContainer2 = () => {
 
     const [products, setProducts] = useState([]);
     const { idCategory } = useParams();
@@ -65,7 +65,7 @@ const ItemListContainer = () => {
                 >Bandas Nacionales
                 </Typography>}
 
-                {idCategory === 'antistampa' &&
+            {idCategory === 'antistampa' &&
                 <Typography
                     component='h2'
                     className='heroTitle'
@@ -77,7 +77,14 @@ const ItemListContainer = () => {
 
 
             {products.length === 0 ? (<Stack sx={{ margin: '0 auto', marginY: '20rem' }}><CircularProgress size={80} sx={{ margin: '0 auto' }} /> </Stack>)
-                : (<Carrousel products={products} />)}
+                : (
+
+
+                        <Grid container sx={{ display: 'flex', justifyContent: 'center', padding:'1%' }} >
+                            <ItemList products={products} />
+                        </Grid>
+
+                )}
 
 
 
@@ -86,4 +93,4 @@ const ItemListContainer = () => {
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer2

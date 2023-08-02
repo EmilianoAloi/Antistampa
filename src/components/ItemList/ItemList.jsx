@@ -13,17 +13,14 @@ const ItemList = ({ products }) => {
     }, [location]);
 
     return (
+        <>
 
 
+            {products.map(prod =>
+                <Item key={prod.id} {...prod} />
+            )}
 
-
-        
-
-        products.map(prod =>
-            <Item key={prod.id} {...prod} />
-        )
-
-
+        </>
 
     )
 }

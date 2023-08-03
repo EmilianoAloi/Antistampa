@@ -75,6 +75,16 @@ const ItemListContainer = () => {
                 >Antistampa
                 </Typography>}
 
+                {idCategory === 'productos' &&
+                <Typography
+                    component='h2'
+                    className='heroTitle'
+                    color='white'
+                    fontWeight={600}
+                    sx={{ fontSize: { xs: '1.4rem', sm: '2rem' }, textAlign: 'center', margin: '2rem' }}
+                >Productos
+                </Typography>}
+
 
             {products.length === 0 ? (<Stack sx={{ margin: '0 auto', marginY: '20rem' }}><CircularProgress size={80} sx={{ margin: '0 auto' }} /> </Stack>)
                 : (<Carrousel products={products} />)}

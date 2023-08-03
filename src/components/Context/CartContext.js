@@ -1,4 +1,5 @@
 import { useState, createContext } from "react";
+import Swal from "sweetalert2";
 
 export const CartContext = createContext({
     cart: [],
@@ -41,12 +42,33 @@ export const CartProvider = ({ children }) => {
 
 
     const delProduct = (id) => {
-        const itemDeleted = cart.find(prod => prod.item.id === id);
 
+   
+
+        const itemDeleted = cart.find(prod => prod.item.id === id);
         const newCart = cart.filter(prod => prod.item.id !== id);
-        setCart(newCart);
-        setQtyTotal(prev => prev - itemDeleted.qty);
-        setTotal(prev => prev - (itemDeleted.item.newTotal * itemDeleted.qty));
+
+        Swal.fire({
+            title: 'Estas seguro de eliminar este producto del carrito?',
+            icon:'error',
+            showDenyButton: true,
+            showCancelButton: true,
+            showConfirmButton: false,
+            denyButtonText: `Eliminar producto`,
+
+          }).then((result) => {
+            if (result.isDenied) {
+              Swal.fire('Producto eliminado del carrito!', '', 'success');
+              setCart(newCart);
+              setQtyTotal(prev => prev - itemDeleted.qty);
+              setTotal(prev => prev - (itemDeleted.item.newTotal * itemDeleted.qty));
+
+            } else if (result.is) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
+
+ 
 
     }
 

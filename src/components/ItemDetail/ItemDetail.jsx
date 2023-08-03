@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../Context/CartContext';
 import { Button, Container, Grid, Stack, Typography, FormControl, InputLabel, Select, MenuItem, Box, Backdrop, Modal, Fade } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 import SearchIcon from '@mui/icons-material/Search';
 import PaymentIcon from '@mui/icons-material/Payment';
@@ -34,6 +35,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
     }, [location]);
 
 
+    
 
 
     const [talle, setTalle] = useState('');
@@ -95,10 +97,21 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
         if (color !== '' && talle !== '') {
             addItem(item, qty);
-            alert('item agregado');
+      
+              
+           
+            Swal.fire({
+                title: 'Agregado al carrito',
+                html: `${item.product} - '${item.name}' <br /> Talle: ${item.talle} - Color: ${item.color}`,
+                icon: 'success',
+            });
+
         } else {
-            alert('faltan completar campos');
-            return;
+            Swal.fire({
+                title: 'Seleccionar Talle y Color',
+                icon: 'warning',
+            });          
+              return;
         }
 
 

@@ -73,9 +73,30 @@ export const CartProvider = ({ children }) => {
     }
 
     const emptyCart = () => {
+
+
+        Swal.fire({
+            title: 'Estas seguro de vaciar el carrito?',
+            icon:'error',
+            showDenyButton: true,
+            showCancelButton: true,
+            showConfirmButton: false,
+            denyButtonText: `Vaciar Carrito`,
+
+          }).then((result) => {
+            if (result.isDenied) {
+              Swal.fire('Productos eliminados del carrito!', '', 'success');
+          
         setCart([]);
         setTotal(0);
         setQtyTotal(0);
+
+            } else if (result.is) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
+
+
     }
 
     return (

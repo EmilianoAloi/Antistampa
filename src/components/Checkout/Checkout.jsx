@@ -2,7 +2,8 @@ import { useState, useContext } from "react";
 import { CartContext } from '../Context/CartContext'
 import { db } from "../../services/config";
 import { collection, addDoc } from "firebase/firestore";
-
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
+import axios from 'axios';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, Container, Typography, Stack, Divider } from "@mui/material";
@@ -17,6 +18,33 @@ const Checkout = () => {
     const [emailConfirm, setEmailConfirm] = useState('');
     const [error, setError] = useState();
     const [orderId, setOrderId] = useState();
+
+    // Integracion MercadoPago
+    const [preferenceId, setPreferenceId] = useState(null);
+    initMercadoPago('YOUR_PUBLIC_KEY');
+
+    const createPreference = async () => {
+        try {
+            const response = await axios.post('http://http://localhost:8080/create_preference', {
+                description: 'Orden de compra Antistampa',
+                price: 100,
+                quantity: 1
+            });
+
+            const { id } = response.data;
+            return id;
+
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    const handleBuy = async () => {
+        const id = await createPreference();
+        if (id) {
+            setPreferenceId(id);
+        }
+    };
 
 
     const handleForm = (e) => {
@@ -82,13 +110,14 @@ const Checkout = () => {
                 >
 
                     {cart.map(prod => (
-                        <Stack key={prod.item.id} direction='row' alignItems='center' gap={3} color='white' marginBottom={2}   >
+                        <Stack key={prod.item.id} direction='row' alignItems='start' gap={3} color='white' marginBottom={2}   >
                             <Typography variant="body" width='10rem'>{prod.item.product}</Typography>
-                            <Typography variant="body" width='10rem'> {prod.item.name} x {prod.qty} </Typography>
-                            <Typography variant="body" width='10rem'> Precio: ${prod.item.newTotal}</Typography>
+                            <Typography variant="body" width='18rem'> {prod.item.name}</Typography>
+                            <Typography variant="body" width='10rem'>Cantidad: {prod.qty} </Typography>
+                            <Typography variant="body" width='10rem'>Precio: ${prod.item.newTotal}</Typography>
                         </Stack>
                     ))}
-                    <Divider sx={{ width: { xs: '100%', md: '100%' } }} />
+                    <Divider sx={{ width: '100%' }} />
 
                     <Typography color='primary' variant="h5" textAlign='end' marginTop='1rem' >Total Compra: ${total}</Typography>
 

@@ -14,11 +14,14 @@ const CartItem = ({ item, qty }) => {
                 <img className="imgCartItem" src={item.img} alt={item.name} />
 
                 <Stack>
-                    <Typography component='h2' variant='subtitle1' fontWeight={600}>{item.name}</Typography>
-                    <Typography component='h2' variant='body2'>{item.product}</Typography>
-                    <Typography component='h2' variant='body2'>Cantidad: {qty}</Typography>
+                    <Typography component='h3' variant='subtitle1' fontWeight={600}>{item.name}</Typography>
+                    <Typography component='h3' variant='body2'>{item.product}</Typography>
+                    <Typography component='h3' variant='body2'>Talle: {item.talle}</Typography>
+                    <Typography component='h3' variant='body2'>Color: {item.color}</Typography>
 
-                    <Typography component='h2' variant='body2'>Precio: ${item.newTotal}</Typography>
+
+                    <Typography component='h3' variant='body2' mt={1}>Cantidad: {qty}</Typography>
+                    <Typography component='h3' variant='body2'>Precio: ${item.newTotal}</Typography>
                     <IconButton onClick={() => delProduct(item.id)} disableRipple color='error' sx={{ marginLeft: '0 auto' }}>
                         <DeleteForeverIcon sx={{ fontSize: '1.5rem' }} />
                     </IconButton>

@@ -75,19 +75,17 @@ const Checkout = () => {
 
                 <Box
                     component="form"
-
                     noValidate
                     autoComplete="off"
                     onSubmit={handleForm}
                     fontFamily='Roboto'
-
                 >
 
                     {cart.map(prod => (
                         <Stack key={prod.item.id} direction='row' alignItems='center' gap={3} color='white' marginBottom={2}   >
                             <Typography variant="body" width='10rem'>{prod.item.product}</Typography>
                             <Typography variant="body" width='10rem'> {prod.item.name} x {prod.qty} </Typography>
-                            <Typography variant="body" width='10rem'> Precio: ${prod.item.price}</Typography>
+                            <Typography variant="body" width='10rem'> Precio: ${prod.item.newTotal}</Typography>
                         </Stack>
                     ))}
                     <Divider sx={{ width: { xs: '100%', md: '100%' } }} />

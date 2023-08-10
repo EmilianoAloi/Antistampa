@@ -14,6 +14,7 @@ import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
 import totePersonalizado from '../../assets/totePersonalizado.jpg'
 import colors from '../../assets/colors.png';
 import talles from '../../assets/talles.jpg';
+import Swal from "sweetalert2";
 
 import { v4 } from "uuid";
 import Print from "../Print/Print";
@@ -46,10 +47,29 @@ const Personalizar = () => {
 
 
         if (prenda === '' || color === '' || talle === '' || estampado === '' || ubicacion === '') {
-            alert('falta seleccionar alguna preferencia');
-        } else {
+
+            Swal.fire({
+                title: 'Falta seleccionar alguna preferencia',
+                icon: 'warning',
+            });
+
+
+
+        } else if (imageURL === '') {
+            Swal.fire({
+                title: 'Falta subir estampado',
+                icon: 'warning',
+            });
+
+        }
+
+
+        else {
             addItem(item, 1);
-            alert('item personalizado agregado')
+            Swal.fire({
+                title: 'Prenda personalizada agregada al carrito',
+                icon: 'success',
+            });
             setImgItem('')
             setPrenda('Remera Unisex');
             setColor('');

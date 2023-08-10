@@ -82,8 +82,10 @@ const Cart = () => {
                         <TableHead>
                             <TableRow>
                                 <TableCell>PRODUCTO</TableCell>
-                                <TableCell align="right">PRECIO</TableCell>
+                                <TableCell align="right">COLOR</TableCell>
+                                <TableCell align="right">TALLE</TableCell>
                                 <TableCell align="right">CANTIDAD</TableCell>
+                                <TableCell align="right">PRECIO</TableCell>
                                 <TableCell align="right">SUBTOTAL</TableCell>
                                 <TableCell align="right"></TableCell>
 
@@ -104,8 +106,10 @@ const Cart = () => {
                                             </Stack>
                                         </Stack>
                                     </TableCell>
-                                    <TableCell align="right">${product.item.newTotal}</TableCell>
+                                    <TableCell align="right">{product.item.color}</TableCell>
+                                    <TableCell align="right">{product.item.talle}</TableCell>
                                     <TableCell align="right">{product.qty}</TableCell>
+                                    <TableCell align="right">${product.item.newTotal}</TableCell>
                                     <TableCell align="right">${product.item.newTotal * product.qty}</TableCell>
                                     <TableCell align="right"> <IconButton onClick={() => delProduct(product.item.id)} disableRipple color='error' sx={{ marginLeft: '-4.5rem' }}>
                                         <DeleteForeverIcon sx={{ fontSize: '1.5rem' }} />

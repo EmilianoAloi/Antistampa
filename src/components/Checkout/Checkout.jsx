@@ -10,6 +10,7 @@ import { Button, Container, Typography, Stack, Divider } from "@mui/material";
 
 const Checkout = () => {
 
+
     const { cart, emptyCart, total } = useContext(CartContext);
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
@@ -20,19 +21,47 @@ const Checkout = () => {
     const [orderId, setOrderId] = useState();
 
     // Integracion MercadoPago
+
+    cart.map(prod => console.log(prod.item.name));
+
     const [preferenceId, setPreferenceId] = useState(null);
-    initMercadoPago('YOUR_PUBLIC_KEY');
+    initMercadoPago('TEST-df6f7270-27a1-4961-a889-aa0fadf77fcf');
 
     const createPreference = async () => {
         try {
-            const response = await axios.post('http://http://localhost:8080/create_preference', {
-                description: 'Orden de compra Antistampa',
-                price: 100,
-                quantity: 1
+            // const items = cart.map(item => ({
+            //     description: item.item.name,
+            //     price: item.item.newTotal,
+            //     quantity: item.qty,
+            // }));
+
+            // const response = await axios.post('http://localhost:8080/create_preference',
+            //   items
+            // );
+
+            const response = await axios.post('http://localhost:8080/create_preference', {
+                description: 'Orden de compra',
+                price: total,
+                quantity: 1,
             });
 
+            // try {
+            //     const items = cart.map(item => ({
+            //         description: item.item.name,
+            //         price: item.item.newTotal,
+            //         quantity: item.qty,
+            //     }));
+
+            //     const response = await axios.post('http://localhost:8080/create_preference', {
+            //         items,
+            //         // description: 'Orden de compra',
+            //         // price: total
+            //     });
+
             const { id } = response.data;
+            console.log(id)
             return id;
+
 
         } catch (error) {
             console.log(error)
@@ -49,6 +78,8 @@ const Checkout = () => {
 
     const handleForm = (e) => {
         e.preventDefault();
+        handleBuy();
+
         if (!name || !lastname || !tel || !email || !emailConfirm) {
             setError('Por favor llena todos los campos');
             return;
@@ -86,18 +117,17 @@ const Checkout = () => {
                 setOrderId(docRef.id);
                 emptyCart();
             })
-
             .catch(error => {
+                console.error('Error al crear la orden:', error.code, error.message);
                 setError('Se produjo un error al crear la orden, vuelva a intentar.');
             })
-    }
 
+    }
 
 
     return (
 
         <>
-
             <Container >
                 <Typography component='h2' fontWeight='500' letterSpacing={2} sx={{ fontSize: { xs: '1.2rem', sm: '2rem' }, marginTop: { sm: '2rem' }, marginBottom: '2rem' }} color='white'> Checkout </Typography>
 
@@ -156,6 +186,10 @@ const Checkout = () => {
                             size="large"
                             sx={{ paddingX: '50px', paddingY: '20px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
                         >Finalizar compra</Button>
+
+                        {preferenceId &&
+                            <Wallet initialization={{ preferenceId }} />
+                        }
                     </Box>
                 </Box>
             </Container>

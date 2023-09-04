@@ -88,7 +88,7 @@ const Faqs = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography sx={{ fontSize: { xs: '0.8rem', md: '1rem' }, color: 'rgba(255, 255, 255, 0.7)' }}>
-                            Si! Es muy simple nos mandas tu imagen en formato .jpg al mail antistampa@gmail.com nos detallas el color y talle de tu remera y listo! Nosotros nos contactamos con vos para coordinar en envio y forma de pago.
+                            Si! Es muy simple, vas a la seccion Personalizados, elegis preferencias de tamaño de estampado, talle, color, prenda y subis la imagen que queres estampada y listo! Una vez hecho el pago a traves de MercadoPago. Nosotros nos contactamos con vos para coordinar en envio.
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
@@ -103,7 +103,7 @@ const Faqs = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography sx={{ fontSize: { xs: '0.8rem', md: '1rem' }, color: 'rgba(255, 255, 255, 0.7)' }}>
-                            Si! Todos los diseños estan disponibles para hacer en remeras, remeras de niños y buzos. Si no encontras lo que queres en la pagina, contactate con nosotros mediante la pagina web en la opcion contacto, mandanos un mail a antistampa@gmail.com o por whatsapp. Y a la brevedad nos comunicaremos para ver como personalizar lo que tengas en mente.
+                            Si! Todos los diseños estan disponibles para hacer en remeras y buzos. Si no encontras lo que queres en la pagina, contactate con nosotros mediante la pagina web en la opcion contacto, mandanos un mail a antistampa@gmail.com o por whatsapp. Y a la brevedad nos comunicaremos para ver como personalizar lo que tengas en mente.
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
@@ -119,7 +119,7 @@ const Faqs = () => {
                     <AccordionDetails>
                         <Typography sx={{ fontSize: { xs: '0.8rem', md: '1rem' }, color: 'rgba(255, 255, 255, 0.7)' }}>
                             Todos los diseños estan disponibles para estampar sobre la remera del color que vos eligas!
-                            ¡Todos los medios de pago. Trabajamos con mercadopago, así que podés pagar como quieras, con tarjetas, transferencia o en efectivo en rapipago o pagofacil.
+                            
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
@@ -128,7 +128,7 @@ const Faqs = () => {
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel5a-content"
-                        id="panel4a-header"
+                        id="panel5a-header"
                     >
                         <Typography sx={{ fontSize: { xs: '1.2rem', md: '1.5rem' } }}> ¿Cuánto tarda en llegar mi compra? </Typography>
                     </AccordionSummary>
@@ -143,7 +143,7 @@ const Faqs = () => {
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel6a-content"
-                        id="panel4a-header"
+                        id="panel6a-header"
                     >
                         <Typography sx={{ fontSize: { xs: '1.2rem', md: '1.5rem' } }}> ¿Puedo retirar mi compra personalmente? </Typography>
                     </AccordionSummary>
@@ -153,6 +153,23 @@ const Faqs = () => {
                         </Typography>
                     </AccordionDetails>
                 </Accordion>
+
+                <Accordion >
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel7a-content"
+                        id="panel7a-header"
+                    >
+                        <Typography sx={{ fontSize: { xs: '1.2rem', md: '1.5rem' } }}> ¿Hacen envios? </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography sx={{ fontSize: { xs: '0.8rem', md: '1rem' }, color: 'rgba(255, 255, 255, 0.7)' }}>
+                            Si! Podemos enviarte la prenda a traves de una moto dentro de AMBA y si sos del interior por correo.
+                        </Typography>
+                    </AccordionDetails>
+                </Accordion>
+                
+
             </Container>
         </>
     )

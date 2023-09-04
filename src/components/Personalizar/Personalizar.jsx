@@ -9,12 +9,11 @@ import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import PhotoSizeSelectLargeOutlinedIcon from '@mui/icons-material/PhotoSizeSelectLargeOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
-import remeraPersonalizadaFrente from '../../assets/remeraPerzonalizada.png'
 import remeraBlanco from '../../assets/personalizados/blanco.jpeg'
 import remeraNegro from '../../assets/personalizados/negro.jpeg'
 import remeraRosa from '../../assets/personalizados/rosa.jpeg'
 import remeraAmarillo from '../../assets/personalizados/amarillo.jpeg'
-import remeraNaranja from '../../assets/personalizados/naranja.jpeg' 
+import remeraNaranja from '../../assets/personalizados/naranja.jpeg'
 import remeraRojo from '../../assets/personalizados/rojo.jpeg'
 import remeraBordo from '../../assets/personalizados/bordo.jpeg'
 import remeraCeleste from '../../assets/personalizados/celeste.jpeg'
@@ -58,7 +57,7 @@ const Personalizar = () => {
     }, [location]);
 
     const { addItem } = useContext(CartContext);
-    const { setSelectedImage, imageURL } = useContext(PersonalizeContext);
+    const { selectedImage, setSelectedImage, imageURL } = useContext(PersonalizeContext);
 
 
     const handlePersonalizado = () => {
@@ -117,6 +116,7 @@ const Personalizar = () => {
     const [priceEstampado, setPriceEstampado] = useState(0);
     const [priceUbicacion, setPriceUbicacion] = useState(0);
     const [newTotal, setNewTotal] = useState(0);
+
 
 
 
@@ -219,11 +219,12 @@ const Personalizar = () => {
 
     // Logica de preferencias/precios
 
+
     useEffect(() => {
         switch (prenda) {
             case 'Remera Unisex':
                 setPricePrenda(7000);
-                setImgItem(remeraPersonalizadaFrente);
+                setImgItem(remeraAmarillo);
                 break;
             case 'Buzo Oversize XXXL':
                 setPricePrenda(17000);
@@ -241,7 +242,12 @@ const Personalizar = () => {
                 setPricePrenda(0);
                 break;
         }
-    }, [prenda])
+    }, [prenda]);
+
+
+
+
+
 
 
     useEffect(() => {
@@ -313,27 +319,13 @@ const Personalizar = () => {
                 setImgItem(remeraNegro);
                 break;
             default:
-                setImgItem(remeraPersonalizadaFrente);
+                setImgItem(remeraAmarillo);
                 break;
         }
 
 
     }, [color]);
 
-    // import remeraBlanco from '../../assets/personalizados/blanco.jpeg'
-    // import remeraNegro from '../../assets/personalizados/negro.jpeg'
-    // import remeraRosa from '../../assets/personalizados/rosa.jpeg'
-    // import remeraAmarillo from '../../assets/personalizados/amarillo.jpeg'
-    // import remeraNaranaja from '../../assets/personalizados/naranja.jpeg'
-    // import remeraRojo from '../../assets/personalizados/rojo.jpeg'
-    // import remeraBordo from '../../assets/personalizados/bordo.jpeg'
-    // import remeraCeleste from '../../assets/personalizados/celeste.jpeg'
-    // import remeraAzulfrancia from '../../assets/personalizados/azulfrancia.jpeg'
-    // import remeraAzulmarino from '../../assets/personalizados/azulmarino.jpeg'
-    // import remeraVerdebenetton from '../../assets/personalizados/verdebenneton.jpeg'
-    // import remeraVerdemilitar from '../../assets/personalizados/verdemilitar.jpeg'
-    // import remeraGris from '../../assets/personalizados/gris.jpeg'
-    // import remeraGristopo from '../../assets/personalizados/gristopo.jpeg'
 
     useEffect(() => {
         switch (estampado) {
@@ -479,11 +471,16 @@ const Personalizar = () => {
                     </Grid>
 
                     <Grid className="imgRender" item xs={12} sm={6} >
-                        <Stack width='80%' sx={{ margin: '0 auto' }}>
+                        <Stack sx={{ margin: '0 auto', position: 'relative', paddingRight: '1rem' }}>
 
 
                             {prenda === 'Remera Unisex' && (
-                                <img src={imgItem} alt="Remera Unisex" />
+                                <>
+                                    <img src={imgItem} alt="Remera Unisex" />
+                                    <Stack sx={{ position: 'absolute', width: '30%', height: 'auto', top: '40%', left: '35%' }}>
+                                    {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />}
+                                    </Stack>
+                                </>
                             )}
 
 

@@ -1,6 +1,6 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
-import colors from '../../assets/colors.png';
+import colors from '../../assets/colors.jpeg';
 import talles from '../../assets/talles.jpg';
 
 import { useState, useContext, useEffect } from 'react';

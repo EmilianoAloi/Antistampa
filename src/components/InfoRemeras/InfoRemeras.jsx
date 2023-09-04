@@ -2,7 +2,7 @@ import './InfoRemeras.css';
 
 import { Box, Stack, Typography, Container } from '@mui/material';
 import detailShirt from '../../assets/detailShirt.png';
-import colors from '../../assets/colors.png';
+import colors from '../../assets/colors.jpeg';
 
 
 const InfoRemeras = () => {

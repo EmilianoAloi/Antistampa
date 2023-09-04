@@ -8,11 +8,29 @@ import StraightenOutlinedIcon from '@mui/icons-material/StraightenOutlined';
 import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
 import PhotoSizeSelectLargeOutlinedIcon from '@mui/icons-material/PhotoSizeSelectLargeOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+
 import remeraPersonalizadaFrente from '../../assets/remeraPerzonalizada.png'
+import remeraBlanco from '../../assets/personalizados/blanco.jpeg'
+import remeraNegro from '../../assets/personalizados/negro.jpeg'
+import remeraRosa from '../../assets/personalizados/rosa.jpeg'
+import remeraAmarillo from '../../assets/personalizados/amarillo.jpeg'
+import remeraNaranja from '../../assets/personalizados/naranja.jpeg'
+import remeraRojo from '../../assets/personalizados/rojo.jpeg'
+import remeraBordo from '../../assets/personalizados/bordo.jpeg'
+import remeraCeleste from '../../assets/personalizados/celeste.jpeg'
+import remeraAzulfrancia from '../../assets/personalizados/azulfrancia.jpeg'
+import remeraAzulmarino from '../../assets/personalizados/azulmarino.jpeg'
+import remeraVerdebenetton from '../../assets/personalizados/verdebenneton.jpeg'
+import remeraVerdemilitar from '../../assets/personalizados/verdemilitar.jpeg'
+import remeraGris from '../../assets/personalizados/gris.jpeg'
+import remeraGristopo from '../../assets/personalizados/gristopo.jpeg'
+
+
+
 import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
 import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
 import totePersonalizado from '../../assets/totePersonalizado.jpg'
-import colors from '../../assets/colors.png';
+import colors from '../../assets/colors.jpeg';
 import talles from '../../assets/talles.jpg';
 import Swal from "sweetalert2";
 
@@ -199,7 +217,7 @@ const Personalizar = () => {
 
 
 
-    // Logica de precios
+    // Logica de preferencias/precios
 
     useEffect(() => {
         switch (prenda) {
@@ -253,6 +271,73 @@ const Personalizar = () => {
         }
     }, [talle]);
 
+
+    useEffect(() => {
+        switch (color) {
+            case 'Blanco':
+                setImgItem(remeraBlanco);
+                break;
+            case 'Rosa':
+                setImgItem(remeraRosa);
+                break;
+            case 'Amarillo':
+                setImgItem(remeraAmarillo);
+                break;
+            case 'Naranja':
+                setImgItem(remeraNaranja);
+                break;
+            case 'Rojo':
+                setImgItem(remeraRojo);
+                break;
+            case 'Bordo':
+                setImgItem(remeraBordo);
+                break;
+            case 'Celeste':
+                setImgItem(remeraCeleste);
+                break;
+            case 'Azul Francia':
+                setImgItem(remeraAzulfrancia);
+                break;
+            case 'Azul Marino':
+                setImgItem(remeraAzulmarino);
+                break;
+            case 'Verde Benetton':
+                setImgItem(remeraVerdebenetton);
+                break;
+            case 'Verde Militar':
+                setImgItem(remeraVerdemilitar);
+                break;
+            case 'Gris':
+                setImgItem(remeraGris);
+                break;
+            case 'Gris Topo':
+                setImgItem(remeraGristopo);
+                break;
+            case 'Negro':
+                setImgItem(remeraNegro);
+                break;
+            default:
+                setImgItem(remeraPersonalizadaFrente);
+                break;
+        }
+
+
+    }, [color]);
+
+    // import remeraBlanco from '../../assets/personalizados/blanco.jpeg'
+    // import remeraNegro from '../../assets/personalizados/negro.jpeg'
+    // import remeraRosa from '../../assets/personalizados/rosa.jpeg'
+    // import remeraAmarillo from '../../assets/personalizados/amarillo.jpeg'
+    // import remeraNaranaja from '../../assets/personalizados/naranja.jpeg'
+    // import remeraRojo from '../../assets/personalizados/rojo.jpeg'
+    // import remeraBordo from '../../assets/personalizados/bordo.jpeg'
+    // import remeraCeleste from '../../assets/personalizados/celeste.jpeg'
+    // import remeraAzulfrancia from '../../assets/personalizados/azulfrancia.jpeg'
+    // import remeraAzulmarino from '../../assets/personalizados/azulmarino.jpeg'
+    // import remeraVerdebenetton from '../../assets/personalizados/verdebenneton.jpeg'
+    // import remeraVerdemilitar from '../../assets/personalizados/verdemilitar.jpeg'
+    // import remeraGris from '../../assets/personalizados/gris.jpeg'
+    // import remeraGristopo from '../../assets/personalizados/gristopo.jpeg'
 
     useEffect(() => {
         switch (estampado) {
@@ -400,12 +485,9 @@ const Personalizar = () => {
                     <Grid className="imgRender" item xs={12} sm={6} >
                         <Stack width='80%' sx={{ margin: '0 auto' }}>
 
-                            {prenda === 'Remera Niño' && (
-                                <img src={remeraPersonalizadaFrente} alt="Remera Niño" />
-                            )}
 
                             {prenda === 'Remera Unisex' && (
-                                <img src={remeraPersonalizadaFrente} alt="Remera Unisex" />
+                                <img src={imgItem} alt="Remera Unisex" />
                             )}
 
 
@@ -648,9 +730,20 @@ const Personalizar = () => {
                                 input={<OutlinedInput label="Color" color='success' />}
                             >
                                 <MenuItem value="Blanco">Blanco</MenuItem>
-                                <MenuItem value='Negro'>Negro</MenuItem>
-                                <MenuItem value='Amarillo'>Amarillo</MenuItem>
-                                <MenuItem value='Verde'>Verde</MenuItem>
+                                <MenuItem value="Rosa">Rosa</MenuItem>
+                                <MenuItem value="Amarillo">Amarillo</MenuItem>
+                                <MenuItem value="Naranja">Naranja</MenuItem>
+                                <MenuItem value="Rojo">Rojo</MenuItem>
+                                <MenuItem value="Bordo">Bordo</MenuItem>
+                                <MenuItem value='Celeste'>Celeste</MenuItem>
+                                <MenuItem value='Azul Francia'>Azul Francia</MenuItem>
+                                <MenuItem value='Azul Marino'>Azul Marino</MenuItem>
+                                <MenuItem value="Verde Benetton">Verde Benetton</MenuItem>
+                                <MenuItem value="Verde Militar">Verde Militar</MenuItem>
+                                <MenuItem value="Gris">Gris</MenuItem>
+                                <MenuItem value="Gris Topo">Gris Topo</MenuItem>
+                                <MenuItem value="Negro">Negro</MenuItem>
+
                             </Select>
                         </FormControl>
                     </Box>

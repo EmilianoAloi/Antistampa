@@ -6,7 +6,7 @@ const Dtg = () => {
     return (
         <>
 
-            <Box sx={{ backgroundColor: '#F4BF00', textAlign: 'center', padding: '1rem', margin: '0 auto', mt: '3rem', mb: '2rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+            <Box sx={{ backgroundColor: '#FFFF00', textAlign: 'center', padding: '1rem', margin: '0 auto', mt: '3rem', mb: '2rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                 <Typography component='h2' fontWeight={700}
                     sx={{ fontSize: { xs: '1rem', sm: '2rem' } }} >
                     CALIDAD ESTAMPADOS</Typography>

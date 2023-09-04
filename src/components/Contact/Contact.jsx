@@ -1,6 +1,6 @@
 import './Contact.css'
 
-import { Typography, Paper, Stack, Container, Link } from "@mui/material"
+import { Typography, Paper, Stack, Container, Link, Box } from "@mui/material"
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -19,11 +19,12 @@ const Contact = () => {
     return (
         <>
 
-            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500} sx={{ fontSize: { xs: '1.5rem', md: '2.5rem' }, textAlign: { xs: 'center', sm: 'center' }, marginY: '1.5rem' }} >
-                CONTACTO</Typography>
+            <Box sx={{ color: 'white', textAlign: 'center', margin: '0 auto', marginBottom: '1rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+                <Typography component='h2' fontWeight={700} className="heroTitle"
+                    sx={{ fontSize: { xs: '1.5rem', sm: '2.5rem' } }} >
+                    CONTACTO</Typography>
+            </Box>
 
-            {/* <Typography color='#F4BF00'>Cualquier consulta que tengas, no dudes en escribirnos.
-                Envianos un mail y nos pondremos en contacto contigo.</Typography> */}
 
             <Container >
 
@@ -35,10 +36,10 @@ const Contact = () => {
                         <Paper elevation={12} className='contact1' sx={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                             <Stack justifyContent='center' alignItems='center' gap={2} margin={5} minWidth='10rem' minHeight='18rem' >
                                 <PhoneIcon color="primary" sx={{ fontSize: '5rem' }} />
-                                <Typography sx={{ fontSize: '2rem', fontWeight: '600' }}> Llamanos </Typography>
+                                <Typography sx={{ fontSize: '1.5rem', fontWeight: '600' }}> LLAMANOS </Typography>
                                 <Typography textAlign='center'>
                                     TEL: 1144034628 <br />
-                                    <i>de 8:30 a 18:00hs</i>
+                                    de 8:30 a 18:00hs
                                 </Typography>
                             </Stack>
                         </Paper>
@@ -50,10 +51,10 @@ const Contact = () => {
                         <Paper elevation={12} className='contact2' sx={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                             <Stack justifyContent='center' alignItems='center' gap={2} margin={5} minWidth='10rem' minHeight='18rem'>
                                 <InstagramIcon color="primary" sx={{ fontSize: '5rem' }} />
-                                <Typography sx={{ fontSize: '2rem', fontWeight: '600' }}> Seguinos </Typography>
+                                <Typography sx={{ fontSize: '1.5rem', fontWeight: '600' }}> SEGUINOS </Typography>
                                 <Typography textAlign='center'>
                                     @antistampa<br />
-                                    <i> on Instagram</i>
+                                    Instagram
                                 </Typography>
                             </Stack>
                         </Paper>
@@ -66,10 +67,10 @@ const Contact = () => {
                         <Paper elevation={12} className='contact3' sx={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }} >
                             <Stack justifyContent='center' alignItems='center' gap={2} margin={5} minWidth='10rem' minHeight='18rem'>
                                 <WhatsAppIcon color="primary" sx={{ fontSize: '5rem' }} />
-                                <Typography sx={{ fontSize: '2rem', fontWeight: '600' }}> Escribinos  </Typography>
+                                <Typography sx={{ fontSize: '1.5rem', fontWeight: '600' }}> ESCRIBINOS  </Typography>
                                 <Typography textAlign='center'>
                                     Chatea 24/7<br />
-                                    <i> on Whatsapp</i>
+                                 Whatsapp
 
                                 </Typography>
                             </Stack>
@@ -83,11 +84,11 @@ const Contact = () => {
                         <Paper elevation={12} className='contact4' sx={{ boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                             <Stack justifyContent='center' alignItems='center' gap={2} margin={5} minWidth='10rem' minHeight='18rem'>
                                 <EmailIcon color="primary" sx={{ fontSize: '5rem' }} />
-                                <Typography sx={{ fontSize: '2rem', fontWeight: '600' }}> EMAIL </Typography>
+                                <Typography sx={{ fontSize: '1.5rem', fontWeight: '600' }}> EMAIL </Typography>
                                 <Typography textAlign='center'>
                                     Envianos un correo
                                     <br />
-                                    <i>antistampa@gmail.com</i>
+                                antistampa@gmail.com
 
                                 </Typography>
                             </Stack>

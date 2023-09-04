@@ -12,7 +12,7 @@ const Footer = () => {
 
 
             <Paper elevation={10} className='footerDesktop' >
-                <Stack sx={{ backgroundColor: '#F4BF00', height: '2px', mt: '5rem' }}>   </Stack>
+                <Stack sx={{ backgroundColor: '#FFFF00', height: '2px', mt: '5rem' }}>   </Stack>
 
                 <Stack sx={{ flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'center', md: 'start' }, justifyContent: 'space-evenly', marginY: '2rem' }}>
                     <Stack sx={{ width: {xs: '8rem', md:'12rem'}, alignSelf: 'center', marginBottom:'2rem' }}>
@@ -110,7 +110,7 @@ const Footer = () => {
                 </Stack>
 
 
-                <Stack sx={{ backgroundColor: '#F4BF00', height: '2px', marginBottom: '2rem' }}>   </Stack>
+                <Stack sx={{ backgroundColor: '#FFFF00', height: '2px', marginBottom: '2rem' }}>   </Stack>
 
             </Paper>
 

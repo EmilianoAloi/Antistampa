@@ -1,10 +1,11 @@
-import { Typography, Container } from '@mui/material'
+import { Typography, Container, Box } from '@mui/material'
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import './Faqs.css'
 
 
 
@@ -19,7 +20,11 @@ const Faqs = () => {
     return (
 
         <>
-            <Typography className='faqsTitle' color='#F4BF00' fontWeight={500}  sx={{ fontSize: { xs: '1.5rem', md: '2.5rem' }, textAlign: { xs: 'center', md: 'center' }, marginY:'1.5rem' }} >PREGUNTAS FRECUENTES</Typography>
+            <Box sx={{ color: 'white', textAlign: 'center', margin: '0 auto', marginBottom: '3rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+                <Typography component='h2' fontWeight={700} className="heroTitle"
+                    sx={{ fontSize: { xs: '1.5rem', sm: '2.5rem' } }} >
+                    PREGUNTAS FRECUENTES</Typography>
+            </Box>
 
 
             <Container>

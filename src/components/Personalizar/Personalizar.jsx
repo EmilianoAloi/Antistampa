@@ -14,7 +14,7 @@ import remeraBlanco from '../../assets/personalizados/blanco.jpeg'
 import remeraNegro from '../../assets/personalizados/negro.jpeg'
 import remeraRosa from '../../assets/personalizados/rosa.jpeg'
 import remeraAmarillo from '../../assets/personalizados/amarillo.jpeg'
-import remeraNaranja from '../../assets/personalizados/naranja.jpeg'
+import remeraNaranja from '../../assets/personalizados/naranja.jpeg' 
 import remeraRojo from '../../assets/personalizados/rojo.jpeg'
 import remeraBordo from '../../assets/personalizados/bordo.jpeg'
 import remeraCeleste from '../../assets/personalizados/celeste.jpeg'
@@ -223,10 +223,6 @@ const Personalizar = () => {
         switch (prenda) {
             case 'Remera Unisex':
                 setPricePrenda(7000);
-                setImgItem(remeraPersonalizadaFrente);
-                break;
-            case 'Remera Niño':
-                setPricePrenda(6000);
                 setImgItem(remeraPersonalizadaFrente);
                 break;
             case 'Buzo Oversize XXXL':
@@ -636,7 +632,6 @@ const Personalizar = () => {
                                 input={<OutlinedInput label="Prenda" />}
                             >
                                 <MenuItem value="Remera Unisex">Remera Unisex</MenuItem>
-                                <MenuItem value="Remera Niño">Remera Niño</MenuItem>
                                 <MenuItem value='Buzo Oversize XXXL'>Buzo Oversize XXXL </MenuItem>
                                 <MenuItem value='Hoodie Oversize XXXL'>Hoodie Oversize XXXL </MenuItem>
                                 <MenuItem value='Tote'>Tote</MenuItem>

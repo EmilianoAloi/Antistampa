@@ -2,13 +2,12 @@
 import { Button } from '@mui/material'
 import { useContext } from 'react';
 import { Stack, Input } from '@mui/material';
-import UploadIcon from '@mui/icons-material/Upload';
 import ImageIcon from '@mui/icons-material/Image';
 import { PersonalizeContext } from '../Context/PersonalizeContext';
 
 const Print = () => {
 
-    const { handleImageUpload, selectedImage, setSelectedImage } = useContext(PersonalizeContext);
+    const { setSelectedImage } = useContext(PersonalizeContext);
 
     return (
         <>
@@ -34,7 +33,7 @@ const Print = () => {
                         Buscar imagen ...
                     </Button>
                 </label>
-                <Button
+                {/* <Button
                     variant='text'
                     startIcon={<UploadIcon />}
                     onClick={handleImageUpload}
@@ -42,7 +41,7 @@ const Print = () => {
                     disabled={!selectedImage}
                 >
                     Subir estampado
-                </Button>
+                </Button> */}
             </Stack>
 
 

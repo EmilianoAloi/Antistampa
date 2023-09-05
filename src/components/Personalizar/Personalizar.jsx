@@ -30,7 +30,7 @@ import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
 import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
 import totePersonalizado from '../../assets/totePersonalizado.jpg'
 import colors from '../../assets/colors.jpeg';
-import talles from '../../assets/talles.jpg';
+import talles from '../../assets/talles.jpeg';
 import Swal from "sweetalert2";
 
 import { v4 } from "uuid";
@@ -57,7 +57,7 @@ const Personalizar = () => {
     }, [location]);
 
     const { addItem } = useContext(CartContext);
-    const { selectedImage, setSelectedImage, imageURL } = useContext(PersonalizeContext);
+    const { selectedImage, setSelectedImage, imageURL, handleImageUpload } = useContext(PersonalizeContext);
 
 
     const handlePersonalizado = () => {
@@ -72,17 +72,19 @@ const Personalizar = () => {
 
 
 
-        } else if (imageURL === '') {
-            Swal.fire({
-                title: 'Falta subir estampado',
-                icon: 'warning',
-            });
-
         }
+        //  else if (imageURL === '') {
+        //     Swal.fire({
+        //         title: 'Falta subir estampado',
+        //         icon: 'warning',
+        //     });
+
+        // }
 
 
         else {
             addItem(item, 1);
+            handleImageUpload();
             Swal.fire({
                 title: 'Prenda personalizada agregada al carrito',
                 icon: 'success',
@@ -243,8 +245,6 @@ const Personalizar = () => {
                 break;
         }
     }, [prenda]);
-
-
 
 
 
@@ -477,8 +477,8 @@ const Personalizar = () => {
                             {prenda === 'Remera Unisex' && (
                                 <>
                                     <img src={imgItem} alt="Remera Unisex" />
-                                    <Stack sx={{ position: 'absolute', width: '30%', height: 'auto', top: '40%', left: '35%' }}>
-                                    {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />}
+                                    <Stack sx={{ position: 'absolute', width: '30%', maxHeight: '30%', height: 'auto', top: '40%', left: '35%', opacity: '0.9' }}>
+                                        {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />}
                                     </Stack>
                                 </>
                             )}
@@ -601,7 +601,10 @@ const Personalizar = () => {
                                 Total: ${item.newTotal}
                             </Typography>
 
-                            <Button variant='contained' size='large' color='success' onClick={handlePersonalizado}
+                            <Button variant='contained' size='large' color='success'
+                                onClick={() => {
+                                    handlePersonalizado();
+                                }}
                                 startIcon={<PaymentIcon />}
                                 sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                                 Agregar al carrito
@@ -618,7 +621,7 @@ const Personalizar = () => {
                 <DialogTitle>ELEGIR PRENDA</DialogTitle>
                 <DialogContent>
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', color: 'success' }}>
-                        <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
+                        <FormControl sx={{ m: 1, p: 0.5, minWidth: { xs: '12rem', sm: '15rem' } }}>
                             <InputLabel id="prenda-dialog-select-label" color='success' >Prenda:</InputLabel>
                             <Select
                                 color='success'
@@ -636,8 +639,8 @@ const Personalizar = () => {
                         </FormControl>
                     </Box>
                 </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose} color='success'>Cancel</Button>
+                <DialogActions sx={{m:0}}>
+                    {/* <Button onClick={handleClose} color='success'>Cancel</Button> */}
                     <Button onClick={handleClose} color='success'>Ok</Button>
                 </DialogActions>
             </Dialog>
@@ -762,10 +765,10 @@ const Personalizar = () => {
                                 input={<OutlinedInput label="Tamaño de estampado:" color='success' />}
 
                             >
-                                <MenuItem value="Tamaño 1">Tamaño 1</MenuItem>
-                                <MenuItem value='Tamaño 2'>Tamaño 2</MenuItem>
-                                <MenuItem value='Tamaño 3'>Tamaño 3</MenuItem>
-                                <MenuItem value='Tamaño 4'>Tamaño 4</MenuItem>
+                                <MenuItem value="R1 10 x 15 cm">R1 10 x 15 cm</MenuItem>
+                                <MenuItem value='R2 20 x 30 cm'>R2 20 x 30 cm</MenuItem>
+                                <MenuItem value='R3 35 x 40 cm'>R3 35 x 40 cm</MenuItem>
+                                <MenuItem value='R4 40 x 50 cm'>R4 40 x 50 cm</MenuItem>
                             </Select>
                         </FormControl>
                     </Box>

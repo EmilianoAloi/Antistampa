@@ -56,7 +56,7 @@ const Footer = () => {
                             </ListItem>
 
                             <ListItem sx={{ padding: '.2rem' }}>
-                                <Button disabled sx={{ padding: '0', minWidth: '0' }}
+                                <Button sx={{ padding: '0', minWidth: '0' }}
                                     component={NavLink}
                                     to='/'
                                 >PRODUCTOS ANTISTAMPA

@@ -1,7 +1,6 @@
 import { useState, createContext } from "react";
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../services/config';
-import Swal from "sweetalert2";
 
 
 export const PersonalizeContext = createContext();
@@ -22,10 +21,10 @@ export const PersonalizeProvider = ({ children }) => {
 
             // Actualizar el estado con la URL de la imagen
             setImageURL(imageURL);
-            Swal.fire({
-                title: 'Imagen de estampado subida correctamente',
-                icon: 'success',
-            });
+            // Swal.fire({
+            //     title: 'Imagen de estampado subida correctamente',
+            //     icon: 'success',
+            // });
 
         } catch (error) {
             console.error('Error al subir la imagen', error);

@@ -1,7 +1,7 @@
 import './ItemDetail.css'
 import Counter from '../Counter/Counter';
 import colors from '../../assets/colors.jpeg';
-import talles from '../../assets/talles.jpg';
+import talles from '../../assets/talles.jpeg';
 
 import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
@@ -35,7 +35,7 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
     }, [location]);
 
 
-    
+
 
 
     const [talle, setTalle] = useState('');
@@ -97,9 +97,9 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
 
         if (color !== '' && talle !== '') {
             addItem(item, qty);
-      
-              
-           
+
+
+
             Swal.fire({
                 title: 'Agregado al carrito',
                 html: `${item.product} - '${item.name}' <br /> Talle: ${item.talle} - Color: ${item.color}`,
@@ -110,8 +110,8 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
             Swal.fire({
                 title: 'Seleccionar Talle y Color',
                 icon: 'warning',
-            });          
-              return;
+            });
+            return;
         }
 
 
@@ -139,11 +139,17 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                 <Grid container color='white' >
 
                     <Grid item xs={12} mb={3} gap={3}>
-                        <Typography component='h2' fontWeight='500' letterSpacing={2} mb={0.5}
+                        <Box sx={{ color: 'white', textAlign: 'center', margin: '0 auto', marginBottom: '1rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+                            <Typography component='h2' fontWeight={700} className="heroTitle"
+                                sx={{ fontSize: { xs: '1.5rem', sm: '2.5rem' } }} >
+                                DETALLES DE PRODUCTO</Typography>
+                            <Typography sx={{ color: 'white', fontSize: '.8rem', marginTop: '1rem', textAlign: 'center', fontWeight: '500', display: { md: 'none' } }}><i>Selecciona tus preferencias</i> </Typography>
+                        </Box>
+                        {/* <Typography component='h2' fontWeight='500' letterSpacing={2} mb={0.5}
                             sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: { sm: '2rem' } }} >
                             DETALLES DE PRODUCTO
                         </Typography>
-                        <Stack className="line"></Stack>
+                        <Stack className="line"></Stack> */}
                     </Grid>
 
                     <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -254,8 +260,19 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
                                     >
 
                                         <MenuItem value='Blanco'>Blanco</MenuItem>
-                                        <MenuItem value='Negro'>Negro</MenuItem>
+                                        <MenuItem value='Rosa'>Rosa</MenuItem>
                                         <MenuItem value='Amarillo'>Amarillo</MenuItem>
+                                        <MenuItem value='Naranja'>Naranja</MenuItem>
+                                        <MenuItem value='Rojo'>Rojo</MenuItem>
+                                        <MenuItem value='Bordo'>Bordo</MenuItem>
+                                        <MenuItem value='Celeste'>Celeste</MenuItem>
+                                        <MenuItem value='Azul francia'>Azul francia</MenuItem>
+                                        <MenuItem value='Azul marino'>Azul marino</MenuItem>
+                                        <MenuItem value='Verde benetton'>Verde benetton</MenuItem>
+                                        <MenuItem value='Verde militar'>Verde militar</MenuItem>
+                                        <MenuItem value='Gris'>Gris</MenuItem>
+                                        <MenuItem value='Gris topo'>Gris top</MenuItem>
+                                        <MenuItem value='Negro'>Negro</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Stack>

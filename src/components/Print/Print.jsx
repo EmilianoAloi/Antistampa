@@ -27,7 +27,7 @@ const Print = () => {
                     <Button
                         startIcon={<ImageIcon />}
                         color='success'
-                        variant="text"
+                        variant="outlined"
                         component='span'
                         sx={{ width: '13rem', padding: '.2rem' }}>
                         Buscar imagen ...

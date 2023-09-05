@@ -1,4 +1,5 @@
 import { Box, Typography, Stack, Grid, Container, Fab, Modal, Backdrop, Fade, Button, Dialog, DialogActions, DialogContent, DialogTitle, InputLabel, OutlinedInput, MenuItem, FormControl, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from "@mui/material"
+
 import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
@@ -25,7 +26,6 @@ import remeraGris from '../../assets/personalizados/gris.jpeg'
 import remeraGristopo from '../../assets/personalizados/gristopo.jpeg'
 
 
-
 import buzoPersonalizado from '../../assets/buzoPersonalizado.jpg'
 import hoddiePersonalizado from '../../assets/hoddiePersonalizado.jpg'
 import totePersonalizado from '../../assets/totePersonalizado.jpg'
@@ -36,6 +36,7 @@ import Swal from "sweetalert2";
 import { v4 } from "uuid";
 import Print from "../Print/Print";
 import { PersonalizeContext } from "../Context/PersonalizeContext";
+import TextArea from "../TextArea/TextArea";
 
 const styleModal = {
     position: 'absolute',
@@ -50,6 +51,8 @@ const styleModal = {
 };
 
 const Personalizar = () => {
+
+
 
     const location = useLocation();
     useEffect(() => {
@@ -464,9 +467,14 @@ const Personalizar = () => {
                                 </TableBody>
                             </Table>
                         </TableContainer>
+
                         <Stack sx={{ alignItems: 'center' }}>
                             <Print />
+                    
                         </Stack>
+                        <Stack sx={{marginTop: '1rem' }}>
+                                <TextArea />
+                            </Stack>
 
                     </Grid>
 
@@ -594,7 +602,16 @@ const Personalizar = () => {
                                 </Table>
                             </TableContainer>
 
+
+
                             <Print />
+
+
+                            <Stack sx={{marginY: '1rem' }}>
+                                <TextArea />
+                            </Stack>
+
+
 
                             <Typography component='h3' fontWeight='800' mb={2} mt={0}
                                 sx={{ color: 'white', fontSize: { xs: '1.3rem', md: '1.5rem' }, textAlign: 'end' }} >
@@ -609,6 +626,9 @@ const Personalizar = () => {
                                 sx={{ textAlign: 'left', paddingRight: '36px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                                 Agregar al carrito
                             </Button>
+
+
+
 
                         </Stack>
 
@@ -639,7 +659,7 @@ const Personalizar = () => {
                         </FormControl>
                     </Box>
                 </DialogContent>
-                <DialogActions sx={{m:0}}>
+                <DialogActions sx={{ m: 0 }}>
                     {/* <Button onClick={handleClose} color='success'>Cancel</Button> */}
                     <Button onClick={handleClose} color='success'>Ok</Button>
                 </DialogActions>
@@ -755,7 +775,7 @@ const Personalizar = () => {
                     <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
 
                         <FormControl sx={{ m: 1, minWidth: { xs: '12rem', sm: '15rem' } }}>
-                            <InputLabel id="estampado-dialog-select-label" color='success'>Tamaño de estampado:</InputLabel>
+                            <InputLabel id="estampado-dialog-select-label" color='success'>Tamaño:</InputLabel>
                             <Select
                                 color='success'
                                 labelId="estampado-select-label"

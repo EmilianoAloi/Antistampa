@@ -138,18 +138,13 @@ const ItemDetail = ({ id, name, price, img, product, stock }) => {
             <Container sx={{ mb: '10rem' }}>
                 <Grid container color='white' >
 
-                    <Grid item xs={12} mb={3} gap={3}>
+                    <Grid item xs={12}  gap={3}>
                         <Box sx={{ color: 'white', textAlign: 'center', margin: '0 auto', marginBottom: '1rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
                             <Typography component='h2' fontWeight={700} className="heroTitle"
                                 sx={{ fontSize: { xs: '1.5rem', sm: '2.5rem' } }} >
                                 DETALLES DE PRODUCTO</Typography>
-                            <Typography sx={{ color: 'white', fontSize: '.8rem', marginTop: '1rem', textAlign: 'center', fontWeight: '500', display: { md: 'none' } }}><i>Selecciona tus preferencias</i> </Typography>
                         </Box>
-                        {/* <Typography component='h2' fontWeight='500' letterSpacing={2} mb={0.5}
-                            sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: { sm: '2rem' } }} >
-                            DETALLES DE PRODUCTO
-                        </Typography>
-                        <Stack className="line"></Stack> */}
+                     
                     </Grid>
 
                     <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

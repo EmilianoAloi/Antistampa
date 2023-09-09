@@ -7,6 +7,7 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, Container, Typography, Stack, Divider } from "@mui/material";
+import Shipping from "../Shipping/Shipping";
 
 const Checkout = () => {
 
@@ -22,51 +23,38 @@ const Checkout = () => {
 
     // Integracion MercadoPago
 
-    cart.map(prod => console.log(prod.item.name));
+
+    // const titleMP = cart.map(prod => (prod.item.name));
+    // console.log(titleMP)
+
+
+    const titleMP = cart.map(prod => (prod.item.product + ' ' + prod.item.name + prod.item.color  ));
+    console.log(titleMP)
 
     const [preferenceId, setPreferenceId] = useState(null);
     initMercadoPago('TEST-df6f7270-27a1-4961-a889-aa0fadf77fcf');
 
     const createPreference = async () => {
         try {
-            // const items = cart.map(item => ({
-            //     description: item.item.name,
-            //     price: item.item.newTotal,
-            //     quantity: item.qty,
-            // }));
+            const response = await axios.post("http://localhost:8080/create_preference", {
+                // description: titleMP.join(", "),
+                description: 'Orden de compra Antistampa',
 
-            // const response = await axios.post('http://localhost:8080/create_preference',
-            //   items
-            // );
-
-            const response = await axios.post('http://localhost:8080/create_preference', {
-                description: 'Orden de compra',
                 price: total,
                 quantity: 1,
             });
 
-            // try {
-            //     const items = cart.map(item => ({
-            //         description: item.item.name,
-            //         price: item.item.newTotal,
-            //         quantity: item.qty,
-            //     }));
-
-            //     const response = await axios.post('http://localhost:8080/create_preference', {
-            //         items,
-            //         // description: 'Orden de compra',
-            //         // price: total
-            //     });
 
             const { id } = response.data;
-            console.log(id)
             return id;
 
 
+
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     };
+
 
     const handleBuy = async () => {
         const id = await createPreference();
@@ -78,7 +66,6 @@ const Checkout = () => {
 
     const handleForm = (e) => {
         e.preventDefault();
-        handleBuy();
 
         if (!name || !lastname || !tel || !email || !emailConfirm) {
             setError('Por favor llena todos los campos');
@@ -149,7 +136,14 @@ const Checkout = () => {
                     ))}
                     <Divider sx={{ width: '100%' }} />
 
-                    <Typography color='primary' variant="h5" textAlign='end' marginTop='1rem' >Total Compra: ${total}</Typography>
+                    <Typography color='primary' variant="h5" textAlign='end' marginTop='1rem' >Subtotal: ${total}</Typography>
+
+                    <Typography color='grey' variant="h6" textAlign='end'  >(sin envio)</Typography>
+
+
+<Shipping />
+
+
 
                     <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: '2rem', }}>DATOS DE FACTURACION</Typography>
 
@@ -185,7 +179,11 @@ const Checkout = () => {
                             variant="contained"
                             size="large"
                             sx={{ paddingX: '50px', paddingY: '20px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
-                        >Finalizar compra</Button>
+                        >PAGAR</Button>
+
+                        <Button color='warning' onClick={() => { handleBuy(); console.log(5); }}
+
+                        >PAGAR CON MERCADOPAGO</Button>
 
                         {preferenceId &&
                             <Wallet initialization={{ preferenceId }} />

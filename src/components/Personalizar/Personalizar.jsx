@@ -485,7 +485,7 @@ const Personalizar = () => {
                             {prenda === 'Remera Unisex' && (
                                 <>
                                     <img src={imgItem} alt="Remera Unisex" />
-                                    <Stack sx={{ position: 'absolute', width: '30%', maxHeight: '30%', height: 'auto', top: '40%', left: '35%', opacity: '0.9' }}>
+                                    <Stack sx={{ position: 'absolute', width: '30%', maxHeight: '30%', height: '30%', top: '40%', left: '35%', opacity: '0.9' }}>
                                         {selectedImage && <img src={URL.createObjectURL(selectedImage)} alt="Imagen seleccionada" />}
                                     </Stack>
                                 </>

@@ -28,7 +28,7 @@ const Checkout = () => {
     // console.log(titleMP)
 
 
-    const titleMP = cart.map(prod => (prod.item.product + ' ' + prod.item.name + prod.item.color  ));
+    const titleMP = cart.map(prod => (prod.item.product + ' ' + prod.item.name + prod.item.color));
     console.log(titleMP)
 
     const [preferenceId, setPreferenceId] = useState(null);
@@ -141,7 +141,7 @@ const Checkout = () => {
                     <Typography color='grey' variant="h6" textAlign='end'  >(sin envio)</Typography>
 
 
-<Shipping />
+                    <Shipping />
 
 
 

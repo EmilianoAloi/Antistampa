@@ -13,18 +13,35 @@ import retiroLocal from '../../assets/retiroLocal.png'
 import correo from '../../assets/correo.png'
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
+import { useEffect } from "react";
 
 const Shipping = () => {
 
-    // const [shippingOption, setShippingOption] = useState('delivery');
 
-    const { shippingOption, setShippingOption, cart } = useContext(CartContext)
+    const { cart, shippingOption, setShippingOption, shippingPrice, setShippingPrice } = useContext(CartContext)
 
+    useEffect(() => {
+        switch (shippingOption) {
+            case 'moto':
+                setShippingPrice(2500);
+                break;
+            case 'retiroLocal':
+                setShippingPrice(0);
+                break;
+            case 'correo':
+                setShippingPrice(3500);
+                break;
+            default:
+                setShippingPrice(0);
+                break;
+        }
+
+    }, [shippingOption, setShippingPrice]);
 
     const handleChange = (option) => {
         setShippingOption(option);
-        cart.shippingOption = shippingOption;
-   
+
+
     };
 
 
@@ -38,7 +55,7 @@ const Shipping = () => {
             <FormControl>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="delivery"
+                    defaultValue="moto"
                     name="radio-buttons-group"
                     onChange={(e) => handleChange(e.target.value)}
                     value={shippingOption}
@@ -46,10 +63,10 @@ const Shipping = () => {
 
                     <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: 4, maxHeight: 350 }}>
 
-                        <Button onClick={() => { console.log(shippingOption); console.log(cart) }}>opcion envio</Button>
+                        <Button onClick={() => { console.log(shippingPrice, shippingOption); console.log(cart) }}>opcion envio</Button>
 
                         <Card sx={{ maxWidth: 345, minHeight: '23rem' }} >
-                            <CardActionArea onClick={() => setShippingOption('delivery')} >
+                            <CardActionArea onClick={() => setShippingOption('moto')} >
                                 <CardMedia sx={{ width: '50%', m: '0 auto', marginTop: 2 }}
                                     component="img"
                                     image={delivery}
@@ -68,7 +85,7 @@ const Shipping = () => {
                             <CardActions sx={{ justifyContent: 'center' }} >
 
 
-                                <FormControlLabel value="delivery" sx={{ paddingLeft: '1.5rem', marginTop: '-1rem', paddingY: '-1rem' }} control={<Radio />} />
+                                <FormControlLabel value="moto" sx={{ paddingLeft: '1.5rem', marginTop: '-1rem', paddingY: '-1rem' }} control={<Radio />} />
 
 
                             </CardActions>
@@ -111,7 +128,7 @@ const Shipping = () => {
                                     </Typography>
                                     <Typography variant="body2" color="text.secondary">
                                         Envios a toda Argentina en 1 semana<br />
-                                        Precio: $0
+                                        Precio: $3500
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>

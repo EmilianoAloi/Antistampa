@@ -12,7 +12,7 @@ import Shipping from "../Shipping/Shipping";
 const Checkout = () => {
 
 
-    const { cart, emptyCart, total } = useContext(CartContext);
+    const { cart, shippingPrice, shippingOption, emptyCart, total } = useContext(CartContext);
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [tel, setTel] = useState('');
@@ -20,14 +20,10 @@ const Checkout = () => {
     const [emailConfirm, setEmailConfirm] = useState('');
     const [error, setError] = useState();
     const [orderId, setOrderId] = useState();
-
-    // Integracion MercadoPago
-
-    // const port = `https://antistampa-backend-2.vercel.app/` || 8080;
+    // const [payStatus, setPayStatus] = useState();
 
 
-    // const titleMP = cart.map(prod => (prod.item.name));
-    // console.log(titleMP)
+    ////////////////////////////////////////////////// Integracion MercadoPago/////////////////////////////////////////////
 
 
     const titleMP = cart.map(prod => (prod.item.product + ' ' + prod.item.name + prod.item.color));
@@ -39,9 +35,7 @@ const Checkout = () => {
     const createPreference = async () => {
         try {
             const response = await axios.post(`https://antistampa-backend-2.vercel.app/create_preference`, {
-                // description: titleMP.join(", "),
                 description: 'Orden de compra Antistampa',
-
                 price: total,
                 quantity: 1,
             });
@@ -49,9 +43,6 @@ const Checkout = () => {
 
             const { id } = response.data;
             return id;
-
-
-
         } catch (error) {
             console.log(error);
         }
@@ -65,6 +56,7 @@ const Checkout = () => {
         }
     };
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -83,9 +75,10 @@ const Checkout = () => {
             items: cart.map(prod => ({
                 id: prod.item.id,
                 prenda: prod.item.prenda,
+                producto: prod.item.product,
+                img: prod.item.img,
                 talle: prod.item.talle,
                 color: prod.item.color,
-                producto: prod.item.product,
                 medidaEstampado: prod.item.estampado,
                 ubicacionEstampado: prod.item.ubicacion,
                 precio: prod.item.newTotal,
@@ -93,11 +86,13 @@ const Checkout = () => {
                 cantidad: prod.qty,
 
             })),
-            total: cart.reduce((total, prod) => total + prod.item.newTotal * prod.qty, 0),
+            total: cart.reduce((total, prod) => total + shippingPrice + prod.item.newTotal * prod.qty, 0),
             name,
             lastname,
             tel,
             email,
+            envio: { shippingOption, shippingPrice },
+            // payStatus,
             date: new Date()
         };
 
@@ -176,7 +171,11 @@ const Checkout = () => {
                         )
                     }
 
+                    <Divider sx={{ m: 5 }} />
+
                     <Box textAlign='center' marginBottom={10}>
+                        <Typography color='primary' variant="h5" textAlign='end' marginTop='1rem' >Total: ${total + shippingPrice}</Typography>
+
                         <Button type='submit'
                             variant="contained"
                             size="large"

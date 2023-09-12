@@ -23,6 +23,8 @@ const Checkout = () => {
 
     // Integracion MercadoPago
 
+    const port = process.env.PORT || 8080;
+
 
     // const titleMP = cart.map(prod => (prod.item.name));
     // console.log(titleMP)
@@ -36,7 +38,7 @@ const Checkout = () => {
 
     const createPreference = async () => {
         try {
-            const response = await axios.post("http://localhost:8080/create_preference", {
+            const response = await axios.post(`http://localhost:${port}/create_preference`, {
                 // description: titleMP.join(", "),
                 description: 'Orden de compra Antistampa',
 

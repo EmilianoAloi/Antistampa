@@ -24,7 +24,7 @@ const Shipping = () => {
     const handleChange = (option) => {
         setShippingOption(option);
         cart.shippingOption = shippingOption;
-        console.log(cart);
+   
     };
 
 

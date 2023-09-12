@@ -23,7 +23,7 @@ const Checkout = () => {
 
     // Integracion MercadoPago
 
-    const port = process.env.PORT || 8080;
+    // const port = `https://antistampa-backend-2.vercel.app/` || 8080;
 
 
     // const titleMP = cart.map(prod => (prod.item.name));
@@ -38,7 +38,7 @@ const Checkout = () => {
 
     const createPreference = async () => {
         try {
-            const response = await axios.post(`http://localhost:${port}/create_preference`, {
+            const response = await axios.post(`https://antistampa-backend-2.vercel.app/create_preference`, {
                 // description: titleMP.join(", "),
                 description: 'Orden de compra Antistampa',
 

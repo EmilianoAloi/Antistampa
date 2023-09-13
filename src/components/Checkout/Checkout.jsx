@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button, Container, Typography, Stack, Divider } from "@mui/material";
 import Shipping from "../Shipping/Shipping";
+import Resume from "../Resume/Resume";
 
 const Checkout = () => {
 
@@ -16,9 +17,12 @@ const Checkout = () => {
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [tel, setTel] = useState('');
+    const [dir, setDir] = useState('');
+    const [cp, setCp] = useState('');
+
     const [email, setEmail] = useState('');
     const [emailConfirm, setEmailConfirm] = useState('');
-    const [error, setError] = useState();
+    const [error, setError] = useState(null);
     const [orderId, setOrderId] = useState();
     // const [payStatus, setPayStatus] = useState();
 
@@ -36,7 +40,7 @@ const Checkout = () => {
         try {
             const response = await axios.post(`https://antistampa-backend-2.vercel.app/create_preference`, {
                 description: 'Orden de compra Antistampa',
-                price: total,
+                price: total + shippingPrice,
                 quantity: 1,
             });
 
@@ -61,6 +65,7 @@ const Checkout = () => {
     const handleForm = (e) => {
         e.preventDefault();
 
+
         if (!name || !lastname || !tel || !email || !emailConfirm) {
             setError('Por favor llena todos los campos');
             return;
@@ -71,6 +76,10 @@ const Checkout = () => {
             return
         }
 
+        if (error === null) {
+            handleBuy()
+        }
+        handleBuy()
         const order = {
             items: cart.map(prod => ({
                 id: prod.item.id,
@@ -106,6 +115,7 @@ const Checkout = () => {
                 setError('Se produjo un error al crear la orden, vuelva a intentar.');
             })
 
+
     }
 
 
@@ -140,57 +150,95 @@ const Checkout = () => {
 
                     <Shipping />
 
+                  
 
 
-                    <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '1rem' }, marginTop: '2rem', }}>DATOS DE FACTURACION</Typography>
+                 
+                    <Stack direction='row' marginTop='4rem' display='flex' justifyContent="center" alignItems='start' >
 
 
-                    <Stack gap={3} marginTop={4} marginBottom={3}  >
-                        <TextField id="outlined-basic" label="Nombre" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} required />
 
-                        <TextField id="outlined-basic" label="Apellido" variant="outlined" value={lastname} onChange={(e) => setLastname(e.target.value)} required />
+                        <Stack width='50%' >
+                            <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: '2rem', marginBottom:'0.5rem' }}>DATOS DE FACTURACION</Typography>
+                            <Divider />
 
 
-                        <TextField id="outlined-basic" label="Telefono" variant="outlined" value={tel} onChange={(e) => setTel(e.target.value)} required />
+                            <Stack gap={3} marginTop={4} marginBottom={3}  >
+                                <Stack direction='row' justifyContent='space-between' gap={2}>
+                                    <TextField sx={{ width: '50%' }} id="outlined-basic" label="Nombre" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} required />
+                                    <TextField sx={{ width: '50%' }} id="outlined-basic" label="Apellido" variant="outlined" value={lastname} onChange={(e) => setLastname(e.target.value)} required />
+                                </Stack>
 
-                        <TextField id="outlined-basic" label="Email" type="email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)} required />
 
-                        <TextField id="outlined-basic" label="Confirmar Email" type="email" variant="outlined" value={emailConfirm} onChange={(e) => setEmailConfirm(e.target.value)} required />
+                                <TextField id="outlined-basic" label="Direccion" variant="outlined" value={dir} onChange={(e) => setDir(e.target.value)} required />
+
+                                <Stack direction='row' justifyContent='space-between' gap={2}>
+                                    <TextField sx={{ width: '30%' }} id="outlined-basic" label="CP" variant="outlined" value={cp} onChange={(e) => setCp(e.target.value)} required />
+
+                                    <TextField sx={{ width: '70%' }} id="outlined-basic" label="Telefono" variant="outlined" value={tel} onChange={(e) => setTel(e.target.value)} required />
+
+                                </Stack>
+
+                                <Stack direction='row' justifyContent='space-between' gap={2}>
+                                    <TextField sx={{ width: '50%' }} id="outlined-basic" label="Email" type="email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)} required />
+
+                                    <TextField sx={{ width: '50%' }} id="outlined-basic" label="Confirmar Email" type="email" variant="outlined" value={emailConfirm} onChange={(e) => setEmailConfirm(e.target.value)} required />
+                                </Stack>
+                            </Stack>
+                            {error && <Typography textAlign='start' color='red' > {error} </Typography>}
+
+                        </Stack>
+
+
+
+
+
+                        <Stack>
+                            <Stack sx={{ m: 8, paddingTop: '2rem' }} >
+                            <Divider />
+                                <Resume />
+
+                            </Stack>
+                        </Stack>
+
+
 
                     </Stack>
-                    {error && <Typography textAlign='center' color='red' marginBottom={3}> {error} </Typography>}
 
-                    {
-                        orderId && (
-                            <>
-                                <Typography textAlign='start' color='primary' sx={{ fontSize: { xs: '2rem', sm: '4rem' } }} marginTop='2rem' > GRACIAS POR TU COMPRA ! 🥳
-                                </Typography>
 
-                                <Typography textAlign='start' color='white' variant="h6" marginBottom='2rem'>   N de orden: {orderId}</Typography>
-                            </>
-                        )
-                    }
 
-                    <Divider sx={{ m: 5 }} />
-
-                    <Box textAlign='center' marginBottom={10}>
-                        <Typography color='primary' variant="h5" textAlign='end' marginTop='1rem' >Total: ${total + shippingPrice}</Typography>
-
-                        <Button type='submit'
+                    <Stack>
+                        <Button
+                            type='submit'
+                            onClick={() => { handleBuy(); console.log(5); }}
                             variant="contained"
-                            size="large"
-                            sx={{ paddingX: '50px', paddingY: '20px', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
-                        >PAGAR</Button>
-
-                        <Button color='warning' onClick={() => { handleBuy(); console.log(5); }}
-
-                        >PAGAR CON MERCADOPAGO</Button>
-
+                            color="primary"
+                            size="medium"
+                            sx={{ width: '100%', paddingX: '50px', paddingY: '0.5rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
+                        >CONTINUAR</Button>
                         {preferenceId &&
                             <Wallet initialization={{ preferenceId }} />
                         }
-                    </Box>
+
+
+                        {
+                            orderId && (
+                                <>
+                                    <Typography textAlign='start' color='primary' sx={{ fontSize: { xs: '2rem', sm: '4rem' } }} marginTop='2rem' > GRACIAS POR TU COMPRA ! 🥳
+                                    </Typography>
+
+                                    <Typography textAlign='start' color='white' variant="h6" marginBottom='2rem'>   N de orden: {orderId}</Typography>
+                                </>
+                            )
+                        }
+                    </Stack>
+                    {/* <Button color='warning' onClick={() => { handleBuy(); console.log(5); }}
+                        >PAGAR CON MERCADOPAGO</Button> */}
                 </Box>
+
+
+
+
             </Container>
         </>
     )

@@ -50,10 +50,10 @@ const Shipping = () => {
         <>
 
 
-            <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '2rem' }, marginY: '2rem', }}>Opciones de envio:</Typography>
+            <Typography textAlign='center' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '2rem' }, marginY: '2rem', }}>Opciones de envio</Typography>
 
-            <FormControl>
-                <RadioGroup
+            <FormControl >
+                <RadioGroup 
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="moto"
                     name="radio-buttons-group"
@@ -61,11 +61,11 @@ const Shipping = () => {
                     value={shippingOption}
                 >
 
-                    <Stack sx={{ flexDirection: 'row', justifyContent: 'center', gap: 4, maxHeight: 350 }}>
+                    <Stack direction='row' sx={{ justifyContent: 'center', gap: 4, width: '70rem' }}>
 
-                        <Button onClick={() => { console.log(shippingPrice, shippingOption); console.log(cart) }}>opcion envio</Button>
+                        {/* <Button onClick={() => { console.log(shippingPrice, shippingOption); console.log(cart) }}>opcion envio</Button> */}
 
-                        <Card sx={{ maxWidth: 345, minHeight: '23rem' }} >
+                        <Card sx={{ maxWidth: 280, minHeight: '15rem' }} >
                             <CardActionArea onClick={() => setShippingOption('moto')} >
                                 <CardMedia sx={{ width: '50%', m: '0 auto', marginTop: 2 }}
                                     component="img"
@@ -85,13 +85,13 @@ const Shipping = () => {
                             <CardActions sx={{ justifyContent: 'center' }} >
 
 
-                                <FormControlLabel value="moto" sx={{ paddingLeft: '1.5rem', marginTop: '-1rem', paddingY: '-1rem' }} control={<Radio />} />
+                                <FormControlLabel value="moto" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
 
 
                             </CardActions>
                         </Card>
 
-                        <Card sx={{ maxWidth: 345, minHeight: '23rem' }}>
+                        <Card sx={{ maxWidth: 280, minHeight: '15rem' }} >
                             <CardActionArea onClick={() => setShippingOption('retiroLocal')} >
                                 <CardMedia sx={{ width: '50%', height: 'auto', m: '0 auto', marginTop: 2 }}
                                     component="img"
@@ -109,12 +109,12 @@ const Shipping = () => {
                             </CardActionArea>
                             <CardActions sx={{ justifyContent: 'center' }} >
 
-                                <FormControlLabel value="retiroLocal" sx={{ paddingLeft: '1.5rem', marginTop: '-1rem', paddingY: '-1rem' }} control={<Radio />} />
+                                <FormControlLabel value="retiroLocal" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
 
                             </CardActions>
                         </Card>
 
-                        <Card sx={{ maxWidth: 345, minHeight: '23rem' }}>
+                        <Card sx={{ maxWidth: 280, minHeight: '15rem' }} >
                             <CardActionArea onClick={() => setShippingOption('correo')} >
                                 <CardMedia sx={{ width: '50%', height: 'auto', m: '0 auto', marginTop: 2 }}
                                     component="img"
@@ -134,7 +134,7 @@ const Shipping = () => {
                             </CardActionArea>
                             <CardActions sx={{ justifyContent: 'center' }} >
                                 <Stack >
-                                    <FormControlLabel value="correo" sx={{ paddingLeft: '1.5rem', marginTop: '-1rem', paddingY: '-1rem' }} control={<Radio />} />
+                                    <FormControlLabel value="correo" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
                                 </Stack>
                             </CardActions>
                         </Card>

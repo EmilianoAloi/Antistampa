@@ -14,17 +14,18 @@ import Resume from "../Resume/Resume";
 const Checkout = () => {
 
 
-    const { cart, shippingPrice, total } = useContext(CartContext);
-    const [name, setName] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [tel, setTel] = useState('');
-    const [dir, setDir] = useState('');
-    const [cp, setCp] = useState('');
+    const { cart, shippingPrice, total, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm  } = useContext(CartContext);
+    
+    // const [name, setName] = useState('');
+    // const [lastname, setLastname] = useState('');
+    // const [tel, setTel] = useState('');
+    // const [dir, setDir] = useState('');
+    // const [cp, setCp] = useState('');
 
-    const [email, setEmail] = useState('');
-    const [emailConfirm, setEmailConfirm] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [emailConfirm, setEmailConfirm] = useState('');
     const [error, setError] = useState(null);
-     // eslint-disable-next-line
+    // eslint-disable-next-line
     const [orderId, setOrderId] = useState();
 
     const [showButton, setShowButton] = useState(true);
@@ -41,7 +42,7 @@ const Checkout = () => {
     console.log(titleMP)
 
     const [preferenceId, setPreferenceId] = useState(null);
-    initMercadoPago('TEST-df6f7270-27a1-4961-a889-aa0fadf77fcf', {locale: 'es'});
+    initMercadoPago('TEST-df6f7270-27a1-4961-a889-aa0fadf77fcf', { locale: 'es' });
 
     const createPreference = async () => {
         try {
@@ -141,7 +142,12 @@ const Checkout = () => {
 
         <>
             <Container >
-                <Typography component='h2' fontWeight='500' letterSpacing={2} sx={{ fontSize: { xs: '1.2rem', sm: '2rem' }, marginTop: { sm: '2rem' }, marginBottom: '2rem' }} color='white'> Checkout </Typography>
+
+                <Box sx={{ color: 'white', textAlign: 'center', margin: '0 auto', marginBottom: '3rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}>
+                    <Typography component='h2' fontWeight={700} className="heroTitle"
+                        sx={{ fontSize: { xs: '1.5rem', sm: '2.5rem' } }} >
+                        Checkout</Typography>
+                </Box>
 
                 <Box
                     component="form"
@@ -242,7 +248,7 @@ const Checkout = () => {
                                 customization={{
                                     visual: {
                                         texts: {
-                                            action: 'buy' // Cambia 'buy' por 'Comprar con Mercado Pago' u otras opciones disponibles
+                                            action: 'buy' 
                                         }
                                     }
                                 }}

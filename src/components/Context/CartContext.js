@@ -17,10 +17,20 @@ export const CartProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
   const [qtyTotal, setQtyTotal] = useState(0);
   const [precioFinal, setPreciofinal] = useState(0);
-
-
   const [shippingOption, setShippingOption] = useState('delivery');
   const [shippingPrice, setShippingPrice] = useState(0);
+
+  const [name, setName] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [tel, setTel] = useState('');
+  const [dir, setDir] = useState('');
+  const [cp, setCp] = useState('');
+
+  const [email, setEmail] = useState('');
+  const [emailConfirm, setEmailConfirm] = useState('');
+  const [error, setError] = useState(null);
+  // eslint-disable-next-line
+  const [orderId, setOrderId] = useState();
 
 
   const addItem = (item, qty) => {
@@ -106,7 +116,7 @@ export const CartProvider = ({ children }) => {
   }
 
   return (
-    <CartContext.Provider value={{ cart, setCart, addItem, delProduct, emptyCart, qtyTotal, total, precioFinal, setPreciofinal, shippingOption, setShippingOption, shippingPrice, setShippingPrice }}>
+    <CartContext.Provider value={{ cart, setCart, addItem, delProduct, emptyCart, qtyTotal, total, precioFinal, setPreciofinal, shippingOption, setShippingOption, shippingPrice, setShippingPrice, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm, error, setError }}>
       {children}
     </CartContext.Provider>
   )

@@ -23,6 +23,7 @@ import Contact from './components/Contact/Contact';
 import Personalizar from './components/Personalizar/Personalizar';
 import Dashboard from './components/Dashboard/Dashboard';
 import { PersonalizeProvider } from './components/Context/PersonalizeContext';
+import ConfirmedPage from './components/ConfirmedPage/ConfirmedPage';
 
 function App() {
 
@@ -48,6 +49,8 @@ function App() {
                 <Route path='/personalizados' element={<Personalizar />} />
                 <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/productos' element={<ItemListContainer />} />
+                <Route path='/confirmed' element={<ConfirmedPage />} />
+
               </Routes>
               <Footer />
             </PersonalizeProvider>

@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { CartContext } from '../Context/CartContext'
-import { db } from "../../services/config";
-import { collection, addDoc } from "firebase/firestore";
+// import { db } from "../../services/config";
+// import { collection, addDoc } from "firebase/firestore";
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import axios from 'axios';
 import Box from '@mui/material/Box';
@@ -10,10 +10,11 @@ import { Button, Container, Typography, Stack, Divider } from "@mui/material";
 import Shipping from "../Shipping/Shipping";
 import Resume from "../Resume/Resume";
 
+
 const Checkout = () => {
 
 
-    const { cart, shippingPrice, shippingOption, emptyCart, total } = useContext(CartContext);
+    const { cart, shippingPrice, total } = useContext(CartContext);
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
     const [tel, setTel] = useState('');
@@ -23,8 +24,14 @@ const Checkout = () => {
     const [email, setEmail] = useState('');
     const [emailConfirm, setEmailConfirm] = useState('');
     const [error, setError] = useState(null);
+     // eslint-disable-next-line
     const [orderId, setOrderId] = useState();
-    // const [payStatus, setPayStatus] = useState();
+
+    const [showButton, setShowButton] = useState(true);
+
+    const handleContinueClick = () => {
+        setShowButton(false);
+    };
 
 
     ////////////////////////////////////////////////// Integracion MercadoPago/////////////////////////////////////////////
@@ -34,7 +41,7 @@ const Checkout = () => {
     console.log(titleMP)
 
     const [preferenceId, setPreferenceId] = useState(null);
-    initMercadoPago('TEST-df6f7270-27a1-4961-a889-aa0fadf77fcf');
+    initMercadoPago('TEST-df6f7270-27a1-4961-a889-aa0fadf77fcf', {locale: 'es'});
 
     const createPreference = async () => {
         try {
@@ -52,19 +59,19 @@ const Checkout = () => {
         }
     };
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const handleBuy = async () => {
+
         const id = await createPreference();
         if (id) {
             setPreferenceId(id);
+            handleContinueClick();
         }
     };
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     const handleForm = (e) => {
         e.preventDefault();
-
 
         if (!name || !lastname || !tel || !email || !emailConfirm) {
             setError('Por favor llena todos los campos');
@@ -76,47 +83,58 @@ const Checkout = () => {
             return
         }
 
-        if (error === null) {
-            handleBuy()
+        if (email === emailConfirm) {
+            setError(null);
+            handleBuy();
         }
-        handleBuy()
-        const order = {
-            items: cart.map(prod => ({
-                id: prod.item.id,
-                prenda: prod.item.prenda,
-                producto: prod.item.product,
-                img: prod.item.img,
-                talle: prod.item.talle,
-                color: prod.item.color,
-                medidaEstampado: prod.item.estampado,
-                ubicacionEstampado: prod.item.ubicacion,
-                precio: prod.item.newTotal,
-                nombre: prod.item.name,
-                cantidad: prod.qty,
 
-            })),
-            total: cart.reduce((total, prod) => total + shippingPrice + prod.item.newTotal * prod.qty, 0),
-            name,
-            lastname,
-            tel,
-            email,
-            envio: { shippingOption, shippingPrice },
-            // payStatus,
-            date: new Date()
-        };
-
-        addDoc(collection(db, 'ordenes'), order)
-            .then(docRef => {
-                setOrderId(docRef.id);
-                emptyCart();
-            })
-            .catch(error => {
-                console.error('Error al crear la orden:', error.code, error.message);
-                setError('Se produjo un error al crear la orden, vuelva a intentar.');
-            })
-
+        console.log(error);
 
     }
+
+    ////////////////////// creacion de orden en firebase ////////////////////////////////////////////////////////////////////
+
+
+
+    // const order = {
+    //     items: cart.map(prod => ({
+    //         id: prod.item.id,
+    //         prenda: prod.item.prenda,
+    //         producto: prod.item.product,
+    //         img: prod.item.img,
+    //         talle: prod.item.talle,
+    //         color: prod.item.color,
+    //         medidaEstampado: prod.item.estampado,
+    //         ubicacionEstampado: prod.item.ubicacion,
+    //         precio: prod.item.newTotal,
+    //         nombre: prod.item.name,
+    //         cantidad: prod.qty,
+
+    //     })),
+    //     total: cart.reduce((total, prod) => total + shippingPrice + prod.item.newTotal * prod.qty, 0),
+    //     name,
+    //     lastname,
+    //     tel,
+    //     email,
+    //     envio: { shippingOption, shippingPrice },
+    //     date: new Date()
+    // };
+
+    // addDoc(collection(db, 'ordenes'), order)
+    //     .then(docRef => {
+    //         setOrderId(docRef.id);
+    //         emptyCart();
+    //     })
+    //     .catch(error => {
+    //         console.error('Error al crear la orden:', error.code, error.message);
+    //         setError('Se produjo un error al crear la orden, vuelva a intentar.');
+    //     })
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
     return (
@@ -150,16 +168,16 @@ const Checkout = () => {
 
                     <Shipping />
 
-                  
 
 
-                 
+
+
                     <Stack direction='row' marginTop='4rem' display='flex' justifyContent="center" alignItems='start' >
 
 
 
                         <Stack width='50%' >
-                            <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: '2rem', marginBottom:'0.5rem' }}>DATOS DE FACTURACION</Typography>
+                            <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: '2rem', marginBottom: '0.5rem' }}>DATOS DE FACTURACION</Typography>
                             <Divider />
 
 
@@ -195,9 +213,7 @@ const Checkout = () => {
 
                         <Stack>
                             <Stack sx={{ m: 8, paddingTop: '2rem' }} >
-                            <Divider />
                                 <Resume />
-
                             </Stack>
                         </Stack>
 
@@ -208,16 +224,29 @@ const Checkout = () => {
 
 
                     <Stack>
-                        <Button
-                            type='submit'
-                            onClick={() => { handleBuy(); console.log(5); }}
-                            variant="contained"
-                            color="primary"
-                            size="medium"
-                            sx={{ width: '100%', paddingX: '50px', paddingY: '0.5rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
-                        >CONTINUAR</Button>
+                        {showButton && (
+                            <Button
+                                type='submit'
+                                variant="contained"
+                                color="primary"
+                                size="medium"
+                                sx={{ width: '100%', paddingX: '50px', paddingY: '0.5rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
+                            >
+                                CONTINUAR
+                            </Button>)}
+
+
                         {preferenceId &&
-                            <Wallet initialization={{ preferenceId }} />
+                            <Wallet
+                                initialization={{ preferenceId }}
+                                customization={{
+                                    visual: {
+                                        texts: {
+                                            action: 'buy' // Cambia 'buy' por 'Comprar con Mercado Pago' u otras opciones disponibles
+                                        }
+                                    }
+                                }}
+                            />
                         }
 
 
@@ -227,13 +256,12 @@ const Checkout = () => {
                                     <Typography textAlign='start' color='primary' sx={{ fontSize: { xs: '2rem', sm: '4rem' } }} marginTop='2rem' > GRACIAS POR TU COMPRA ! 🥳
                                     </Typography>
 
-                                    <Typography textAlign='start' color='white' variant="h6" marginBottom='2rem'>   N de orden: {orderId}</Typography>
+                                    <Typography textAlign='start' color='white' variant="h6" marginBottom='2rem'>N de orden: {orderId}</Typography>
                                 </>
                             )
                         }
                     </Stack>
-                    {/* <Button color='warning' onClick={() => { handleBuy(); console.log(5); }}
-                        >PAGAR CON MERCADOPAGO</Button> */}
+
                 </Box>
 
 

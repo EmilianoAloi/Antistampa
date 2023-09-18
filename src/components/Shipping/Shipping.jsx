@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActionArea, CardActions } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -18,7 +18,7 @@ import { useEffect } from "react";
 const Shipping = () => {
 
 
-    const { cart, shippingOption, setShippingOption, shippingPrice, setShippingPrice } = useContext(CartContext)
+    const { shippingOption, setShippingOption, setShippingPrice } = useContext(CartContext)
 
     useEffect(() => {
         switch (shippingOption) {

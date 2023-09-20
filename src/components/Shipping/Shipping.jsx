@@ -22,13 +22,13 @@ const Shipping = () => {
 
     useEffect(() => {
         switch (shippingOption) {
-            case 'moto':
+            case 'Moto mensajeria':
                 setShippingPrice(2500);
                 break;
-            case 'retiroLocal':
+            case 'Retiro por local':
                 setShippingPrice(0);
                 break;
-            case 'correo':
+            case 'Correo Argentino':
                 setShippingPrice(3500);
                 break;
             default:
@@ -55,7 +55,7 @@ const Shipping = () => {
             <FormControl >
                 <RadioGroup 
                     aria-labelledby="demo-radio-buttons-group-label"
-                    defaultValue="moto"
+                    defaultValue="Moto mensajeria"
                     name="radio-buttons-group"
                     onChange={(e) => handleChange(e.target.value)}
                     value={shippingOption}
@@ -66,7 +66,7 @@ const Shipping = () => {
                         {/* <Button onClick={() => { console.log(shippingPrice, shippingOption); console.log(cart) }}>opcion envio</Button> */}
 
                         <Card sx={{ maxWidth: 280, minHeight: '15rem' }} >
-                            <CardActionArea onClick={() => setShippingOption('moto')} >
+                            <CardActionArea onClick={() => setShippingOption('Moto mensajeria')} >
                                 <CardMedia sx={{ width: '50%', m: '0 auto', marginTop: 2 }}
                                     component="img"
                                     image={delivery}
@@ -85,14 +85,14 @@ const Shipping = () => {
                             <CardActions sx={{ justifyContent: 'center' }} >
 
 
-                                <FormControlLabel value="moto" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
+                                <FormControlLabel value="Moto mensajeria" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
 
 
                             </CardActions>
                         </Card>
 
                         <Card sx={{ maxWidth: 280, minHeight: '15rem' }} >
-                            <CardActionArea onClick={() => setShippingOption('retiroLocal')} >
+                            <CardActionArea onClick={() => setShippingOption('Retiro por local')} >
                                 <CardMedia sx={{ width: '50%', height: 'auto', m: '0 auto', marginTop: 2 }}
                                     component="img"
                                     image={retiroLocal}
@@ -109,13 +109,13 @@ const Shipping = () => {
                             </CardActionArea>
                             <CardActions sx={{ justifyContent: 'center' }} >
 
-                                <FormControlLabel value="retiroLocal" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
+                                <FormControlLabel value="Retiro por local" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
 
                             </CardActions>
                         </Card>
 
                         <Card sx={{ maxWidth: 280, minHeight: '15rem' }} >
-                            <CardActionArea onClick={() => setShippingOption('correo')} >
+                            <CardActionArea onClick={() => setShippingOption('Correo Argentino')} >
                                 <CardMedia sx={{ width: '50%', height: 'auto', m: '0 auto', marginTop: 2 }}
                                     component="img"
                                     height="140"
@@ -134,7 +134,7 @@ const Shipping = () => {
                             </CardActionArea>
                             <CardActions sx={{ justifyContent: 'center' }} >
                                 <Stack >
-                                    <FormControlLabel value="correo" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
+                                    <FormControlLabel value="Correo Argentino" sx={{ paddingLeft: '1.5rem', marginTop: '0.1rem', paddingY: '-1rem' }} control={<Radio />} />
                                 </Stack>
                             </CardActions>
                         </Card>

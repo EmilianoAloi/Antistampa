@@ -15,11 +15,9 @@ import mpIcon from '../../assets/mercadopago.png'
 
 const Resume = () => {
 
-    const {  shippingPrice, total } = useContext(CartContext);
+    const { shippingOption, shippingPrice, total } = useContext(CartContext);
 
     return (
-
-
 
         <>
 
@@ -37,7 +35,7 @@ const Resume = () => {
                         </TableRow>
                         <TableRow>
                             <TableCell sx={{ display: 'flex', alignItems: 'center' }} >Opcion de Envio:</TableCell>
-                            <TableCell align="right">Correo </TableCell>
+                            <TableCell align="right"> {shippingOption} </TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

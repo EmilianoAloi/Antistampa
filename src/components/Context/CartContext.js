@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import Swal from "sweetalert2";
 
 export const CartContext = createContext({
@@ -8,14 +8,15 @@ export const CartContext = createContext({
 
 });
 
-
-
+const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
+const qtyLS = cartLS.reduce((total, item) => total + item.qty, 0);
 
 export const CartProvider = ({ children }) => {
 
-  const [cart, setCart] = useState([]);
+
+  const [cart, setCart] = useState(cartLS);
+  const [qtyTotal, setQtyTotal] = useState(qtyLS);
   const [total, setTotal] = useState(0);
-  const [qtyTotal, setQtyTotal] = useState(0);
   const [precioFinal, setPreciofinal] = useState(0);
   const [shippingOption, setShippingOption] = useState('delivery');
   const [shippingPrice, setShippingPrice] = useState(0);
@@ -31,6 +32,17 @@ export const CartProvider = ({ children }) => {
   const [error, setError] = useState(null);
   // eslint-disable-next-line
   const [orderId, setOrderId] = useState();
+
+
+  console.log(cart)
+  console.log(qtyTotal)
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
+
+
+
 
 
   const addItem = (item, qty) => {
@@ -115,8 +127,9 @@ export const CartProvider = ({ children }) => {
 
   }
 
+
   return (
-    <CartContext.Provider value={{ cart, setCart, addItem, delProduct, emptyCart, qtyTotal, total, precioFinal, setPreciofinal, shippingOption, setShippingOption, shippingPrice, setShippingPrice, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm, error, setError }}>
+    <CartContext.Provider value={{ cart, setCart, addItem, delProduct, emptyCart, qtyTotal, total, precioFinal, setPreciofinal, shippingOption, setShippingOption, shippingPrice, setShippingPrice, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm, error, setError, cartLS }}>
       {children}
     </CartContext.Provider>
   )

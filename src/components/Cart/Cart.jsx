@@ -15,9 +15,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import './Cart.css';
 
 
-
-
-
 const Cart = () => {
 
     const location = useLocation();
@@ -28,7 +25,11 @@ const Cart = () => {
 
 
 
-    const { cart, emptyCart, total, qtyTotal, delProduct } = useContext(CartContext)
+    const { cart, emptyCart, total, qtyTotal, delProduct } = useContext(CartContext);
+
+   
+
+
 
     if (qtyTotal === 0) {
         return (

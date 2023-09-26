@@ -21,8 +21,7 @@ const Resume = () => {
 
         <>
 
-
-            <TableContainer component={Paper} sx={{ maxWidth: 400, borderRadius: '10px', border: '3px solid yellow', margin: '0 auto', paddingX: '2rem', paddingY:'2.5rem' }}>
+            <TableContainer component={Paper} sx={{ maxWidth: 400, width: {xs:'70vw'}, borderRadius: '10px', border: '3px solid yellow', margin: '0 auto', mb:'2rem', mt:'4rem', paddingX: '1rem', paddingY:'2rem' }}>
                 <Typography color='primary' variant="h5" textAlign='center' marginBottom='1rem' >RESUMEN DE COMPRA</Typography>
 
                 <Table sx={{ width: '100%', justifyContentL: 'center' }} aria-label="simple table">

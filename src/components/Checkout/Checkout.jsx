@@ -14,8 +14,8 @@ import Resume from "../Resume/Resume";
 const Checkout = () => {
 
 
-    const { cart, shippingPrice, total, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm  } = useContext(CartContext);
-    
+    const { cart, shippingPrice, total, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm } = useContext(CartContext);
+
     // const [name, setName] = useState('');
     // const [lastname, setLastname] = useState('');
     // const [tel, setTel] = useState('');
@@ -178,12 +178,12 @@ const Checkout = () => {
 
 
 
-                    <Stack direction='row' marginTop='4rem' display='flex' justifyContent="center" alignItems='start' >
+                    <Stack sx={{ flexDirection: { xs: 'column', md: 'row' }, mt: '4rem', justifyContent: 'center', alignItems: 'center', gap: { md: '5rem' } }} >
 
 
 
-                        <Stack width='50%' >
-                            <Typography textAlign='start' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '1.5rem' }, marginTop: '2rem', marginBottom: '0.5rem' }}>DATOS DE FACTURACION</Typography>
+                        <Stack >
+                            <Typography textAlign='start' component='h3' color='white' sx={{fontWeight:'500',  fontSize: { xs: '1.2rem', sm: '2rem' }, marginTop: '2rem', marginBottom: '0.5rem' }}>DATOS DE FACTURACION</Typography>
                             <Divider />
 
 
@@ -218,9 +218,7 @@ const Checkout = () => {
 
 
                         <Stack>
-                            <Stack sx={{ m: 8, paddingTop: '2rem' }} >
-                                <Resume />
-                            </Stack>
+                            <Resume />
                         </Stack>
 
 
@@ -236,7 +234,7 @@ const Checkout = () => {
                                 variant="contained"
                                 color="primary"
                                 size="medium"
-                                sx={{ width: '100%', paddingX: '50px', paddingY: '0.5rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
+                                sx={{ width: '100%', paddingX: '50px', paddingY: '0.5rem', mt:'2rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
                             >
                                 CONTINUAR
                             </Button>)}
@@ -248,7 +246,7 @@ const Checkout = () => {
                                 customization={{
                                     visual: {
                                         texts: {
-                                            action: 'buy' 
+                                            action: 'buy'
                                         }
                                     }
                                 }}

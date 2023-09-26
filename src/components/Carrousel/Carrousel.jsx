@@ -1,11 +1,10 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import {  Autoplay } from 'swiper/modules';
 import './Carrousel.css';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 
 
@@ -32,7 +31,7 @@ const Carrousel = ({ products }) => {
                     prevEl: '.swiper-button-prev',
                     clickable: true
                 }}
-                modules={[Pagination, Autoplay]}
+                modules={[Autoplay]}
                 breakpoints={{
                     640: {
                         slidesPerView: 2,

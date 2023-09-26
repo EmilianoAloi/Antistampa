@@ -50,9 +50,9 @@ const Shipping = () => {
         <>
 
 
-            <Typography textAlign='center' component='h3' color='white' sx={{ fontSize: { xs: '1rem', sm: '2rem' }, marginY: '2rem', }}>Opciones de envio</Typography>
+            <Typography textAlign='center' component='h3' color='white' sx={{ fontSize: { xs: '1.2rem', sm: '2rem' }, marginY: '2rem', fontWeight:'500' }}>OPCIONES DE ENVIO</Typography>
 
-            <FormControl >
+            <FormControl sx={{ display:'flex'}} >
                 <RadioGroup 
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="Moto mensajeria"
@@ -61,9 +61,7 @@ const Shipping = () => {
                     value={shippingOption}
                 >
 
-                    <Stack direction='row' sx={{ justifyContent: 'center', gap: 4, width: '70rem' }}>
-
-                        {/* <Button onClick={() => { console.log(shippingPrice, shippingOption); console.log(cart) }}>opcion envio</Button> */}
+                    <Stack  sx={{ flexDirection: {xs: 'column', md:'row'} , justifyContent: 'center', alignItems:'center', gap: 4 }}>
 
                         <Card sx={{ maxWidth: 280, minHeight: '15rem' }} >
                             <CardActionArea onClick={() => setShippingOption('Moto mensajeria')} >

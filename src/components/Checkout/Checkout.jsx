@@ -9,9 +9,11 @@ import TextField from '@mui/material/TextField';
 import { Button, Container, Typography, Stack, Divider } from "@mui/material";
 import Shipping from "../Shipping/Shipping";
 import Resume from "../Resume/Resume";
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 const Checkout = () => {
+
 
 
     const { cart, shippingPrice, total, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm } = useContext(CartContext);
@@ -29,10 +31,14 @@ const Checkout = () => {
     const [orderId, setOrderId] = useState();
 
     const [showButton, setShowButton] = useState(true);
+    const [showLinear, setShowLinear] = useState(true);
+    const [showWallet, setShowWallet] = useState(false);
 
-    const handleContinueClick = () => {
-        setShowButton(false);
-    };
+    // const handleContinueClick = () => {
+    //     setShowButton(false);
+    //     setShowLinear(true);
+    // };
+
 
 
     ////////////////////////////////////////////////// Integracion MercadoPago/////////////////////////////////////////////
@@ -67,7 +73,9 @@ const Checkout = () => {
         const id = await createPreference();
         if (id) {
             setPreferenceId(id);
-            handleContinueClick();
+            setShowButton(false);
+            setShowLinear(false);
+            setShowWallet(true);
         }
     };
 
@@ -183,7 +191,7 @@ const Checkout = () => {
 
 
                         <Stack >
-                            <Typography textAlign='start' component='h3' color='white' sx={{fontWeight:'500',  fontSize: { xs: '1.2rem', sm: '2rem' }, marginTop: '2rem', marginBottom: '0.5rem' }}>DATOS DE FACTURACION</Typography>
+                            <Typography textAlign='start' component='h3' color='white' sx={{ fontWeight: '500', fontSize: { xs: '1.2rem', sm: '2rem' }, marginTop: '2rem', marginBottom: '0.5rem' }}>DATOS DE FACTURACION</Typography>
                             <Divider />
 
 
@@ -234,13 +242,15 @@ const Checkout = () => {
                                 variant="contained"
                                 color="primary"
                                 size="medium"
-                                sx={{ width: '100%', paddingX: '50px', paddingY: '0.5rem', mt:'2rem', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
+                                sx={{ width: '100%', paddingX: '50px', paddingY: '0.5rem', mt: '2rem', borderBottomLeftRadius: '0', borderBottomRightRadius: '0', boxShadow: ' rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;' }}
                             >
                                 CONTINUAR
                             </Button>)}
 
 
-                        {preferenceId &&
+                        {showLinear && <LinearProgress />}
+
+                        {showWallet && (
                             <Wallet
                                 initialization={{ preferenceId }}
                                 customization={{
@@ -251,10 +261,10 @@ const Checkout = () => {
                                     }
                                 }}
                             />
-                        }
+                        )}
 
 
-                        {
+                        {/* {
                             orderId && (
                                 <>
                                     <Typography textAlign='start' color='primary' sx={{ fontSize: { xs: '2rem', sm: '4rem' } }} marginTop='2rem' > GRACIAS POR TU COMPRA ! 🥳
@@ -263,7 +273,7 @@ const Checkout = () => {
                                     <Typography textAlign='start' color='white' variant="h6" marginBottom='2rem'>N de orden: {orderId}</Typography>
                                 </>
                             )
-                        }
+                        } */}
                     </Stack>
 
                 </Box>

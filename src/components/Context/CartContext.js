@@ -36,10 +36,26 @@ export const CartProvider = ({ children }) => {
 
   console.log(cart)
   console.log(qtyTotal)
+  console.log(total)
+
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart))
-  }, [cart])
+  }, [cart]);
+
+  useEffect(() => {
+    // Calcula el total basado en el contenido actual del carrito
+    const newTotal = cart.reduce((acc, product) => {
+      return acc + product.item.newTotal * product.qty;
+    }, 0);
+
+    // Actualiza el estado total con el nuevo total calculado
+    setTotal(newTotal);
+
+    // Guarda el carrito en el localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
 
 
 

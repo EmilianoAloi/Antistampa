@@ -33,8 +33,8 @@ const Resume = () => {
                             <TableCell align="right">1</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell sx={{ display: 'flex', alignItems: 'center' }} >Opcion de Envio:</TableCell>
-                            <TableCell align="right"> {shippingOption} </TableCell>
+                            <TableCell sx={{ display: 'flex', alignItems: 'center'}} >Opcion de Envio:</TableCell>
+                            <TableCell align="right" sx={{ padding:'0'}}> {shippingOption} </TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

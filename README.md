@@ -1,10 +1,31 @@
-# Getting Started with Create React App
+# Antistampa - Tienda de Remeras Personalizadas (Impresion Digital)
+
+Sitio Web creado con las siguientes tecnologias:
+
+    HTML
+    CSS
+    Javascript
+    React
+    Firestore
+    Material UI
 
 This project was bootstrapped width [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-blablalbalabla
-In the project directory, you can run:
+## Enlaces Importantes
+- Sitio web: [Antistampa](https://antistampa.netlify.app/)
+- Instagram: [@Antistampa](https://www.instagram.com/Antistampa/)
+
+## Características
+
+- Diseño responsive
+- HTML
+- CSS
+- Javascript
+- React
+- Firestore
+- Material UI
+
+## Scripts disponibles
 
 ### `npm start`
 

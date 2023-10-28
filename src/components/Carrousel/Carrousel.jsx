@@ -13,6 +13,17 @@ import Item from '../Item/Item';
 
 const Carrousel = ({ products }) => {
 
+    function ordenAleatorio() {
+        return Math.random() - 0.5; // Devuelve un número aleatorio entre -0.5 y 0.5
+    };
+
+    products.sort(ordenAleatorio);
+
+
+    const limitedProducts = products.slice(0, 10);
+
+    console.log(limitedProducts);
+
     return (
 
         <>
@@ -49,7 +60,7 @@ const Carrousel = ({ products }) => {
                 className="mySwiper"
             >
 
-                {products.map(prod =>
+                {limitedProducts.map(prod =>
                     <SwiperSlide key={prod.id}><Item {...prod} /></SwiperSlide>
                 )};
 

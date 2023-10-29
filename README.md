@@ -1,6 +1,6 @@
-# Antistampa - Tienda de Remeras Personalizadas (Impresion Digital)
+# Antistampa - Tienda de Remeras Personalizadas 
 
-Sitio Web creado con las siguientes tecnologias:
+Sitio Web creado para un cliente dedicado a la venta de ropa con estampados de musica y personalizados con las siguientes tecnologias:
 
     HTML
     CSS
@@ -13,11 +13,12 @@ This project was bootstrapped width [Create React App](https://github.com/facebo
 
 ## Enlaces Importantes
 - Sitio web: [Antistampa](https://antistampa.netlify.app/)
-- Instagram: [@Antistampa](https://www.instagram.com/Antistampa/)
+- Instagram: [@antistampa](https://www.instagram.com/Antistampa/)
 
 ## Características
 
 - Diseño responsive
+- FIGMA
 - HTML
 - CSS
 - Javascript

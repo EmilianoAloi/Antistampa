@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+// import { useRef } from "react";
 import { CartContext } from '../Context/CartContext'
 // import { db } from "../../services/config";
 // import { collection, addDoc } from "firebase/firestore";
@@ -10,6 +11,8 @@ import { Button, Container, Typography, Stack, Divider } from "@mui/material";
 import Shipping from "../Shipping/Shipping";
 import Resume from "../Resume/Resume";
 import LinearProgress from '@mui/material/LinearProgress';
+
+// import emailjs from '@emailjs/browser';
 
 
 const Checkout = () => {
@@ -67,6 +70,26 @@ const Checkout = () => {
     };
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    ///////////////////////////////////////////////////////// integracion email.js ///////////////////////////////////////////////////////
+
+    // const form = useRef();
+
+    // const sendEmail = (e) => {
+    //     e.preventDefault();
+
+    //     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+    //         .then((result) => {
+    //             console.log(result.text);
+    //         }, (error) => {
+    //             console.log(error.text);
+    //         });
+    // };
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const handleBuy = async () => {
 
@@ -197,7 +220,7 @@ const Checkout = () => {
 
                             <Stack gap={3} marginTop={4} marginBottom={3}  >
                                 <Stack direction='row' justifyContent='space-between' gap={2}>
-                                    <TextField sx={{ width: '50%' }} id="outlined-basic" label="Nombre" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} required />
+                                    <TextField sx={{ width: '50%' }} id="outlined-basic" name="user_name" label="Nombre" variant="outlined" value={name} onChange={(e) => setName(e.target.value)} required />
                                     <TextField sx={{ width: '50%' }} id="outlined-basic" label="Apellido" variant="outlined" value={lastname} onChange={(e) => setLastname(e.target.value)} required />
                                 </Stack>
 
@@ -274,7 +297,7 @@ const Checkout = () => {
                                 </>
                             )
                         } */}
-                        
+
                     </Stack>
 
                 </Box>

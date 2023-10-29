@@ -62,8 +62,10 @@ const Personalizar = () => {
     const { addItem } = useContext(CartContext);
     const { selectedImage, setSelectedImage, imageURL, handleImageUpload } = useContext(PersonalizeContext);
 
+   
 
-    const handlePersonalizado = () => {
+    const handlePersonalizado = async () => {
+
 
 
         if (prenda === '' || color === '' || talle === '' || estampado === '' || ubicacion === '') {
@@ -87,7 +89,7 @@ const Personalizar = () => {
 
         else {
             addItem(item, 1);
-            handleImageUpload();
+            await handleImageUpload();
             Swal.fire({
                 title: 'Prenda personalizada agregada al carrito',
                 icon: 'success',

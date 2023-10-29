@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-// import { useRef } from "react";
 import { CartContext } from '../Context/CartContext'
 // import { db } from "../../services/config";
 // import { collection, addDoc } from "firebase/firestore";
@@ -12,14 +11,15 @@ import Shipping from "../Shipping/Shipping";
 import Resume from "../Resume/Resume";
 import LinearProgress from '@mui/material/LinearProgress';
 
-// import emailjs from '@emailjs/browser';
+
+import { Link, NavLink } from 'react-router-dom';
 
 
 const Checkout = () => {
 
 
 
-    const { cart, shippingPrice, total, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm } = useContext(CartContext);
+    const { cart, shippingPrice, shippingOption, total, name, setName, lastname, setLastname, tel, setTel, dir, setDir, cp, setCp, email, setEmail, emailConfirm, setEmailConfirm, error, setError } = useContext(CartContext);
 
     // const [name, setName] = useState('');
     // const [lastname, setLastname] = useState('');
@@ -29,9 +29,9 @@ const Checkout = () => {
 
     // const [email, setEmail] = useState('');
     // const [emailConfirm, setEmailConfirm] = useState('');
-    const [error, setError] = useState(null);
+    // const [error, setError] = useState(null);
     // eslint-disable-next-line
-    const [orderId, setOrderId] = useState();
+    // const [orderId, setOrderId] = useState();
 
     const [showButton, setShowButton] = useState(true);
     const [showLinear, setShowLinear] = useState(true);
@@ -76,18 +76,6 @@ const Checkout = () => {
 
     ///////////////////////////////////////////////////////// integracion email.js ///////////////////////////////////////////////////////
 
-    // const form = useRef();
-
-    // const sendEmail = (e) => {
-    //     e.preventDefault();
-
-    //     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-    //         .then((result) => {
-    //             console.log(result.text);
-    //         }, (error) => {
-    //             console.log(error.text);
-    //         });
-    // };
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -117,7 +105,32 @@ const Checkout = () => {
 
         if (email === emailConfirm) {
             setError(null);
+
+        }
+
+
+        if (name || lastname || tel || email || emailConfirm || dir || cp || tel || email === emailConfirm) {
+            setError(null);
+
+            const dataUser = {
+                "nombre": name,
+                "apellido": lastname,
+                "telefono": tel,
+                "email": email,
+                "direccion": dir,
+                "cp": cp,
+                "envio": shippingOption,
+                "costoEnvio": shippingPrice
+            }
+
+            localStorage.setItem("dataUser", JSON.stringify(dataUser));
+      
+
+            console.log(dataUser)
+
+
             handleBuy();
+
         }
 
         console.log(error);
@@ -182,6 +195,7 @@ const Checkout = () => {
 
                 <Box
                     component="form"
+
                     noValidate
                     autoComplete="off"
                     onSubmit={handleForm}
@@ -272,6 +286,8 @@ const Checkout = () => {
 
 
                         {showLinear && <LinearProgress />}
+
+                        <Button component={NavLink} to={'/confirmed'}>confirmed</Button>
 
                         {showWallet && (
                             <Wallet

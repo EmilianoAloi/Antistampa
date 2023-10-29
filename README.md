@@ -8,6 +8,7 @@ Sitio Web creado para un cliente dedicado a la venta de ropa con estampados de m
     React
     Firestore
     Material UI
+    emailJs
 
 This project was bootstrapped width [Create React App](https://github.com/facebook/create-react-app).
 
@@ -25,6 +26,7 @@ This project was bootstrapped width [Create React App](https://github.com/facebo
 - React
 - Firestore
 - Material UI
+- emailJs
 
 ## Scripts disponibles
 

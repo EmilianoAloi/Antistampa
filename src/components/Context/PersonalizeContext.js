@@ -16,15 +16,9 @@ export const PersonalizeProvider = ({ children }) => {
             const storageRef = ref(storage, `imgPrint/${selectedImage.name}`);
             await uploadBytes(storageRef, selectedImage);
 
-            // Obtener la URL de descarga de la imagen
-            const imageURL = await getDownloadURL(storageRef);
+            // Obtener la URL de descarga de la imagen y guardarla en estado
+            setImageURL(getDownloadURL(storageRef))
 
-            // Actualizar el estado con la URL de la imagen
-            setImageURL(imageURL);
-            // Swal.fire({
-            //     title: 'Imagen de estampado subida correctamente',
-            //     icon: 'success',
-            // });
 
         } catch (error) {
             console.error('Error al subir la imagen', error);

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import {  useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { CartContext } from '../Context/CartContext';
 import emailjs from '@emailjs/browser';
@@ -10,14 +10,13 @@ const ConfirmedPage = () => {
     const searchParams = new URLSearchParams(location.search);
     const status = searchParams.get('status');
 
-    const [emailSent, setEmailSent] = useState(false);
 
-    const { cart, orderId, setError } = useContext(CartContext);
+    const { cart, setError } = useContext(CartContext);
     const dataUserLS = localStorage.getItem("dataUser") ? JSON.parse(localStorage.getItem("dataUser")) : "";
     const { nombre, apellido, telefono, email, direccion, cp, envio, costoEnvio } = dataUserLS;
 
     useEffect(() => {
-        if (status === "approved" && !emailSent) {
+        if (status === "approved") {
             const sendEmail = async () => {
                 try {
                     const productosInfo = cart.map(item => ({
@@ -62,7 +61,6 @@ const ConfirmedPage = () => {
 
                     const result = await emailjs.send('service_a5e785w', 'template_4hgsklr', templateParams, 'OkkSH4zZ0nAxiOUPi');
                     console.log(result.text);
-                    setEmailSent(true);
                
                 } catch (error) {
                     console.error('Error al enviar el correo electrónico:', error);

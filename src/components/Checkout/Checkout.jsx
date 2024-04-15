@@ -12,7 +12,6 @@ import Resume from "../Resume/Resume";
 import LinearProgress from '@mui/material/LinearProgress';
 
 
-import { NavLink } from 'react-router-dom';
 
 
 const Checkout = () => {

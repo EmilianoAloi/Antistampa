@@ -12,7 +12,7 @@ import Resume from "../Resume/Resume";
 import LinearProgress from '@mui/material/LinearProgress';
 
 
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Checkout = () => {
@@ -44,14 +44,14 @@ const Checkout = () => {
 
 
 
-    ////////////////////////////////////////////////// Integracion MercadoPago/////////////////////////////////////////////
+    ////////////////////////////////////////////////// Integracion MercadoPago /////////////////////////////////////////////
 
 
     const titleMP = cart.map(prod => (prod.item.product + ' ' + prod.item.name + prod.item.color));
     console.log(titleMP)
 
     const [preferenceId, setPreferenceId] = useState(null);
-    initMercadoPago('TEST-df6f7270-27a1-4961-a889-aa0fadf77fcf', { locale: 'es' });
+    initMercadoPago('TEST-7bc24921-bdbc-442b-ba3d-4edfc2275ed6', { locale: 'es' });
 
     const createPreference = async () => {
         try {
@@ -77,7 +77,6 @@ const Checkout = () => {
     ///////////////////////////////////////////////////////// integracion email.js ///////////////////////////////////////////////////////
 
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     const handleBuy = async () => {
 
@@ -120,11 +119,12 @@ const Checkout = () => {
                 "direccion": dir,
                 "cp": cp,
                 "envio": shippingOption,
-                "costoEnvio": shippingPrice
+                "costoEnvio": shippingPrice,
+
             }
 
             localStorage.setItem("dataUser", JSON.stringify(dataUser));
-      
+
 
             console.log(dataUser)
 
@@ -259,9 +259,6 @@ const Checkout = () => {
                         </Stack>
 
 
-
-
-
                         <Stack>
                             <Resume />
                         </Stack>
@@ -287,7 +284,6 @@ const Checkout = () => {
 
                         {showLinear && <LinearProgress />}
 
-                        <Button component={NavLink} to={'/confirmed'}>confirmed</Button>
 
                         {showWallet && (
                             <Wallet
